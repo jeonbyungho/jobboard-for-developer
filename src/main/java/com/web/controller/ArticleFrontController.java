@@ -26,7 +26,10 @@ public class ArticleFrontController extends HttpServlet{
 		} else if(pathInfo.equals("/list")) {
 			
 			String page = req.getParameter("page");
-			System.out.println(page);
+			int pageNum = page != null ? Integer.parseInt(page) : 1;
+			
+			System.out.println("Get article Page No." + page + " : "+pageNum);
+			req.setAttribute("page", pageNum);
 			path = "../resource/article-list.jsp";
 			
 		} else {
