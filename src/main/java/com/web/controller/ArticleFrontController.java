@@ -23,6 +23,12 @@ public class ArticleFrontController extends HttpServlet{
 		
 		if(pathInfo == null) {
 			path = "./resource/article-write.jsp";
+		} else if(pathInfo.equals("/list")) {
+			
+			String page = req.getParameter("page");
+			System.out.println(page);
+			path = "../resource/article-list.jsp";
+			
 		} else {
 			int num = Integer.parseInt(pathInfo.substring(1));
 			req.setAttribute("num", num);
