@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+/* 대표 기업 */
+.jops_list {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-gap: 1rem;
+   padding: 0;
+}
+
+.jops_list .job_item{
+   display: inline;
+   padding: 1rem;
+   
+   background-color: white;
+
+   border-top: 5px solid #7daaff;
+   outline: 1px solid #7daaff;
+   box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+             0 2px 2px rgba(0,0,0,0.11), 
+             0 4px 4px rgba(0,0,0,0.11), 
+             0 6px 8px rgba(0,0,0,0.11),
+             0 8px 16px rgba(0,0,0,0.11);
+}
+
+.jops_list .job_item:hover{
+   border-top: 5px solid #3157dd;
+   outline: 1px solid #3157dd;
+   box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+             0 2px 2px rgba(0,0,0,0.11), 
+             0 4px 4px rgba(0,0,0,0.11), 
+             0 8px 8px rgba(0,0,0,0.11), 
+             0 16px 16px rgba(0,0,0,0.11), 
+             0 32px 32px rgba(0,0,0,0.11);
+}
+
+.jops_list .job_item .logo{
+   display: block;
+   margin: auto;
+}
+
+.jops_list .job_item .bottom div{
+   margin: 0;
+}

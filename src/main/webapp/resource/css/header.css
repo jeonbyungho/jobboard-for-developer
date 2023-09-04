@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+header {
+    margin: 0 auto;
+    padding-top: 2rem;
+    background-color: white;
+    border-bottom: 1.5px solid #eff5ff;
+}
+
+header .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 입력란 */
+header .search{
+    padding: 1rem 0.5rem;
+    border: 2px solid #3157dd;
+    border-radius: 1rem;
+}
+
+header .search input[type="text"]{
+    display: inline-block;
+    border: transparent;
+    background-color: transparent;
+
+    width: 400px;
+    height: 1.2rem;
+    padding-left: 1.2rem;
+
+    color: #292e41;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+header .search input[type="text"]:focus{
+    outline: none;
+}
+
+header .search button[type="submit"]{
+    display: inline-block;
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+
+    padding-right: 1.2rem;
+}
+
+header .search .icon {
+    height : 1.35em;
+}
