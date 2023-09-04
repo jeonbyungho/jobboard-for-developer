@@ -10,28 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.web.controller.action.HttpUtil;
 
-@WebServlet(urlPatterns = "/company/*")
-public class CompanyFrontController extends HttpServlet{
-	private static final long serialVersionUID = 1L;
+@WebServlet("")
+public class MainFrontController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String pathInfo = req.getPathInfo();
-		String path = null;
 		
-		System.out.println("MemberFront : "+pathInfo);
 		System.out.println(req.getRequestURI());
 		
-		switch(pathInfo) {
-		case "/login":
-			path = "../resource/login.jsp";
-			break;
-		case "/join":
-			path = "../resource/join.jsp";
-			break;
-		}
-		
+		String path = "./resource/index.jsp";
 		if(path != null) HttpUtil.forward(req, resp, path);
-		
 	}
 }
