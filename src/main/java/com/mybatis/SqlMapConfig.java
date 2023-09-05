@@ -23,7 +23,7 @@ public class SqlMapConfig {
 		}
 	}
 	
-	public SqlSessionFactory getFactory(){
+	public static SqlSessionFactory getFactory(){
 		return factory;
 	}
 	
