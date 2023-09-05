@@ -13,7 +13,7 @@ public class SqlMapConfig {
 	
 	static {
 		try {
-			String res = "./com.mybatis/config.xml";
+			String res = "./com/mybatis/config.xml";
 			Reader reader = Resources.getResourceAsReader(res);
 			factory = new SqlSessionFactoryBuilder().build(reader);
 			System.out.println("Mybatis " + res + "빌드 성공");
