@@ -17,13 +17,16 @@ public class CharacterEncodingFilter implements Filter{
 			throws IOException, ServletException {
 		
 		long time = System.currentTimeMillis();
+		
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=utf-8");
 		chain.doFilter(request, response);
 		
 		time = System.currentTimeMillis() - time;
 		
-		System.out.println("수행시간 : " + time+"ms");
+		System.out.println("수행시간(/*) : " + time+"ms");
+		System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 	}
 	
 }

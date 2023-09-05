@@ -36,7 +36,7 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/member/resume", new ExcuteAction("../resource/resume.jsp"));
 		
 		// 요청 방식 POST
-		postActionMap.put("/member/login", new ExcuteAction("../resource/login.jsp"));
+		postActionMap.put("/member/login", new MemberLoginAction());
 	}
 	
 	@Override

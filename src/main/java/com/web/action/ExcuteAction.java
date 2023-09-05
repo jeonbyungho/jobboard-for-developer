@@ -1,5 +1,7 @@
 package com.web.action;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,7 +34,7 @@ public class ExcuteAction implements Action{
 	}
 	
 	@Override
-	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) {
+	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		return new ActionFront(path, isRedirect);
 	}
 
