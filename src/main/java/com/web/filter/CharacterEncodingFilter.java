@@ -9,8 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-@WebFilter(urlPatterns = 
-			{"/article/*", "/member/*", "/company/*"})
+@WebFilter("/")
 public class CharacterEncodingFilter implements Filter{
 
 	@Override
