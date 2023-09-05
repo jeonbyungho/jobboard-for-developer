@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.web.action.*;
 
-@WebServlet(urlPatterns = {"/"})
+@WebServlet(urlPatterns = {
+		"/",
+		"/article/*", "/article/list"})
 public class FrontController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
@@ -27,20 +29,23 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/member/join", new ExcuteAction("../resource/join.jsp"));
 		getActionMap.put("/company/login", new ExcuteAction("../resource/join.jsp"));
 		getActionMap.put("/company/join", new ExcuteAction("../resource/join.jsp"));
-		getActionMap.put("/article", new ExcuteAction("./resource/article-write.jsp"));
+		getActionMap.put("/article", new AriticleAction());
 		getActionMap.put("/article/list", new ExcuteAction("../resource/article-list.jsp"));
 	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("front");
 		String reqURI = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String servletPath = req.getServletPath();
 		String pathInfo = req.getPathInfo();
+		String query = req.getQueryString();
 		System.out.println("URI : " + reqURI);
 		System.out.println("Context : " + contextPath);
 		System.out.println("Servlet : " + servletPath);
 		System.out.println("Info : " + pathInfo);
+		System.out.println("Query : " + query);
 		super.service(req, resp);
 	}
 	
@@ -48,15 +53,17 @@ public class FrontController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ActionFront front = null;
 		String servletPath = req.getServletPath();
-		String pathInfo = req.getPathInfo();
 		
-		front = (ActionFront)getActionMap.get(servletPath).excute(req, resp);
+		front = (ActionFront) getActionMap.get(servletPath).excute(req, resp);
 		if(front == null) return;
 		
+		String path = front.getPath();
+		if(path == null) return;
+		
 		if(front.isRedirect()) {
-			resp.sendRedirect(front.getPath());
+			resp.sendRedirect(path);
 		} else {
-			req.getRequestDispatcher(front.getPath()).forward(req, resp);
+			req.getRequestDispatcher(path).forward(req, resp);
 		}
 	}
 }

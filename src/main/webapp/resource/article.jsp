@@ -7,6 +7,6 @@
 <title>구인글</title>
 </head>
 <body>
-	<h2>구인글 ${ num }</h2>
+	<h2>구인글 ${ no }</h2>
 </body>
 </html>
