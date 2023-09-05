@@ -1,5 +1,6 @@
 package com.mybatis.mapper;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Insert;
@@ -20,8 +21,11 @@ public interface MemberMapper {
 			+ ",	#{email}"
 			+ ",	#{address}"
 			+ ",	#{detail_addr})")
-	int memberJoin(Map<String, String> map);
+	int join(Map<String, String> map);
 	
 	@Select("SELECT * FROM MEMBER m WHERE m.USERID = #{userid} AND m.PASSWORD = #{password}")
 	MemberDTO login(Map<String, String> map);
+	
+	@Select("SELECT * FROM MEMBER")
+	ArrayList<MemberDTO> allMembers();
 }
