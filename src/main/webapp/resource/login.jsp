@@ -8,9 +8,11 @@
 </head>
 <body>
 	<h2>로그인</h2>
-	<form action="">
+	<form action="" method="post">
 		<input type="text" name="id"/>
 		<input type="password" name="password"/>
+		
+		<button type="submit">로그인</button>
 	</form>
 </body>
 </html>

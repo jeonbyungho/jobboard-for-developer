@@ -20,10 +20,12 @@ public class FrontController extends HttpServlet{
 	
 	// String ServletPath, ActionFront
 	Map<String, Action> getActionMap = new HashMap<String, Action>();
+	Map<String, Action> postActionMap = new HashMap<String, Action>();
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
+		// 요청 방식 GET
 		getActionMap.put("/", new MainAction());
 		getActionMap.put("/member/login", new ExcuteAction("../resource/login.jsp"));
 		getActionMap.put("/member/join", new ExcuteAction("../resource/join.jsp"));
@@ -32,11 +34,13 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/article", new AriticleAction());
 		getActionMap.put("/article/list", new ExcuteAction("../resource/article-list.jsp"));
 		getActionMap.put("/member/resume", new ExcuteAction("../resource/resume.jsp"));
+		
+		// 요청 방식 POST
+		postActionMap.put("/member/login", new ExcuteAction("../resource/login.jsp"));
 	}
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("front");
 		String reqURI = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String servletPath = req.getServletPath();
@@ -51,11 +55,25 @@ public class FrontController extends HttpServlet{
 	}
 	
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		System.out.println("doGET");
+		doProcess(req, resp, getActionMap);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		System.out.println("doPOST");
+		doProcess(req, resp, postActionMap);
+	}
+	
+	private void doProcess(HttpServletRequest req, HttpServletResponse resp, Map<String, Action> actionMap)
+			throws ServletException, IOException{
 		ActionFront front = null;
 		String servletPath = req.getServletPath();
 		
-		front = (ActionFront) getActionMap.get(servletPath).excute(req, resp);
+		front = (ActionFront) actionMap.get(servletPath).excute(req, resp);
 		if(front == null) return;
 		
 		String path = front.getPath();
