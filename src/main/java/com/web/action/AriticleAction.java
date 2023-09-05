@@ -14,7 +14,7 @@ public class AriticleAction extends ExcuteAction{
 		
 		int no = 0;
 		if(info == null) {
-			setPath("../resource/article-list.jsp");
+			setPath("./resource/article-write.jsp");
 			return super.excute(req, resp);
 		} else {
 			info = info.substring(1);

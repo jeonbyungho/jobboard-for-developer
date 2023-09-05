@@ -31,6 +31,7 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/company/join", new ExcuteAction("../resource/join.jsp"));
 		getActionMap.put("/article", new AriticleAction());
 		getActionMap.put("/article/list", new ExcuteAction("../resource/article-list.jsp"));
+		getActionMap.put("/member/resume", new ExcuteAction("../resource/resume.jsp"));
 	}
 	
 	@Override

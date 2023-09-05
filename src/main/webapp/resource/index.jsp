@@ -42,6 +42,8 @@
             </div>
 
             <div class="member">
+            	<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
+            	<span>|</span>
                 <a href="${pageContext.request.contextPath}/member/login">로그인</a>
                 <span>|</span>
                 <a href="${pageContext.request.contextPath}/member/join">회원가입</a>
