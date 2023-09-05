@@ -9,30 +9,29 @@ import com.mybatis.SqlMapConfig;
 
 public class testSQL {
 	public static void main(String[] args) {
-		SqlMapConfig sql = new SqlMapConfig();
 		
 		SqlSessionFactory factory = SqlMapConfig.getFactory();
 		
 		SqlSession session = factory.openSession(true);
 		
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("USERID", "admin");
-		map.put("PASSWORD", "t1234");
-		map.put("NAME", "길동이");
-		map.put("GENDER", "male");
-		map.put("BIRTHDAY", "1980-07-07");
-		map.put("PHONE", "01045879686");
-		map.put("EMAIL", "me@ex.com");
-		map.put("ADDRESS", "강남");
-		map.put("DETAIL_ADDR", "무슨 아파트");
+		map.put("userid", "userOP");
+		map.put("password", "a1234");
+		map.put("name", "나중이");
+		map.put("gender", "female");
+		map.put("birthday", "1999-07-22");
+		map.put("phone", "01087851571");
+		map.put("email", "you@ex.com");
+		map.put("address", "경기도");
+		map.put("detail_addr", "어디 아파트");
 		
 //		session.insert("Member.memberJoin", map);
 		MemberMapper mapper = session.getMapper(MemberMapper.class);
 		mapper.memberJoin(map);
 		System.out.println("띁");
 		
-		String a = mapper.searchMemberName(42);
-		System.out.println(a);
+//		String a = mapper.searchMemberName(42);
+//		System.out.println(a);
 		
 	}
 }
