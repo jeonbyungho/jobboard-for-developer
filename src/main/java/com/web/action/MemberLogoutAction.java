@@ -16,8 +16,9 @@ public class MemberLogoutAction extends ExcuteAction{
 			session.removeAttribute("userid");
 			System.out.println(userid + " 로그아웃!");
 			
+            session.setAttribute("logout", "success");
 			setRedirect(true);
-			setPath( req.getContextPath() +"/");
+			setPath(req.getContextPath() + "/");
 		} else {
 			System.out.println("Error:로그인되지 않는 상태로 로그아웃 시도!");
 		}
