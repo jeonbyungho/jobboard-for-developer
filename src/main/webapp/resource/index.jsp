@@ -23,6 +23,13 @@
 </head>
 <body>
 
+	<c:if test="${not empty sessionScope.logout}">
+        <script>
+            alert("로그아웃 성공");
+        </script>
+        <% session.removeAttribute("logout"); %>
+    </c:if>
+    
     <header>
         <div class="header container">
             <div class="site_logo">
