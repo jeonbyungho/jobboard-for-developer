@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
@@ -40,9 +41,13 @@ public class MemberLoginAction extends ExcuteAction{
 	    System.out.println("유저 ID : " + userid);
 	    System.out.println("비밀번호 : " + password);
 	    
+	    // (임시)세센에 로그인 정보 저장
+	    HttpSession session = req.getSession();
+	    session.setAttribute("userid", userid);
+	    
 	    PrintWriter out = resp.getWriter();
-	    out.print("{\"result\" : \"로그인 시도!\" }");
-		
+	    out.print("{\"result\" : \""+ session.getAttribute("userid") +"\" }");
+	    
 		return super.excute(req, resp);
 	}
 }

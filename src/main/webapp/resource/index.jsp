@@ -42,12 +42,23 @@
             </div>
 
             <div class="member">
-            	<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
-            	<span>|</span>
-                <a href="${pageContext.request.contextPath}/member/login">로그인</a>
-                <span>|</span>
-                <a href="${pageContext.request.contextPath}/member/join">회원가입</a>
+            	<%-- 로그인 여부 --%>
+            	<c:choose>
+            		<%-- false --%>
+            		<c:when test="${empty sessionScope.userid}">
+	            		<a href="${pageContext.request.contextPath}/member/login">로그인</a>
+		                <span>|</span>
+		                <a href="${pageContext.request.contextPath}/member/join">회원가입</a>
+            		</c:when>
+            		<%-- true --%>
+            		<c:otherwise>
+            			<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
+            			<span>|</span>
+		                <a href="${pageContext.request.contextPath}/member/logout">로그아웃</a>
+            		</c:otherwise>
+            	</c:choose>
             </div>
+            
         </div>
     </header>
 
@@ -61,6 +72,7 @@
                             <div class="local">
                                 <h4>지역별</h4>
                                 <ul>
+                                <%-- 지역별 메뉴 --%>
                                 <c:forEach var="i" items="<%=ADDRESS.values()%>">
                                 	<li>
 	                                	<a href="${pageContext.request.contextPath}/article/list?addr=${i}">
@@ -74,6 +86,7 @@
                             <div class="local">
                                 <h4>직무별</h4>
                                 <ul>
+                                <%-- 직무별 메뉴 --%>
                                 <c:forEach var="i" items="<%=JOBS.values()%>">
                                 	<li>
                                 		<a href="${pageContext.request.contextPath}/article/list?jobs=${i}">
@@ -87,6 +100,7 @@
                             <div class="local">
                                 <h4>경력별</h4>
                                 <ul>
+                                <%-- 경력별 메뉴 --%>
                                 <c:forEach var="i" items="<%=DEADLINES.values()%>">
                                 	<li>
                                 		<a href="${pageContext.request.contextPath}/article/list?deadline=${i}">
@@ -108,28 +122,12 @@
                                 <h4>회원용</h4>
                                 <ul>
                                     <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
                                 </ul>
                             </div>
 
                             <div class="member">
                                 <h4>기업용</h4>
                                 <ul>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
-                                    <li>서울</li>
                                     <li>서울</li>
                                 </ul>
                             </div>
@@ -148,7 +146,7 @@
             
             <ul class="jops_list">
 			
-			<%-- 대표 기업 항목들.. --%>
+			<%-- 대표 기업 항목 --%>
 			<c:forEach begin="0" end="${repr}" step="1">
                 <li class="job_item">
                     <a href="${pageContext.request.contextPath}/article/2">
@@ -173,6 +171,7 @@
             <h2 class="jops_title">주요 채용정보</h2>
             <ul class="jobs_tabel">
             
+            <%-- 주요 채용 게시판 --%>
             <c:forEach begin="0" end="${arti}" step="1">
                 <li class="job_item">
                     <a href="${pageContext.request.contextPath}/article/3">
