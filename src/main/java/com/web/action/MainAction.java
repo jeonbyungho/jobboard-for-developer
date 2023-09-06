@@ -14,6 +14,7 @@ public class MainAction extends ExcuteAction{
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		System.out.println("메인 페이지 실행!");
+		
 		req.setAttribute("repr", 10);
 		req.setAttribute("arti", 12);
 		return super.excute(req, resp);
