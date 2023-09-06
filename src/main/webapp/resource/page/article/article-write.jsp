@@ -12,7 +12,11 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-write.css">
 </head>
 <body>
+<<<<<<< HEAD
     <form action="${pageContext.request.contextPath}/article" method="post" id="head">
+=======
+    <form action="${pageContext.request.contextPath}/article" id="form" method="post">
+>>>>>>> c473b515d0e2b25f26baa06ef874fc4bfb1aedbe
         <div>
             <br>
             <div id="siteimg">
@@ -26,8 +30,11 @@
         <div id="headbox">
             <!-- 빈 라인 -->
         </div>
+<<<<<<< HEAD
     </form>
     <form action="${pageContext.request.contextPath}/article" method="post" id="body">
+=======
+>>>>>>> c473b515d0e2b25f26baa06ef874fc4bfb1aedbe
         <div id="logininfo">
             <br>
             <h1>구직글 작성</h1>
@@ -247,9 +254,15 @@
 
         </div>
         <br>
+<<<<<<< HEAD
             <div id="join">
                 <button id="buttontext" type="submit">작성완료</button>
             </div>
+=======
+        <div id="join">
+            <button id="buttontext" type="submit">작성완료</button>
+        </div>
+>>>>>>> c473b515d0e2b25f26baa06ef874fc4bfb1aedbe
         <div id="footerbox">
             <!--빈박스-->
         </div>
