@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>    
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -7,130 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        html,body {
-            height: 100%;
-        }
-        #headbox{
-            position: relative;
-            bottom: 20px;
-            background-color: rgb(206, 206, 206);
-            height: 1px;
-        }
-        #siteimg{
-            position: relative;
-            left: 50px;
-        }
-        #mypage{
-            color: blue;
-            position: relative;
-            left: 1700px;         
-            bottom: 35px;
-        }
-        a:hover{
-            color: orange;
-        }
-        #body{
-            width: 1000px;
-            margin: auto;
-        }
-        #childbody{
-            width: 800px;
-            margin: auto;
-        }
-        #table{
-            border: 1px;
-        }
-        th{
-            font-weight: bold;
-            width: 200px;
-            font-size: 25px;
-        }
-        #name{
-            font-size: 25px;
-        }
-        #text{
-            font-size: 25px;
-        }
-        #left{
-            width: 300px;
-            font-size: 25px;
-        }
-        #right{
-            width: 300px;
-            font-size: 25px;
-        }
-        #title{
-            width: 600px;
-            font-size: 25px;
-        }
-        #career{
-            font-size: 25px;
-        }
-        #sales{
-            font-size: 25px;
-        }
-        #salary{
-            width: 250px;
-            font-size: 25px;
-        }
-        #location{
-            font-size: 25px;
-        }
-        #need{
-            font-size: 25px;
-        }
-        #need_amt{
-            width: 50px;
-            font-size: 25px;
-        }
-        #date{
-            font-size: 25px;
-        }
-        #job_explain{
-            font-size: 25px;
-        }
-        textarea{
-            width: 600px;
-            font-size: 25px;
-        }
-        #footerbox{
-            height: 50px;
-        }
-        #footerline{
-            position: relative;
-            background-color: rgb(206, 206, 206);
-            width: 100%;
-            height: 1px;
-        }
-        #join{
-            position: relative;
-            left: 900px;
-            background-color: aquamarine;
-            width: 100px;
-            height: 50px;
-            border-radius: 20px;
-        }
-        #buttontext{
-            position: relative;
-            left: 20px;
-            top: 12px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-write.css">
 </head>
 <body>
-    <form action="" id="head"> <!-- head-->
+    <form action="${pageContext.request.contextPath}/branch/ArticleOK.job" id="head">
         <div>
             <br>
             <div id="siteimg">
-                <a href=""><img src="img/samplesitename.png" alt=""></a>
+                <a href="/index.jsp"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png" alt=""></a>
             </div>
             <div id="mypage">
-                 &emsp;&emsp;<a href="">마이페이지</a>
+                 &emsp;&emsp;<a href="/branch/mypage.job">마이페이지</a>
             </div>
         </div>
         <br>
@@ -141,7 +30,7 @@
     <form action="" id="body">
         <div id="logininfo">
             <br>
-            <h1>구직글 작성</h1\>
+            <h1>구직글 작성</h1>
         </div>
         <br>
         <br>
@@ -188,7 +77,7 @@
                         <br>
                         <br>
                         <label>
-                            &emsp;    기타 <input type="checkbox" id="job" value="other">
+                            &emsp;	  프론트엔드 <input type="checkbox" id="job" value="frontend">
                         </label>
                         <br>
                         <br>
@@ -220,7 +109,7 @@
                         <br>
                         <br>
                         <label>
-                            프론트엔드 <input type="checkbox" id="job" value="frontend">
+                            기타 <input type="checkbox" id="job" value="other">
                         </label>
                         <br>
                     </td>
@@ -272,7 +161,7 @@
                     </th>
                     <td align="left" id="date" colspan="8">
                         <br>
-                        &emsp;23.09.04
+                        &emsp;
                     </td>
                 </tr>
                 <tr>
@@ -358,9 +247,11 @@
 
         </div>
         <br>
-        <div id="join">
-            <span id="buttontext">작성완료</span>
-        </div>
+        <form action="/index.jsp">
+            <div id="join">
+                <button id="buttontext" type="submit">작성완료</button>
+            </div>
+        </form>
         <div id="footerbox">
             <!--빈박스-->
         </div>

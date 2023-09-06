@@ -14,7 +14,7 @@
         <div>
             <br>
             <div id="siteimg">
-                <a href="/index.jsp"><img src="D:\jsp\git\src\main\webapp\resource\img\samplesitename.png" alt=""></a>
+                <a href="/index.jsp"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png"></a>
             </div>
             <div id="login">
                  &emsp;<a href="">로그인</a>&emsp;&emsp;<a href="">회원가입</a>
@@ -221,7 +221,7 @@
                     <!-- 사진정렬을 위한 빈칸 -->
                 </div>
                 <div>
-                    <img src="" id="photo">
+                    <img src="${pageContext.request.contextPath}/resource/img/sampleimg.png" id="photo">
                 </div>
                 <br>
                 <div id="logininfoceo">

@@ -1,0 +1,154 @@
+/* 구직글 */      
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    height: 100%;
+}
+#headbox{
+    position: relative;
+    bottom: 20px;
+    background-color: rgb(206, 206, 206);
+    height: 1px;
+}
+#siteimg{
+    position: relative;
+    left: 50px;
+}
+#login{
+    color: blue;
+    position: relative;
+    left: 1700px;         
+    bottom: 35px;
+}
+#body{
+    width: 800px;
+    margin: auto;
+}
+#jobname{
+    font-size: 20px;
+    font-weight: bold;
+}
+#jobcontent{
+    font-size: 15px;
+}
+#jobtitle{
+    font-size: 40px;
+    font-weight: bold;
+}
+#bodybox{
+    position: relative;
+    background-color: rgb(206, 206, 206);
+    height: 1px;
+}
+th{
+    font-size: 25px;
+    font-weight: bold;
+    width: 250px;
+}
+td{
+    width: 550px;
+    font-size: 20px;
+}
+#stackhead{
+    font-size: 15px;
+    font-weight: normal;
+}
+#stackbody{
+    font-size: 10px;
+}
+#logininfobody{
+    width: 800px;
+    margin: auto;
+}
+#logininfodiv{
+    height: 550px;
+}
+#boxhead{
+    font-size: 30px;
+    font-weight: bold;
+    width: 800px;
+    height: 100px;
+    /* border: 1px solid black; */
+}
+#boxbody{
+    width: 550px;
+    /* border: 1px solid blue; */
+    height: 280px;
+}
+#boxside{
+    position: relative;
+    left: 550px;
+    bottom: 282px;
+    width: 250px;
+    /* border: 1px solid red; */
+    height: 280px;
+}
+#logininfoname{
+    font-size: 25px;
+    font-weight: bold;
+}
+#logininfotext{
+    font-size: 15px;
+}
+#logininfohead{
+    font-size: 20px;
+}
+#logininfobody{
+    font-size: 15px;
+}
+#otherbox{
+    width: 250px;
+    height: 50px;
+}
+#photo{
+    position: relative;
+    left: 30px;
+    width: 200px;
+    height: 150px;
+    margin: auto;
+}
+#logininfoceo{
+    font-size: 15px;
+    font-weight: bold;
+}
+#logininfourl{
+    font-size: 13px;
+}
+#footerbox{
+    position: relative;
+    background-color: rgb(206, 206, 206);
+    height: 1px;
+    bottom: 260px;
+}
+#joinbox{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: rgb(196, 196, 196);
+    width: 100%;
+    height: 100px;
+}
+#join{
+    position: relative;
+    left: 1300px;
+    top: 25px;
+    background-color: aquamarine;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+}
+#buttonjoin{
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    position: relative;
+    background-color: aquamarine;
+    cursor: pointer;
+    border: 0;
+}
+#buttonjoin:hover{
+    color: aquamarine;
+    background-color: orange;
+}

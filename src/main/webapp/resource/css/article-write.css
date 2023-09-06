@@ -1,0 +1,117 @@
+ /* 구직글 작성*/
+ *{
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    height: 100%;
+}
+#headbox{
+    position: relative;
+    bottom: 20px;
+    background-color: rgb(206, 206, 206);
+    height: 1px;
+}
+#siteimg{
+    position: relative;
+    left: 50px;
+}
+#mypage{
+    color: blue;
+    position: relative;
+    left: 1700px;         
+    bottom: 35px;
+}
+a:hover{
+    color: orange;
+}
+#body{
+    width: 1000px;
+    margin: auto;
+}
+#childbody{
+    width: 800px;
+    margin: auto;
+}
+#table{
+    border: 1px;
+}
+th{
+    font-weight: bold;
+    width: 200px;
+    font-size: 25px;
+}
+#name{
+    font-size: 25px;
+}
+#text{
+    font-size: 25px;
+}
+#left{
+    width: 300px;
+    font-size: 25px;
+}
+#right{
+    width: 300px;
+    font-size: 25px;
+}
+#title{
+    width: 600px;
+    font-size: 25px;
+}
+#career{
+    font-size: 25px;
+}
+#sales{
+    font-size: 25px;
+}
+#salary{
+    width: 250px;
+    font-size: 25px;
+}
+#location{
+    font-size: 25px;
+}
+#need{
+    font-size: 25px;
+}
+#need_amt{
+    width: 50px;
+    font-size: 25px;
+}
+#date{
+    font-size: 25px;
+}
+#job_explain{
+    font-size: 25px;
+}
+textarea{
+    width: 600px;
+    font-size: 25px;
+}
+#footerbox{
+    height: 50px;
+}
+#footerline{
+    position: relative;
+    background-color: rgb(206, 206, 206);
+    width: 100%;
+    height: 1px;
+}
+#join{
+    position: relative;
+    left: 900px;
+}
+#buttontext{
+    width: 100px;
+    height: 50px;
+    border-radius: 20px;
+    position: relative;
+    background-color: aquamarine;
+    cursor: pointer;
+    border: 0;
+}
+#buttontext:hover{
+    color: aquamarine;
+    background-color: orange;
+}
