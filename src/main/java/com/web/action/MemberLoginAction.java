@@ -12,6 +12,9 @@ import javax.servlet.http.HttpSession;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 
+import com.dto.MemberDAO;
+import com.dto.MemberDTO;
+
 public class MemberLoginAction extends ExcuteAction{
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -38,15 +41,24 @@ public class MemberLoginAction extends ExcuteAction{
 			e.printStackTrace();
 		}
 	    
+	    PrintWriter out = resp.getWriter();
+	    MemberDAO mdao = new MemberDAO();
+	    MemberDTO member = mdao.login(userid, password);
+	    
+	    if(member == null) {
+	    	System.out.println("로그인 실패");
+	    	out.print("{\"result\" : \" 실패 \" }");
+	    	return super.excute(req, resp);
+	    }
 	    System.out.println("유저 ID : " + userid);
 	    System.out.println("비밀번호 : " + password);
 	    
 	    // (임시)세센에 로그인 정보 저장
 	    HttpSession session = req.getSession();
-	    session.setAttribute("userid", userid);
+	    session.setAttribute("member", member);
 	    
-	    PrintWriter out = resp.getWriter();
-	    out.print("{\"result\" : \""+ session.getAttribute("userid") +"\" }");
+	    System.out.println(session.getAttribute("member").toString());
+	    out.print("{\"result\" : \"성공\" }");
 	    
 		return super.excute(req, resp);
 	}

@@ -52,13 +52,14 @@
             	<%-- 로그인 여부 --%>
             	<c:choose>
             		<%-- false --%>
-            		<c:when test="${empty sessionScope.userid}">
+            		<c:when test="${empty sessionScope.member}">
 	            		<a href="${pageContext.request.contextPath}/member/login">로그인</a>
 		                <span>|</span>
 		                <a href="${pageContext.request.contextPath}/member/join">회원가입</a>
             		</c:when>
             		<%-- true --%>
             		<c:otherwise>
+            			<span>${sessionScope.member.name}님 |</span>
             			<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
             			<span>|</span>
 		                <a href="${pageContext.request.contextPath}/member/logout">로그아웃</a>

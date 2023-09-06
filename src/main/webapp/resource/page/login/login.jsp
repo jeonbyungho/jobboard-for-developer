@@ -45,6 +45,9 @@
 				const result = await response.json();
 				console.log(result);
 				alert(result.result);
+				if(result.result.trim() == "성공"){
+					location = location.origin;
+				}
 				
 			} catch (error) {
     			console.error("Error:", error);
