@@ -11,7 +11,7 @@ public class BranchDAO {
 	
 	public BranchDAO() {
 		sqlSession = (factory).openSession(true);
-		
-	
 	}
+	
+	
 }
