@@ -16,7 +16,7 @@ public class AriticleAction extends ExcuteAction{
 		
 		int no = 0;
 		if(info == null) {
-			setPath("./resource/article-write.jsp");
+			setPath("./resource/page/article/article-write.jsp");
 			return super.excute(req, resp);
 		} else {
 			info = info.substring(1);
@@ -25,7 +25,7 @@ public class AriticleAction extends ExcuteAction{
 		}
 		
 		req.setAttribute("no", no);
-		setPath("../resource/article.jsp");
+		setPath("../resource/page/article/article.jsp");
 		
 		return super.excute(req, resp);
 	}

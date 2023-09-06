@@ -3,7 +3,6 @@ package com.web.action;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +29,7 @@ public class MemberLoginAction extends ExcuteAction{
 	    String userid = null;
 	    String password = null;
 	    try {
-	    	LinkedHashMap<String, Object> map =json.parseObject();
+	    	Map<String, Object> map =json.parseObject();
 	    	userid = (String) map.get("userid");
 	    	password = (String) map.get("password");
 		} catch (ParseException e) {
