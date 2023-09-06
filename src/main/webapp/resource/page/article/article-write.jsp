@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-write.css">
 </head>
 <body>
-    <form action="${pageContext.request.contextPath}/branch/ArticleOK.job" id="head">
+    <form action="${pageContext.request.contextPath}/article" method="post" id="head">
         <div>
             <br>
             <div id="siteimg">
@@ -27,7 +27,7 @@
             <!-- 빈 라인 -->
         </div>
     </form>
-    <form action="" id="body">
+    <form action="${pageContext.request.contextPath}/article" method="post" id="body">
         <div id="logininfo">
             <br>
             <h1>구직글 작성</h1>
@@ -247,11 +247,9 @@
 
         </div>
         <br>
-        <form action="/index.jsp">
             <div id="join">
                 <button id="buttontext" type="submit">작성완료</button>
             </div>
-        </form>
         <div id="footerbox">
             <!--빈박스-->
         </div>
