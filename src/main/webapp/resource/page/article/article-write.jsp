@@ -12,15 +12,7 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-write.css">
 </head>
 <body>
-<<<<<<< HEAD
     <form action="${pageContext.request.contextPath}/article" name="form" method="post">
-=======
-<<<<<<< HEAD
-    <form action="${pageContext.request.contextPath}/article" method="post" id="head">
-=======
-    <form action="${pageContext.request.contextPath}/article" id="form" method="post">
->>>>>>> c473b515d0e2b25f26baa06ef874fc4bfb1aedbe
->>>>>>> b3130cc412d3d1e8e7f54b2f7c5d747bca75d696
         <div>
             <br>
             <div name="siteimg">
@@ -34,16 +26,9 @@
         <div name="headbox">
             <!-- 빈 라인 -->
         </div>
-<<<<<<< HEAD
-        <div name="logininfo">
-=======
-<<<<<<< HEAD
     </form>
     <form action="${pageContext.request.contextPath}/article" method="post" id="body">
-=======
->>>>>>> c473b515d0e2b25f26baa06ef874fc4bfb1aedbe
         <div id="logininfo">
->>>>>>> b3130cc412d3d1e8e7f54b2f7c5d747bca75d696
             <br>
             <div name="head">
                 <h1>구직글 작성</h1>
@@ -264,23 +249,10 @@
 
         </div>
         <br>
-<<<<<<< HEAD
         <div name="join">
             <button name="buttontext" type="submit">작성완료</button>
         </div>
         <div name="footerbox">
-=======
-<<<<<<< HEAD
-            <div id="join">
-                <button id="buttontext" type="submit">작성완료</button>
-            </div>
-=======
-        <div id="join">
-            <button id="buttontext" type="submit">작성완료</button>
-        </div>
->>>>>>> c473b515d0e2b25f26baa06ef874fc4bfb1aedbe
-        <div id="footerbox">
->>>>>>> b3130cc412d3d1e8e7f54b2f7c5d747bca75d696
             <!--빈박스-->
         </div>
     </form>
