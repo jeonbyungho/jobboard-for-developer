@@ -14,7 +14,7 @@ public class MemberLogoutAction extends ExcuteAction{
 		
 		if(userid != null) {
 			session.removeAttribute("userid");
-			System.out.println(userid + " 로그아웃!");
+			System.out.println(userid + " 로그아웃a!");
 			
             session.setAttribute("logout", "success");
 			setRedirect(true);
