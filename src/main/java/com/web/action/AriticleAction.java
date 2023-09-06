@@ -25,7 +25,7 @@ public class AriticleAction extends ExcuteAction{
 		}
 		
 		req.setAttribute("no", no);
-		setPath("../resource/page/article/article.jsp");
+		setPath("../resource/page/article/article-view.jsp");
 		
 		return super.excute(req, resp);
 	}

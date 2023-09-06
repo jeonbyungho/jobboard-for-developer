@@ -25,7 +25,7 @@ html,body {
 a:hover{
     color: orange;
 }
-#body{
+#head{
     width: 1000px;
     margin: auto;
 }
