@@ -44,6 +44,7 @@ public class FrontController extends HttpServlet{
 		postActionMap.put("/member/login", new MemberLoginAction());
 		postActionMap.put("/member/signup", new MemberSingupAction());
 		postActionMap.put("/article", new ArticleInsertAction());
+		postActionMap.put("/member/resume", new ResumeWriteAction());
 	}
 	
 	@Override
