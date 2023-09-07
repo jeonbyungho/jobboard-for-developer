@@ -7,4 +7,24 @@
  	<select id="login" parameterType="hashmap" resultType="memberdto">
  		SELECT * FROM MEMBER WHERE USERID = #{userid} AND PASSWORD = #{pasword}
  	</select>
+ 	
+ 	<insert id="sigup" parameterType="hashmap">
+ 		INSERT INTO "MEMBER" m (
+			m.ID , m.USERID, m.PASSWORD, 
+			m.NAME, m.GENDER, m.BIRTHDAY, 
+			m.PHONE, m.EMAIL, m.ADDRESS, 
+			m.DETAIL_ADDR)
+			VALUES (
+				member_seq.nextval
+			,	#{userid}
+			,	#{password}
+			,	#{name}
+			,	#{gender}
+			,	#{birthday}
+			,	#{phone}
+			,	#{email}
+			,	#{address}
+			,	#{detail_addr}
+		)
+ 	</insert>
  </mapper>

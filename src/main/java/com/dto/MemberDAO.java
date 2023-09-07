@@ -23,4 +23,9 @@ public class MemberDAO {
 		MemberDTO member = sqlSession.selectOne("Member.login", map);
 		return member;
 	}
+	
+	public boolean sigup(Map<String, String> map) {
+		int result = sqlSession.insert("Member.sigup", map);
+		return result > 0 ? true : false;
+	}
 }
