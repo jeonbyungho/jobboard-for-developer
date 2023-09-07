@@ -7,6 +7,7 @@
 <typeAliases>
 	<!-- <typeAlias type="" alias=""/> -->
 	<typeAlias type="com.dto.MemberDTO" alias="memberdto"/>
+	<typeAlias type="com.dto.ResumeDTO" alias="resumedto"/>
 </typeAliases>
 
 <!-- JDBC Connection 세팅 -->
@@ -26,6 +27,7 @@
 <!-- 매핑 파일 경로 지정 -->
 <mappers>
 	<mapper resource="com/mybatis/mapper/member.xml"/>
+	<mapper resource="com/mybatis/mapper/resume.xml"/>
 </mappers>
 
 </configuration>
