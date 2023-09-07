@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.dto.MemberDTO;
 import com.dto.ResumeDAO;
 import com.dto.ResumeDTO;
 
@@ -14,10 +16,12 @@ public class ResumeWriteAction extends ExcuteAction {
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		setPath(getPath());
-
+		
 		ResumeDTO rdto = new ResumeDTO();
-
-		rdto.setUser_id("1");
+		HttpSession session = req.getSession();
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		
+		rdto.setUser_id(Integer.toString(member.getId()));
 		rdto.setCareer(req.getParameter("CAREER"));
 		rdto.setSchool(req.getParameter("SCHOOL"));
 		rdto.setPortfolio(req.getParameter("PORTFOLIO"));

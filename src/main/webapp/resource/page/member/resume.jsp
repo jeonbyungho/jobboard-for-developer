@@ -27,12 +27,12 @@
 	</div>
     <!-- 이력서 상단 부분 -->
     <div class="top">
-        <h1 class="username">테스트 (로그인시 유저정보 바로 나오게)</h1><br/>
+        <h1 class="username">${sessionScope.member.name}</h1><br/>
         <h3><p class="txt">내 이력서를 작성해보세요!</p></h3>
         <ul class="userinfo">
-            <li class="user_email">이메일 (로그인시 유저정보 바로 나오게)</li>
-            <li class="user_phone">전화번호 (로그인시 유저정보 바로 나오게)</li>
-            <li class="user_addr">주소 (로그인시 유저정보 바로 나오게)</li>
+            <li class="user_email">${sessionScope.member.email}</li>
+            <li class="user_phone">${sessionScope.member.phone}</li>
+            <li class="user_addr">${sessionScope.member.address} ${sessionScope.member.detail_addr}</li>
         </ul>
         
         
