@@ -11,32 +11,36 @@ import com.dto.BranchDAO;
 public class ArticleInsertAction extends ExcuteAction{
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		ActionFront forward = new ActionFront();
 		
 		BranchDAO bdao = new BranchDAO();
 		ArticleDTO adto = new ArticleDTO();
+		String[] jobArr = req.getParameterValues("job");
+		String newjobArr = String.join(",", jobArr);
+		String[] corrArr = req.getParameterValues("carr");
+		String newcorrArr = String.join(",", corrArr);
+		String[] stackArr = req.getParameterValues("stack");
+		String newstackArr = String.join(",", stackArr);
 		
-		adto.setJob(req.getParameter("job"));
-		adto.setCareer(req.getParameter("career"));
+		adto.setTitle(req.getParameter("title"));
 		adto.setSalary(req.getParameter("salary"));
-		adto.setLocation(req.getParameter("location"));
 		adto.setNeed_amt(req.getParameter("need_amt"));
-		adto.setDeadline(req.getParameter("deadline"));
 		adto.setJob_explain(req.getParameter("job_explain"));
 		adto.setQualify(req.getParameter("qualify"));
-		adto.setTag_stack(req.getParameter("tag_stack"));
+		adto.setDeadline(req.getParameter("deadline"));
+		adto.setLocation(req.getParameter("location"));
+		adto.setJob(newjobArr);
+		adto.setCareer(newcorrArr);
+		adto.setTag_stack(newstackArr);
 		
-		forward.setRedirect(true);
+		setRedirect(true);
 		
 		if(bdao.article_insert(adto)) {
-			forward.setPath("/article");
+			setPath("/article");
 		} else {
-			forward.setPath("/article");
+			setPath("/article");
 		}
 		
-		return forward;
-		
-		System.out.println("ArticleInsertAction");
 		return super.excute(req, resp);
+		
 	}
 }

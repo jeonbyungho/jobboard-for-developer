@@ -5,6 +5,8 @@
 <configuration>
 <!-- 클래스 파일 별칭 지정 -->
 <typeAliases>
+	<typeAlias type="com.dto.ArticleDTO" alias="articledto"/>
+	<typeAlias type="com.dto.CompanyDTO" alias="companydto"/>
 	<!-- <typeAlias type="" alias=""/> -->
 </typeAliases>
 
@@ -24,7 +26,7 @@
 
 <!-- 매핑 파일 경로 지정 -->
 <mappers>
-	<package name="com.mybatis.mapper"/>
+	<mapper resource="com/mybatis/mapper/branch.xml" />
 </mappers>
 
 </configuration>

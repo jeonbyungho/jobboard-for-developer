@@ -5,6 +5,9 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dto.ArticleDTO;
+import com.dto.BranchDAO;
+
 public class AriticleAction extends ExcuteAction{
 	
 	public AriticleAction() {}
@@ -23,8 +26,11 @@ public class AriticleAction extends ExcuteAction{
 			no = Integer.parseInt(info);
 			System.out.println(no);
 		}
+		BranchDAO bdao = new BranchDAO();
+		ArticleDTO adto = (ArticleDTO) bdao.article_select(no);
 		
-		req.setAttribute("no", no);
+		req.setAttribute("article", adto);
+		
 		setPath("../resource/page/article/article-view.jsp");
 		
 		return super.excute(req, resp);
