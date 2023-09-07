@@ -23,12 +23,14 @@ public class MemberSingupAction extends ExcuteAction {
 		PrintWriter out = resp.getWriter();
 		JSONObject result = new JSONObject();
 		
+		// 파라미터 데이터 구성
 		for(String key :parameterMap.keySet()) {
 			String val = String.join("",parameterMap.get(key));
 			System.out.println(key +":" + val);
 			map.put(key, val);
 		}
 		
+		// 회원가입 실패 시..
 		if(!mdao.sigup(map)) {
 			System.out.println("회원가입 실패..");
 			result.put("result", "fail");
@@ -36,6 +38,7 @@ public class MemberSingupAction extends ExcuteAction {
 			return super.excute(req, resp);
 		}
 		
+		// 회원가입 성공 시..
 		System.out.println("회원가입 성공");
 		result.put("result", "success");
 	    result.put("url", req.getContextPath()+"/member/login");

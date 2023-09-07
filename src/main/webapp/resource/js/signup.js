@@ -12,7 +12,7 @@ document.signupForm.onsubmit = async (e) => {
 			phone : form.phone.value,
 			email : form.email.value,
 			address : form.address.value,
-			detail_addr : form.detail_addr.value + form.addretc.value,
+			detail_addr : (form.detail_addr.value + form.addretc.value).trim(),
 		}
 	console.log(form.action, loginData);
 	
