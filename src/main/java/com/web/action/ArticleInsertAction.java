@@ -35,7 +35,8 @@ public class ArticleInsertAction extends ExcuteAction{
 		setRedirect(true);
 		
 		if(bdao.article_insert(adto)) {
-			setPath("/article");
+			int idx = bdao.article_idmax();
+			setPath("/article/"+idx);
 		} else {
 			setPath("/article");
 		}

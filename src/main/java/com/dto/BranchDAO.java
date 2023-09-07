@@ -32,10 +32,12 @@ public class BranchDAO {
 		return result;
 	}
 
-	
-	
 	public Object article_select(int id) {
 		return sqlSession.selectOne("Branch.article-select", id);
+	}
+	
+	public int article_idmax() {
+		return sqlSession.selectOne("Branch.article-idmax");
 	}
 	
 	

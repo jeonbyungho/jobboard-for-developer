@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import com.dto.ArticleDTO;
 import com.dto.BranchDAO;
 
-public class AriticleAction extends ExcuteAction{
+public class ArticleAction extends ExcuteAction{
 	
-	public AriticleAction() {}
+	public ArticleAction() {}
 
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException{
@@ -20,6 +20,7 @@ public class AriticleAction extends ExcuteAction{
 		int no = 0;
 		if(info == null) {
 			setPath("./resource/page/article/article-write.jsp");
+			System.out.println("dddd");
 			return super.excute(req, resp);
 		} else {
 			info = info.substring(1);

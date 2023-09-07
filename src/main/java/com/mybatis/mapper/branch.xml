@@ -16,6 +16,9 @@
 	<select id="article-select" parameterType="_int" resultType="articledto">
 		SELECT * FROM ARTICLE a WHERE ID = #{id}
 	</select>
+	<select id="article-idmax" resultType="_int">
+		SELECT MAX(ID) FROM ARTICLE a ORDER BY ID DESC
+	</select>
 </mapper>
 
 

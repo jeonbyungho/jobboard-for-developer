@@ -12,12 +12,12 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-write.css">
 </head>
 <body>
-	
+	<c:set var="article" value="${requestScope.article }"></c:set>
     <form action="${pageContext.request.contextPath}/article" id="form" name="form" method="post">
         <div>
             <br>
             <div id="siteimg" name="siteimg">
-                <a href="/index.jsp"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png" alt=""></a>
+                <a href="/*"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png"></a>
             </div>
             <div id="mypage" name="mypage">
                  &emsp;&emsp;<a href="/branch/mypage.job">마이페이지</a>
