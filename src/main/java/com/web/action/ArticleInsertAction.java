@@ -26,8 +26,8 @@ public class ArticleInsertAction extends ExcuteAction{
 		adto.setNeed_amt(req.getParameter("need_amt"));
 		adto.setJob_explain(req.getParameter("job_explain"));
 		adto.setQualify(req.getParameter("qualify"));
-		adto.setDeadline(req.getParameter("deadline"));
 		adto.setLocation(req.getParameter("location"));
+		adto.setDeadline(req.getParameter("deadline"));
 		adto.setJob(newjobArr);
 		adto.setCareer(newcorrArr);
 		adto.setTag_stack(newstackArr);

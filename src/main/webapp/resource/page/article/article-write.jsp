@@ -9,11 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
+	<script src="${pageContext.request.contextPath}/resource/js/kakaomap.js" defer></script>
+	<script src="${pageContext.request.contextPath}/resource/js/article-write.js" defer></script>
+	
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-write.css">
 </head>
 <body>
 	<c:set var="article" value="${requestScope.article }"></c:set>
-    <form action="${pageContext.request.contextPath}/article" id="form" name="form" method="post">
+	<c:set var="company" value="${requestScope.company }"></c:set>
+    <form action="${pageContext.request.contextPath}/article" id="form" name="myForm" method="post">
         <div>
             <br>
             <div id="siteimg" name="siteimg">
@@ -40,10 +46,10 @@
                         기업명
                     </th>
                     <td id="name" name="name" align="left" colspan="8">
-                        &emsp;<span id="companyname" name="companyname">로그인정보를 이용한 기업명</span>
+                        &emsp;<span id="companyname" name="companyname">${company.name }</span>
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <th align="center">
                         <br>
                         기업설명
@@ -52,7 +58,7 @@
                         <br>
                         &emsp;<span id="text" name="text">로그인정보를 이용한 기업설명</span>
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <th align="center">
                         <br>
@@ -138,30 +144,34 @@
                         <br>
                         지역
                     </th>
-                    <td align="left" colspan="8">
+                    <td align="left" colspan="1" id="locationtitle">
                         <br>
-                        &emsp;<p>
-								우편번호
-								<input type="text" id="postcode" 
-									placeholder="우편번호" name="zipcode">
-								<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
-							</p>
-						&emsp;<p>
-								주소
-								<input type="text" id="address" 
-									placeholder="주소" name="addr"><br>
-							</p>
-						&emsp;<p>
-								상세주소
-								<input type="text" id="detailAddress" 
-									placeholder="상세주소" name="addrdetail">
-							</p>
-						&emsp;<p>
-								참고항목
-								<input type="text" id="extraAddress" 
-									placeholder="참고항목" name="addretc">
-							</p> 
+                        우편번호
+                        <br>
+                        <br>
+						주소
+                        <br>
+                        <br>
+						상세주소
+                        <br>
+                        <br>
+						참고항목
                         <!-- <span id="location" name="location">로그인정보를 이용한 지역</span> -->
+                    </td>
+                    <td align="left" colspan="7" id="locationdata">
+                        <br>
+                        <input type="text" id="postcode" placeholder="우편번호" class="addr" name="zipcode">
+                        <input type="hidden" name="location"/>
+                        <input type="button" id="locationbutton" onclick="execDaumPostcode()" value="우편번호 찾기">
+                        <br>
+                        <br>
+                        <input type="text" id="address" placeholder="주소" class="addr" name="addr">
+                        <br>
+                        <br>
+                        <input type="text" id="detailAddress" placeholder="상세주소" class="addr" name="addrdetail">
+                        <br>
+                        <br>
+                        <input type="text" id="extraAddress" placeholder="참고항목" class="addr" name="addretc">
                     </td>
                 </tr>
                 <tr>
@@ -181,7 +191,7 @@
                     </th>
                     <td align="left" id="date" colspan="8" name="date">
                         <br>
-                        &emsp; <input type="text" id="deadline" name="deadline"><!-- 날짜입력 -->
+                        &emsp; <input type="date" id="deadline" name="deadline"><!-- 날짜입력 -->
                     </td>
                 </tr>
                 <tr>
@@ -307,7 +317,7 @@
             <!--빈박스-->
         </div>
     </form>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    
     <script>
     	function execDaumPostcode() {
 	        new daum.Postcode({
