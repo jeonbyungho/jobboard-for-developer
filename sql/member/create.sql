@@ -15,3 +15,18 @@ CREATE TABLE MEMBER(
 -- 시퀀스 생성
 CREATE SEQUENCE member_seq
 	START WITH 1 INCREMENT BY 1;
+	
+
+-- 회원 테이블 생성
+CREATE TABLE MEMBER(
+		id			number(20,0)
+	,	user_id		varchar2(16)
+	,	password	varchar2(20) 
+	,	name		varchar2(10) 
+	,	gender_id	varchar2(4) 
+	,	birthday	date
+	,	phone		varchar2(12)
+	,	email		varchar2(10)
+	,	address_id	number(6) 
+	,	detail_addr	varchar2(13)
+);
