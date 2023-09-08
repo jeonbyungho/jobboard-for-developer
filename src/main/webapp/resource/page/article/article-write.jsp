@@ -12,11 +12,12 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-write.css">
 </head>
 <body>
+	<c:set var="article" value="${requestScope.article }"></c:set>
     <form action="${pageContext.request.contextPath}/article" id="form" name="form" method="post">
         <div>
             <br>
             <div id="siteimg" name="siteimg">
-                <a href="/index.jsp"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png" alt=""></a>
+                <a href="/*"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png"></a>
             </div>
             <div id="mypage" name="mypage">
                  &emsp;&emsp;<a href="/branch/mypage.job">마이페이지</a>
@@ -119,7 +120,7 @@
                     </th>
                     <td align="left" id="career" colspan="8">
                         <br>
-                        &emsp;&emsp; 신입 <input type="checkbox" id="new" name="new"> &emsp;&emsp; 경력 <input type="checkbox" id="notnew" name="notnew">
+                        &emsp;&emsp; 신입 <input type="checkbox" id="new" name="carr"> &emsp;&emsp; 경력 <input type="checkbox" id="notnew" name="carr">
                     </td>
                 </tr>
                 <tr>
@@ -139,7 +140,8 @@
                     </th>
                     <td align="left" colspan="8">
                         <br>
-                        &emsp; <span id="location" name="location">로그인정보를 이용한 지역</span>
+                        &emsp; <input type="text" id="location" name="location">  
+                        <!-- <span id="location" name="location">로그인정보를 이용한 지역</span> -->
                     </td>
                 </tr>
                 <tr>
@@ -159,7 +161,7 @@
                     </th>
                     <td align="left" id="date" colspan="8" name="date">
                         <br>
-                        &emsp;
+                        &emsp; <input type="text" id="deadline" name="deadline">
                     </td>
                 </tr>
                 <tr>

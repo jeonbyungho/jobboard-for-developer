@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>     
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-view.css">
 </head>
 <body>
+	<c:set var="article" value="${requestScope.article }"></c:set>
     <form action="" id="reghead" name="reghead"> <!-- head-->
         <div>
             <br>
@@ -32,7 +35,7 @@
         </div>
         <br>
         <div id="jobtitle" name="jobtitle">
-            <span id="title">구직글에 작성한 제목</span>
+            <span id="title">${article.title }</span>
         </div>
         <div id="bodybox" name="bodybox">
             <!-- 빈 라인 -->
@@ -46,7 +49,7 @@
                     직무
                 </th>
                 <td align="left">
-                    &emsp;<span id="selectvalue" name="selectvalue">선택한 직무나옴(for문)</span>
+                    &emsp;<span id="selectvalue" name="selectvalue">${article.job }</span>
                 </td>
             </tr>
             <tr>
@@ -56,7 +59,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="career" name="career">선택한 경력나옴(for문)</span>
+                    &emsp;<span id="career" name="career">${article.career }</span>
                 </td>
             </tr>
             <tr>
@@ -66,7 +69,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="sales" name="sales">작성한 급여나옴</span>
+                    &emsp;<span id="sales" name="sales">${article.salary }</span>
                 </td>
             </tr>
             <tr>
@@ -76,7 +79,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="location" name="location">선택한 지역 나옴</span>
+                    &emsp;<span id="location" name="location">${article.location }</span>
                 </td>
             </tr>
             <tr>
@@ -86,7 +89,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="need_amt" name="need_amt">작성한 모집인원 나옴</span>
+                    &emsp;<span id="need_amt" name="need_amt">${article.need_amt }</span>
                 </td>
             </tr>
             <tr>
@@ -96,7 +99,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="date" name="date">선택한 마감일 나옴</span>
+                    &emsp;<span id="date" name="date">${article.deadline }</span>
                 </td>
             </tr>
         </table>
@@ -112,7 +115,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="job_explain" name="job_explain">작성한 직무소개 나옴</span>
+                    &emsp;<span id="job_explain" name="job_explain">${article.job_explain }</span>
                 </td>
             </tr>
             <tr>
@@ -122,7 +125,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="qualify" name="qualify">작성한 자격요건 나옴</span>
+                    &emsp;<span id="qualify" name="qualify">${article.qualify }</span>
                 </td>
             </tr>
         </table>
@@ -138,7 +141,7 @@
                 </th>
                 <td align="left" id="stackbody" name="stackbody">
                     <br>
-                    &emsp;<span id="stack" name="stack">선택한 스택나옴(for문)&emsp;</span>
+                    &emsp;<span id="stack" name="stack">${article.tag_stack }&emsp;</span>
                 </td>
             </tr>
         </table>
@@ -237,7 +240,7 @@
             </div>
         </div>
     </form> 
-    <form action="/resume.jsp" id="joinbox" name="joinbox">
+    <form action="${pageContext.request.contextPath}/resume.jsp" id="joinbox" name="joinbox">
             <div id="join" name="join">
                 <button id="buttonjoin" type="submit" name="buttonjoin">지원하기</button>
             </div>
