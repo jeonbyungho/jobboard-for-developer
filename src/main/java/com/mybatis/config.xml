@@ -5,9 +5,11 @@
 <configuration>
 <!-- 클래스 파일 별칭 지정 -->
 <typeAliases>
+	<!-- <typeAlias type="" alias=""/> -->
+	<typeAlias type="com.dto.MemberDTO" alias="memberdto"/>
+	<typeAlias type="com.dto.ResumeDTO" alias="resumedto"/>
 	<typeAlias type="com.dto.ArticleDTO" alias="articledto"/>
 	<typeAlias type="com.dto.CompanyDTO" alias="companydto"/>
-	<!-- <typeAlias type="" alias=""/> -->
 </typeAliases>
 
 <!-- JDBC Connection 세팅 -->
@@ -26,7 +28,10 @@
 
 <!-- 매핑 파일 경로 지정 -->
 <mappers>
-	<mapper resource="com/mybatis/mapper/branch.xml" />
+	<mapper resource="com/mybatis/mapper/member.xml"/>
+	<mapper resource="com/mybatis/mapper/resume.xml"/>
+	<mapper resource="com/mybatis/mapper/article.xml"/>
+	<mapper resource="com/mybatis/mapper/branch.xml"/>
 </mappers>
 
 </configuration>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="Article">
+	<select id="getArticleList" resultType="articledto">
+		SELECT * FROM (
+			SELECT rownum r, A.* FROM (
+				SELECT * FROM ARTICLE ORDER BY ID DESC ) A ) B
+		WHERE 	B.r BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="getArticleCnt" resultType="_int">
+		SELECT COUNT(*) FROM ARTICLE
+	</select>
+	
+</mapper>

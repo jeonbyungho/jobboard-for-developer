@@ -6,15 +6,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dto.MemberDTO;
+
 public class MemberLogoutAction extends ExcuteAction{
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		String userid = (String) session.getAttribute("userid");
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		
-		if(userid != null) {
-			session.removeAttribute("userid");
-			System.out.println(userid + " 로그아웃!");
+		if(member != null) {
+			System.out.println(member.toString() + " 로그아웃!");
+			session.removeAttribute("member");
 			
             session.setAttribute("logout", "success");
 			setRedirect(true);
