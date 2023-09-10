@@ -5,7 +5,7 @@
  
  <mapper namespace="Member">
  	<select id="login" parameterType="hashmap" resultType="memberdto">
- 		SELECT * FROM MEMBER WHERE USERID = #{userid} AND PASSWORD = #{pasword}
+ 		SELECT * FROM MEMBER WHERE USERID = #{userid} AND PASSWORD = #{password}
  	</select>
  	
  	<insert id="sigup" parameterType="hashmap">

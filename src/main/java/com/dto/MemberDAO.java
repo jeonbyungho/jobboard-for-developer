@@ -19,7 +19,7 @@ public class MemberDAO {
 	public MemberDTO login(String username, String password) {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("userid", username);
-		map.put("pasword", password);
+		map.put("password", password);
 		MemberDTO member = sqlSession.selectOne("Member.login", map);
 		return member;
 	}
