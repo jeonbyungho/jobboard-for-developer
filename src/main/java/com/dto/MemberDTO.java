@@ -1,6 +1,8 @@
 package com.dto;
 
-public class MemberDTO {
+public class MemberDTO extends UserDTO{
+	public MemberDTO() { this.kind = true; }
+	
 	private int id;
 	private String userid;
 	private String password;

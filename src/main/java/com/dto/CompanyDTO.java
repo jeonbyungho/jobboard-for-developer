@@ -1,6 +1,8 @@
 package com.dto;
 
-public class CompanyDTO {
+public class CompanyDTO extends UserDTO{
+	public CompanyDTO() { this.kind = false; }
+	
 	private int id;
 	private String company_no;
 	private String password;

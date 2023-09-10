@@ -35,8 +35,16 @@
 		<%-- true --%>
 			<c:otherwise>
 				<script src="${pageContext.request.contextPath}/resource/js/logout.js" defer></script>
-				<span>${sessionScope.member.name}님 |</span>
-				<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
+				<c:choose>
+					<c:when test="${sessionScope.member.kind }">
+						<span>${sessionScope.member.name}님 |</span>
+						<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
+					</c:when>
+					<c:otherwise>
+						<span>${sessionScope.member.name} |</span>
+						<a href="${pageContext.request.contextPath}/article">구인글 등록</a>
+					</c:otherwise>
+				</c:choose>
 				<span>|</span>
 				<a id = "logout" href="${pageContext.request.contextPath}/member/logout">로그아웃</a>
 			</c:otherwise>
