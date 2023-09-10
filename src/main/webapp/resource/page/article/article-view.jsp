@@ -10,24 +10,13 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-view.css">
+	<link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
 </head>
 <body>
 	<c:set var="article" value="${requestScope.article }"></c:set>
-    <form action="" id="reghead" name="reghead"> <!-- head-->
-        <div>
-            <br>
-            <div id="siteimg" name="siteimg">
-                <a href="/index.jsp"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png" alt=""></a>
-            </div>
-            <div id="login" name="login">
-                 &emsp;<a href="">로그인</a>&emsp;&emsp;<a href="">회원가입</a>
-            </div>
-        </div>
-        <br>
-        <div id="headbox" name="headbox">
-            <!-- 빈 라인 -->
-        </div>
-    </form>
+	
+    <header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
+    
     <form action="" id="body" name="body">
         <div id="jobname" name="jobname">
             <br>

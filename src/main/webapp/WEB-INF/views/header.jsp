@@ -5,7 +5,9 @@
 <div class="header container">
 	<%-- 브랜드 로고 --%>
 	<div class="site_logo">
-		<h1><a href="header.html">Saramin</a></h1>
+		<a href="${pageContext.request.contextPath}">
+			<img src="${pageContext.request.contextPath}/resource/img/samplesitename.png" alt="logo">
+		</a>
 	</div>
 	
 	<%-- 검색창 --%>
