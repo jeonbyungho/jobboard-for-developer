@@ -30,15 +30,14 @@ document.signupForm.onsubmit = async (e) => {
 		
 		// 응답 메시지
 		const jsonData = await response.json();
-		const mes = jsonData.result.trim();
-		console.log(jsonData);
+		console.table(jsonData);
 		
 		// 회원 가입 성공
-		if(mes == "success"){
+		if(jsonData.result == "success"){
 			alert('회원가입 성공!');
-			location = result.url;
+			location = jsonData.url;
 		// 실패
-		} else if(resultMessage == "fail") alert('회원가입을 실패하였습니다.');
+		} else if(jsonData.result == "fail") alert('회원가입을 실패하였습니다.');
 		
 	// 오류 발생
 	} catch (error) {

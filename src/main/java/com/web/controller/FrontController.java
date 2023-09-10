@@ -41,10 +41,15 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/article/list", new ArticleListAction());
 		
 		// 요청 방식 POST
-		postActionMap.put("/member/login", new MemberLoginAction());
-		postActionMap.put("/member/signup", new MemberSingupAction());
-		postActionMap.put("/article", new ArticleInsertAction());
+		postActionMap.put("/member/login", new MemberLoginAction(true));
+		postActionMap.put("/member/signup", new MemberSingupAction(true));
 		postActionMap.put("/member/resume", new ResumeWriteAction());
+		
+		postActionMap.put("/company/login", new MemberLoginAction(false));
+		postActionMap.put("/company/signup", new MemberSingupAction(false));
+		
+		postActionMap.put("/article", new ArticleInsertAction());
+		
 	}
 	
 	@Override

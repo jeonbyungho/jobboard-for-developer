@@ -2,73 +2,95 @@ package com.dto;
 
 public class CompanyDTO {
 	private int id;
-	private String job;
-	private String career;
-	private String salary;
-	private String location;
-	private String need_amt;
-	private String deadline;
-	private String job_explain;
-	private String qualify;
-	private String tag_stack;
+	private String company_no;
+	private String password;
+	private String name;
+	private String birth;
+	private String type;
+	private String employee_no;
+	private String sale;
+	private String ceo;
+	private String url;
+	private String addr;
+	private String detail_addr;
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getJob() {
-		return job;
+	public String getCompany_no() {
+		return company_no;
 	}
-	public void setJob(String job) {
-		this.job = job;
+	public void setCompany_no(String company_no) {
+		this.company_no = company_no;
 	}
-	public String getCareer() {
-		return career;
+	public String getPassword() {
+		return password;
 	}
-	public void setCareer(String career) {
-		this.career = career;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getSalary() {
-		return salary;
+	public String getName() {
+		return name;
 	}
-	public void setSalary(String salary) {
-		this.salary = salary;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getLocation() {
-		return location;
+	public String getBirth() {
+		return birth;
 	}
-	public void setLocation(String location) {
-		this.location = location;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
-	public String getNeed_amt() {
-		return need_amt;
+	public String getType() {
+		return type;
 	}
-	public void setNeed_amt(String need_amt) {
-		this.need_amt = need_amt;
+	public void setType(String type) {
+		this.type = type;
 	}
-	public String getDeadline() {
-		return deadline;
+	public String getEmployee_no() {
+		return employee_no;
 	}
-	public void setDeadline(String deadline) {
-		this.deadline = deadline;
+	public void setEmployee_no(String employee_no) {
+		this.employee_no = employee_no;
 	}
-	public String getJob_explain() {
-		return job_explain;
+	public String getSale() {
+		return sale;
 	}
-	public void setJob_explain(String job_explain) {
-		this.job_explain = job_explain;
+	public void setSale(String sale) {
+		this.sale = sale;
 	}
-	public String getQualify() {
-		return qualify;
+	public String getCeo() {
+		return ceo;
 	}
-	public void setQualify(String qualify) {
-		this.qualify = qualify;
+	public void setCeo(String ceo) {
+		this.ceo = ceo;
 	}
-	public String getTag_stack() {
-		return tag_stack;
+	public String getUrl() {
+		return url;
 	}
-	public void setTag_stack(String tag_stack) {
-		this.tag_stack = tag_stack;
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getDetail_addr() {
+		return detail_addr;
+	}
+	public void setDetail_addr(String detail_addr) {
+		this.detail_addr = detail_addr;
+	}
+	
+	@Override
+	public String toString() {
+		return "CompanyDTO [id=" + id + ", company_no=" + company_no + ", password=" + password + ", name=" + name
+				+ ", birth=" + birth + ", type=" + type + ", employee_no=" + employee_no + ", sale=" + sale + ", ceo="
+				+ ceo + ", url=" + url + ", addr=" + addr + ", detail_addr=" + detail_addr + "]";
 	}
 }

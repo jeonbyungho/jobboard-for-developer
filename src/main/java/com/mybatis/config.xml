@@ -29,6 +29,7 @@
 <!-- 매핑 파일 경로 지정 -->
 <mappers>
 	<mapper resource="com/mybatis/mapper/member.xml"/>
+	<mapper resource="com/mybatis/mapper/company.xml"/>
 	<mapper resource="com/mybatis/mapper/resume.xml"/>
 	<mapper resource="com/mybatis/mapper/article.xml"/>
 	<mapper resource="com/mybatis/mapper/branch.xml"/>

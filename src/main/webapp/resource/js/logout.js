@@ -18,9 +18,8 @@ logoutTag.onclick = async (e) => {
 		});
 		
 		// 응답 메시지
-		const textValue = await response.text();
-		const mes = textValue.trim();
-		console.log(textValue);
+		const mes = await response.text();
+		console.log("Logout :", mes);
 		
 		// 로그아웃 성공
 		if(mes == "success"){
@@ -32,6 +31,6 @@ logoutTag.onclick = async (e) => {
 	// 오류 발생
 	} catch(error){
 		console.error("Error:", error);
-		alert('알 수 없는 이유로 로그인 실패..');
+		alert('알 수 없는 이유로 로그아웃 실패..');
 	}
 }

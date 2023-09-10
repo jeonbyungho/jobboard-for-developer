@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="Company">
+ 	<select id="login" parameterType="hashmap" resultType="companydto">
+ 		SELECT * FROM COMPANY c
+		WHERE c.COMPANY_NO = #{company_no} AND c.PASSWORD = #{password}
+ 	</select>
+ 	
+ 	<insert id="sigup" parameterType="hashmap">
+ 		INSERT INTO COMPANY c(
+		c.ID , c.COMPANY_NO, c.PASSWORD,
+		c.NAME, c.BIRTH, c."type",
+		c.EMPLOYEE_NO, c.SALE, c.CEO,
+		c.URL, c.ADDR, c.DETAIL_ADDR)
+		VALUES
+		(COMPANY_SEQ.nextval
+		,	#{company_no}
+		,	#{password}
+		,	#{name}
+		,	#{birth}
+		,	#{type}
+		,	#{employee_no}
+		,	#{sale}
+		,	#{ceo}
+		,	#{url}
+		,	#{addr}
+		,	#{detail_addr}
+		)
+ 	</insert>
+ </mapper>

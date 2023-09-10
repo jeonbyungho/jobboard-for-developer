@@ -9,15 +9,20 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 
+import com.dto.CompanyDAO;
 import com.dto.MemberDAO;
 import com.dto.MemberDTO;
+import com.dto.UserDAO;
 
 public class MemberLoginAction extends ExcuteAction{
+	
+	private boolean kind;
+	public MemberLoginAction(boolean kind) { this.kind = kind; }
+	
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		resp.setContentType("application/x-json;charset=utf-8");
 		
-		// 요청 body 읽기
+		// 파라미터 데이터 읽기
 	    String userid = req.getParameter("userid");
 	    String password = req.getParameter("password");
 	    
@@ -26,26 +31,24 @@ public class MemberLoginAction extends ExcuteAction{
 	    
 	    // 요청 결과 메시지 작성
 	    PrintWriter out = resp.getWriter();
-	    MemberDAO mdao = new MemberDAO();
-	    MemberDTO member = mdao.login(userid, password);
+	    UserDAO<?> udao = kind ? new MemberDAO() : new CompanyDAO();
+	    Object member = (Object) udao.login(userid, password);
+	    String result;
 	    
-	    JSONObject result = new JSONObject();
+	    // 로그인 실패
 	    if(member == null) {
-	    	result.put("result", "fail");
 	    	System.out.println("로그인 실패");
-	    	out.print(result.toJSONString());
+	    	result = "fail";
 	    	return super.excute(req, resp);
 	    }
 	    
-	    // (임시)세센에 로그인 정보 저장
+	    // 로그인 성공 시, Session에 로그인 데이터 저장
 	    HttpSession session = req.getSession();
 	    session.setAttribute("member", member);
+	    result = "success";
 	    
 	    System.out.println(session.getAttribute("member").toString());
-	    result.put("result", "success");
-	    result.put("url", req.getContextPath());
-	    out.print(result.toJSONString());
-	    
+	    out.print(result);
 		return super.excute(req, resp);
 	}
 }

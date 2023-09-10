@@ -10,15 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
+import com.dto.CompanyDAO;
 import com.dto.MemberDAO;
+import com.dto.UserDAO;
 
 public class MemberSingupAction extends ExcuteAction {
 	
+	private boolean kind;
+	public MemberSingupAction(boolean kind) { this.kind = kind; }
+	
+	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
 		Map<String, String[]> parameterMap = req.getParameterMap();
 		Map<String, String> map = new HashMap<String, String>();
-		MemberDAO mdao = new MemberDAO();
+		UserDAO<?> udao = kind ? new MemberDAO() : new CompanyDAO();
 		
 		PrintWriter out = resp.getWriter();
 		JSONObject result = new JSONObject();
@@ -26,12 +32,12 @@ public class MemberSingupAction extends ExcuteAction {
 		// 파라미터 데이터 구성
 		for(String key :parameterMap.keySet()) {
 			String val = String.join("",parameterMap.get(key));
-			System.out.println(key +":" + val);
 			map.put(key, val);
+			System.out.println(key +":" + val);
 		}
 		
 		// 회원가입 실패 시..
-		if(!mdao.sigup(map)) {
+		if(!udao.sigup(map)) {
 			System.out.println("회원가입 실패..");
 			result.put("result", "fail");
 	    	out.print(result.toJSONString());
