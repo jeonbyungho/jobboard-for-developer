@@ -13,6 +13,10 @@
 	
 	<div class="container">
 	  <div class="card">
+	  	<div>
+	  		<span id="memberSelect">개인회원</span>
+	  		<span id="companySelect">기업회원</span>
+	  	</div>
 	    <h1>로그인</h1>
 	    <form action="${pageContext.request.contextPath}/member/login" method="post" name="loginForn">
 	      <input type="text" name="userid" id="userid" placeholder="사용자 이름" required>
@@ -22,5 +26,28 @@
 	    <p>계정이 없으신가요? <a href="${pageContext.request.contextPath}/member/signup">회원가입</a></p>
 	  </div>
 	</div>
+	
+	<script defer>
+		function memberFormChange(e){
+			const form = document.loginForn
+			const userid = document.getElementById('userid');
+			
+			form.action = "${pageContext.request.contextPath}/member/login"
+			userid.placeholder = "아이디"
+		}
+		
+		function companyFormChange(e){
+			const form = document.loginForn
+			const userid = document.getElementById('userid');
+			
+			form.action = "${pageContext.request.contextPath}/company/login"
+			userid.placeholder = "사업자 번호"
+		}
+		
+		window.onpageshow = memberFormChange
+		document.getElementById('memberSelect').onclick = memberFormChange
+		document.getElementById('companySelect').onclick = companyFormChange
+	</script>
+	
 </body>
 </html>
