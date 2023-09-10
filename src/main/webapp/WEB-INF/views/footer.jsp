@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <div class="container">
 	<p>사람인 고객센터 02-2025-4733 (평일 09:00~19:00, 주말·공휴일 휴무)</p>
 	<p>이메일 : help@saramin.co.kr, Fax : 02-6937-0039(대표), 02-6937-0035(세금계산서)</p>

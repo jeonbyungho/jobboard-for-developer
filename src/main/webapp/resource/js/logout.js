@@ -3,9 +3,9 @@ console.log("🖐️logout.js");
 const logoutTag = document.getElementById("logout");
 logoutTag.onclick = async (e) => {
 	e.preventDefault();
-	const logoutChecking = confirm("정말로 로그아웃을 하겠습니까?");
-	console.log(e.target.href);
 	
+	// 로그아웃 확인창
+	const logoutChecking = confirm("정말로 로그아웃을 하겠습니까?");
 	if(!logoutChecking) return;
 	
 	// 로그아웃 요청
@@ -17,18 +17,19 @@ logoutTag.onclick = async (e) => {
 			},
 		});
 		
-		// 로그 아웃 성공 여부 메시지 출력
-		const body = await response.text();
-		const mes = body.trim();
-		console.log(mes);
+		// 응답 메시지
+		const textValue = await response.text();
+		const mes = textValue.trim();
+		console.log(textValue);
+		
+		// 로그아웃 성공
 		if(mes == "success"){
 			alert('로그아웃 성공');
 			location.reload();
-		} else if(mes == "fail"){
-			alert('로그아웃 실패');
-		}
-	
-	// 오류
+		// 실패
+		} else if(mes == "fail") alert('로그아웃 실패');
+		
+	// 오류 발생
 	} catch(error){
 		console.error("Error:", error);
 		alert('알 수 없는 이유로 로그인 실패..');

@@ -1,7 +1,8 @@
 console.log("🖐️singup.js");
 document.signupForm.onsubmit = async (e) => {
 	e.preventDefault();
-	// Form 데이터 구성
+	
+	// form 데이터 구성
 	const form = e.target;
 	const loginData = {
 			userid : form.userid.value,
@@ -13,12 +14,12 @@ document.signupForm.onsubmit = async (e) => {
 			email : form.email.value,
 			address : form.address.value,
 			detail_addr : (form.detail_addr.value + form.addretc.value).trim(),
-		}
-	console.log(form.action, loginData);
+		};
+	console.log(form.action);
+	console.table(loginData);
 	
-	// POST 요청
+	// 회원가입 요청
 	try {
-		// 실행
 		response = await fetch(form.action, {
 			method : "POST",
 			headers : {
@@ -27,19 +28,19 @@ document.signupForm.onsubmit = async (e) => {
 			body : new URLSearchParams(loginData).toString(),
 		});
 		
-		// 성공시
-		const result = await response.json();
-		console.log(result);
+		// 응답 메시지
+		const jsonData = await response.json();
+		const mes = jsonData.result.trim();
+		console.log(jsonData);
 		
-		const resultMessage = result.result.trim();
-		if(resultMessage == "success"){
+		// 회원 가입 성공
+		if(mes == "success"){
 			alert('회원가입 성공!');
 			location = result.url;
-		} else if(resultMessage == "fail"){
-			alert('무슨 이유로 실패함..');
-		}
+		// 실패
+		} else if(resultMessage == "fail") alert('회원가입을 실패하였습니다.');
 		
-	// POST 요청 도중 에러 발생 시..
+	// 오류 발생
 	} catch (error) {
 		console.error("Error:", error);
 		alert('알 수 없는 이유로 로그인 실패..');
