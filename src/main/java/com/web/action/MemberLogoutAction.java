@@ -13,17 +13,17 @@ public class MemberLogoutAction extends ExcuteAction{
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		Object member = session.getAttribute("member");
 		
 		PrintWriter out = resp.getWriter();
 		String result;
 		
 		if(member != null) {
 			session.removeAttribute("member");
-			System.out.println(member.getId() +"(" + member.getName() + ") 로그아웃!");
+			System.out.println("로그아웃 : " + member.toString());
 			result = "success";
 		} else {
-			System.out.println("Error:로그인되지 않는 상태로 로그아웃 시도!");
+			System.out.println("로그인 없이, 로그아웃 시도함.");
 			result = "fail";
 		}
 		
