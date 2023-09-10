@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>사람인</title>
-    
+	
     <link href="${pageContext.request.contextPath}/resource/css/body.css" rel="stylesheet"  type="text/css"/>
     <link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
     <link href="${pageContext.request.contextPath}/resource/css/jobs_main.css" rel="stylesheet"  type="text/css"/>
@@ -22,14 +22,7 @@
     <link href="https://fontawesome.com/icons/magnifying-glass?f=classic&s=solid"/>
 </head>
 <body>
-
-	<c:if test="${not empty sessionScope.logout}">
-        <script>
-            alert("로그아웃 성공");
-        </script>
-        <% session.removeAttribute("logout"); %>
-    </c:if>
-    
+ 
     <header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
     <nav><%@ include file= "/WEB-INF/views/navigation.jsp" %></nav>
 

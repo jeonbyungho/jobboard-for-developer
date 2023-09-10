@@ -32,10 +32,11 @@
 			</c:when>
 		<%-- true --%>
 			<c:otherwise>
+				<script src="${pageContext.request.contextPath}/resource/js/logout.js" defer></script>
 				<span>${sessionScope.member.name}님 |</span>
 				<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
 				<span>|</span>
-				<a href="${pageContext.request.contextPath}/member/logout">로그아웃</a>
+				<a id = "logout" href="${pageContext.request.contextPath}/member/logout">로그아웃</a>
 			</c:otherwise>
 		</c:choose>
 	</div>
