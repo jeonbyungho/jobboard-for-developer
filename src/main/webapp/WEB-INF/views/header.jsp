@@ -36,10 +36,12 @@
 			<c:otherwise>
 				<script src="${pageContext.request.contextPath}/resource/js/logout.js" defer></script>
 				<c:choose>
+					<%-- 구직자 --%>
 					<c:when test="${sessionScope.member.kind }">
 						<span>${sessionScope.member.name}님 |</span>
 						<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
 					</c:when>
+					<%-- 기업 --%>
 					<c:otherwise>
 						<span>${sessionScope.member.name} |</span>
 						<a href="${pageContext.request.contextPath}/article">구인글 등록</a>

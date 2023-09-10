@@ -8,7 +8,7 @@
 	<%-- 대표 기업 항목 --%>
 		<c:forEach var="aritcle" items="${articleList}">
 		<li class="job_item">
-			<a href="${pageContext.request.contextPath}/article/2">
+			<a href="${pageContext.request.contextPath}/article/${aritcle.id}">
 				<img src="${pageContext.request.contextPath}/resource/img/apple.png" class="logo"/>
 				<h4 class="company">애플 코리아 유한회사</h4>
 				<h3 class="title">${aritcle.title}</h3>
