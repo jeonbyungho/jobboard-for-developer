@@ -14,11 +14,9 @@
 </head>
 <body>
 	<c:set var="article" value="${requestScope.article }"></c:set>
-<<<<<<< HEAD
-	
+
     <header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
-    
-=======
+
 	<c:set var="company" value="${requestScope.company }"></c:set>
     <form action="" id="reghead" name="reghead"> <!-- head-->
         <div>
@@ -44,7 +42,7 @@
             <!-- 빈 라인 -->
         </div>
     </form>
->>>>>>> 98a4b4741d0bca09ce780519c1ec4db79cbe0def
+
     <form action="" id="body" name="body">
         <div id="jobname" name="jobname">
             <br>
