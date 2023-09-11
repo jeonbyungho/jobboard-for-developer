@@ -21,21 +21,6 @@
     <form action="" id="reghead" name="reghead"> <!-- head-->
         <div>
             <br>
-            <div id="siteimg" name="siteimg">
-                <a href="/index.jsp"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png" alt=""></a>
-            </div>
-            <%-- <c:choose>
-            	<c:when test=""> 로그인이 안되있으면 --%>
-	            	<div id="login" name="login">
-	                	 &emsp;<a href="">로그인</a>&emsp;<span id="line">|</span>&emsp;<a href="">회원가입</a>
-	            	</div>
-            	<%-- </c:when>
-            	<c:otherwise>
-            		<div id="mypage" name="mypage"> 로그인이 되있으면
-	                	 &emsp;<a href="마이페이지 주소">마이페이지</a>
-	            	</div>
-            	</c:otherwise>
-            </c:choose> --%>
         </div>
         <br>
         <div id="headbox" name="headbox">

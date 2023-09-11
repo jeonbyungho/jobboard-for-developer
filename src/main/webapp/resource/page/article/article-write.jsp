@@ -69,56 +69,78 @@
                         &emsp;<input type="text" id="title" name="title">
                     </td>
                 </tr>
+            </table>
+            <table>
                 <tr>
                     <th align="center">
                         <br>
                         직무
                     </th>
-                    <td id="left" align="left" colspan="4">
+                    <td id="left" align="left">
                         <br>
-                        <label>
-                            &emsp;    모바일 <input type="checkbox" id="job" name="job" value="모바일">
-                        </label>
+                            &emsp;    모바일
                         <br>
                         <br>
-                        <label>
-                            &emsp;	  프론트엔드 <input type="checkbox" id="job" name="job" value="프론트엔드">
-                        </label>
+                            &emsp;	  프론트엔드
                         <br>
                         <br>
-                        <label>
-                            &emsp;    풀스택 <input type="checkbox" id="job" name="job" value="풀스택">
-                        </label>
+                            &emsp;    풀스택
                         <br>
                         <br>
-                        <label>
-                            &emsp;   백엔드 <input type="checkbox" id="job" name="job" value="백엔드">
-                        </label>
+                            &emsp;   백엔드
                         <br>
                     </td>
-                    <td id="right" align="left" colspan="4">
+                    <td id="job_sel">
                         <br>
-                        <label>
-                            데이터 <input type="checkbox" id="job" name="job" value="데이터">
-                        </label>
+                            <input type="checkbox" id="job" name="job" value="모바일">
                         <br>
                         <br>
-                        <label>
-                            언리얼엔진 <input type="checkbox" id="job" name="job" value="언리얼엔진">
-                        </label>
+                        <br>
+                            <input type="checkbox" id="job" name="job" value="프론트엔드">
                         <br>
                         <br>
-                        <label>
-                            AI <input type="checkbox" id="job" name="job" value="AI">
-                        </label>
+                        <br>
+                            <input type="checkbox" id="job" name="job" value="풀스택">
                         <br>
                         <br>
-                        <label>
-                            기타 <input type="checkbox" id="job" name="job" value="기타">
-                        </label>
+                        <br>
+                            <input type="checkbox" id="job" name="job" value="백엔드">
+                        <br>
+                    </td>
+                    <td id="right" align="left">
+                        <br>
+                            &emsp;   데이터
+                        <br>
+                        <br>
+                            &emsp;   언리얼엔진
+                        <br>
+                        <br>
+                            &emsp;   AI
+                        <br>
+                        <br>
+                            &emsp;   기타
+                        <br>
+                    </td>
+                    <td id="job_sel">
+                        <br>
+                            <input type="checkbox" id="job" name="job" value="데이터">
+                        <br>
+                        <br>
+                        <br>
+                            <input type="checkbox" id="job" name="job" value="언리얼엔진">
+                        <br>
+                        <br>
+                        <br>
+                            <input type="checkbox" id="job" name="job" value="AI">
+                        <br>
+                        <br>
+                        <br>
+                            <input type="checkbox" id="job" name="job" value="기타">
                         <br>
                     </td>
                 </tr>
+            </table>
+            <table>
                 <tr>
                     <th align="center">
                         <br>
@@ -127,6 +149,7 @@
                     <td align="left" id="career" colspan="8">
                         <br>
                         &emsp;&emsp; 신입 <input type="checkbox" id="new" name="carr" value="신입"> &emsp;&emsp; 경력 <input type="checkbox" id="notnew" name="carr" value="경력">
+                        &emsp;&emsp; 인턴 <input type="checkbox" id="new" name="carr" value="인턴">
                     </td>
                 </tr>
                 <tr>
