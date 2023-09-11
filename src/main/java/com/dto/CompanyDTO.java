@@ -15,7 +15,10 @@ public class CompanyDTO extends UserDTO{
 	private String url;
 	private String addr;
 	private String detail_addr;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 98a4b4741d0bca09ce780519c1ec4db79cbe0def
 	public int getId() {
 		return id;
 	}
@@ -75,6 +78,7 @@ public class CompanyDTO extends UserDTO{
 	}
 	public void setUrl(String url) {
 		this.url = url;
+<<<<<<< HEAD
 	}
 	public String getAddr() {
 		return addr;
@@ -94,5 +98,21 @@ public class CompanyDTO extends UserDTO{
 		return "CompanyDTO [id=" + id + ", company_no=" + company_no + ", password=" + password + ", name=" + name
 				+ ", birth=" + birth + ", type=" + type + ", employee_no=" + employee_no + ", sale=" + sale + ", ceo="
 				+ ceo + ", url=" + url + ", addr=" + addr + ", detail_addr=" + detail_addr + "]";
+=======
+>>>>>>> 98a4b4741d0bca09ce780519c1ec4db79cbe0def
 	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public String getDetail_addr() {
+		return detail_addr;
+	}
+	public void setDetail_addr(String detail_addr) {
+		this.detail_addr = detail_addr;
+	}
+	
+	
 }

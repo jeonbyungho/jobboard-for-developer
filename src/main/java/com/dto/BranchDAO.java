@@ -39,6 +39,10 @@ public class BranchDAO {
 	public int article_idmax() {
 		return sqlSession.selectOne("Branch.article-idmax");
 	}
+
+	public Object company_select(int id) {
+		return sqlSession.selectOne("Branch.company-select", id);
+	}
 	
 	
 }

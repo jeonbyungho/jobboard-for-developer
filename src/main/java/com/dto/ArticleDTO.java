@@ -1,5 +1,7 @@
 package com.dto;
 
+import java.sql.Date;
+
 public class ArticleDTO {
 	private int id;
 	private String title;
@@ -12,7 +14,6 @@ public class ArticleDTO {
 	private String job_explain;
 	private String qualify;
 	private String tag_stack;
-	
 	public int getId() {
 		return id;
 	}
@@ -79,7 +80,6 @@ public class ArticleDTO {
 	public void setTag_stack(String tag_stack) {
 		this.tag_stack = tag_stack;
 	}
-	
 	
 	
 	
