@@ -30,5 +30,14 @@ public class ArticleDAO {
 	public int getArticleCnt() {
 		return sqlSession.selectOne("Article.getArticleCnt");
 	}
+	
+	public List<ArticleDTO> article_search(String job, String career) {
+		HashMap<String, String> datas = new HashMap<>();
+		datas.put("job", job);
+		datas.put("career", career);
+		List<ArticleDTO> list = 
+				sqlSession.selectList("Article.searchArticle",datas);
+		return list;
+	}
 
 }

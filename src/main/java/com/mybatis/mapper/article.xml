@@ -13,5 +13,7 @@
 	<select id="getArticleCnt" resultType="_int">
 		SELECT COUNT(*) FROM ARTICLE
 	</select>
-	
+	<select id="searchArticle" parameterType="hashmap" resultType="articledto">
+		SELECT * FROM ARTICLE WHERE job = #{job} AND CAREER = #{career};
+	</select>
 </mapper>
