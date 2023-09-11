@@ -7,14 +7,15 @@ public class CompanyDTO extends UserDTO{
 	private String company_no;
 	private String password;
 	private String name;
-	private String birth;
-	private String type;
+	private String esta;
+	private String scale;
 	private String employee_no;
 	private String sale;
 	private String ceo;
 	private String url;
-	private String addr;
+	private String address;
 	private String detail_addr;
+	private String content;
 	
 	public int getId() {
 		return id;
@@ -40,17 +41,17 @@ public class CompanyDTO extends UserDTO{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBirth() {
-		return birth;
+	public String getEsta() {
+		return esta;
 	}
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setEsta(String esta) {
+		this.esta = esta;
 	}
-	public String getType() {
-		return type;
+	public String getScale() {
+		return scale;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setScale(String scale) {
+		this.scale = scale;
 	}
 	public String getEmployee_no() {
 		return employee_no;
@@ -76,11 +77,11 @@ public class CompanyDTO extends UserDTO{
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public String getAddr() {
-		return addr;
+	public String getAddress() {
+		return address;
 	}
-	public void setAddr(String addr) {
-		this.addr = addr;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getDetail_addr() {
 		return detail_addr;
@@ -88,11 +89,19 @@ public class CompanyDTO extends UserDTO{
 	public void setDetail_addr(String detail_addr) {
 		this.detail_addr = detail_addr;
 	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	
 	@Override
 	public String toString() {
 		return "CompanyDTO [id=" + id + ", company_no=" + company_no + ", password=" + password + ", name=" + name
-				+ ", birth=" + birth + ", type=" + type + ", employee_no=" + employee_no + ", sale=" + sale + ", ceo="
-				+ ceo + ", url=" + url + ", addr=" + addr + ", detail_addr=" + detail_addr + "]";
+				+ ", esta=" + esta + ", scale=" + scale + ", employee_no=" + employee_no + ", sale=" + sale + ", ceo="
+				+ ceo + ", url=" + url + ", address=" + address + ", detail_addr=" + detail_addr + ", content="
+				+ content + "]";
 	}
+
 }

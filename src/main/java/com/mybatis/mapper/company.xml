@@ -4,7 +4,7 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="Company">
- 	<select id="login" parameterType="hashmap" resultType="companydto">
+ 	<!-- <select id="login" parameterType="hashmap" resultType="companydto">
  		SELECT * FROM COMPANY c
 		WHERE c.COMPANY_NO = #{company_no} AND c.PASSWORD = #{password}
  	</select>
@@ -28,6 +28,38 @@
 		,	#{url}
 		,	#{addr}
 		,	#{detail_addr}
+		)
+ 	</insert> -->
+ 	
+ 	<select id="login" parameterType="hashmap" resultType="companydto">
+ 		SELECT
+			c."id" , c."company_no" , c."password",
+			c."name" , c."esta" , cs."title" AS scale,
+			c."employee_no" , c."ceo" , c."url" ,
+			a.DISTRICT AS address, c."detail_addr" ,
+			c."content"
+		FROM COMPANY c
+		LEFT OUTER JOIN ADDRESS a 
+			ON c."address_id" = a.ID 
+		LEFT OUTER JOIN "c_scale" cs 
+			ON c."c_scale_id" = cs."id"
+		WHERE c."company_no" = #{company_no} AND c."password" = #{password}
+ 	</select>
+ 	
+ 	<insert id="sigup" parameterType="hashmap">
+ 		INSERT INTO COMPANY c VALUES(
+			COMPANY_SEQ.nextval
+			,	#{company_no}
+			,	#{password}
+			,	#{name}
+			,	#{esta}
+			,	(SELECT cs."id" FROM "c_scale" cs WHERE cs."title" = #{sale})
+			,	#{employee_no}
+			,	#{ceo}
+			,	#{url}
+			,	(SELECT a.ID FROM ADDRESS a WHERE a.DISTRICT = #{address})
+			,	#{detail_addr}
+			,	#{content}
 		)
  	</insert>
  </mapper>
