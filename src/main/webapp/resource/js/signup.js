@@ -4,6 +4,11 @@ document.signupForm.onsubmit = async (e) => {
 	
 	// form 데이터 구성
 	const form = e.target;
+	
+	const address = form.address.value;
+	const addr1 = address.split(' ', 1).join();
+	const addr2 = address.substring(addr1.length);
+	
 	const loginData = {
 			userid : form.userid.value,
 			password : form.password.value,
@@ -12,8 +17,8 @@ document.signupForm.onsubmit = async (e) => {
 			birthday : form.birthday.value,
 			phone : form.phone.value,
 			email : form.email.value,
-			address : form.address.value,
-			detail_addr : (form.detail_addr.value + form.addretc.value).trim(),
+			address : addr1,
+			detail_addr : (addr2 + form.addretc.value).trim(),
 		};
 	console.log(form.action);
 	console.table(loginData);

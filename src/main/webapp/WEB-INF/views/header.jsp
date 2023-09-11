@@ -30,7 +30,7 @@
 			<c:when test="${empty sessionScope.member}">
 				<a href="${pageContext.request.contextPath}/member/login">로그인</a>
 				<span>|</span>
-				<a href="${pageContext.request.contextPath}/member/signup">회원가입</a>
+				<a href="${pageContext.request.contextPath}/signup">회원가입</a>
 			</c:when>
 		<%-- true --%>
 			<c:otherwise>

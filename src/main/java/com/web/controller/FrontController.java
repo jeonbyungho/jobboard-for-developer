@@ -32,6 +32,8 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/member/signup", new ExcuteAction("../resource/page/login/signup.jsp"));
 		getActionMap.put("/member/logout", new MemberLogoutAction());
 		
+		getActionMap.put("/signup", new ExcuteAction("./resource/page/login/signup2.jsp"));
+		
 		getActionMap.put("/member/resume", new ExcuteAction("../resource/page/member/resume.jsp"));
 		
 		getActionMap.put("/company/login", new ExcuteAction("../resource/page/login/login.jsp"));

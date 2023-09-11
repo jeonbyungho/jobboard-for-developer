@@ -4,7 +4,7 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="Member">
- 	<select id="login" parameterType="hashmap" resultType="memberdto">
+ 	<!-- <select id="login" parameterType="hashmap" resultType="memberdto">
  		SELECT * FROM MEMBER WHERE USERID = #{userid} AND PASSWORD = #{password}
  	</select>
  	
@@ -26,5 +26,31 @@
 			,	#{address}
 			,	#{detail_addr}
 		)
+ 	</insert> -->
+ 	
+ 	<insert id="sigup" parameterType="hashmap">
+ 		INSERT INTO "MEMBER" m VALUES (
+			MEMBER_SEQ.nextval
+			,	#{userid}
+			,	#{password}
+			,	#{name}
+			,	#{gender}
+			,	#{birthday}
+			,	#{phone}
+			,	#{email}
+			,	(SELECT a.ID FROM ADDRESS a WHERE a.DISTRICT = #{address})
+			,	#{detail_addr}
+		)
  	</insert>
+ 	
+ 	<select id="login" parameterType="hashmap" resultType="memberdto">
+ 		SELECT
+			m.ID , m.USER_ID , m.PASSWORD , m.NAME , m.GENDER ,
+			m.BIRTHDAY , m.PHONE , m.EMAIL , a.DISTRICT AS address , m.DETAIL_ADDR 
+		FROM "MEMBER" m 
+		LEFT OUTER JOIN ADDRESS a
+		ON m.ADDRESS_ID = a.ID
+		WHERE m.USER_ID = #{userid} AND m.PASSWORD = #{password}
+ 	</select>
+ 	
  </mapper>
