@@ -31,8 +31,6 @@ public class ArticleInsertAction extends ExcuteAction{
 		adto.setJob_explain(req.getParameter("job_explain"));
 		adto.setQualify(req.getParameter("qualify"));
 		adto.setDeadline(req.getParameter("deadline"));
-		jdto.setJ_name(req.getParameter("j_name"));
-		sdto.setS_name(req.getParameter("s_name"));
 		jdto.setJ_name(newjobArr);
 		adto.setCareer(newcarrArr);
 		sdto.setS_name(newstackArr);
