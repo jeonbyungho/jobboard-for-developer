@@ -9,7 +9,9 @@
 	<typeAlias type="com.dto.MemberDTO" alias="memberdto"/>
 	<typeAlias type="com.dto.ResumeDTO" alias="resumedto"/>
 	<typeAlias type="com.dto.ArticleDTO" alias="articledto"/>
-	<typeAlias type="com.dto.CompanyDTO" alias="companydto"/>
+	<typeAlias type="com.dto.ComDTO" alias="comdto"/>
+	<typeAlias type="com.dto.StackDTO" alias="stackdto"/>
+	<typeAlias type="com.dto.JobDTO" alias="jobdto"/>
 </typeAliases>
 
 <!-- JDBC Connection 세팅 -->
@@ -19,7 +21,7 @@
 		<dataSource type="POOLED">
 			<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
 			<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-			<property name="username" value="jobsite"/>
+			<property name="username" value="jobsite2"/>
 			<property name="password" value="1234"/>
 		</dataSource>
 	</environment>

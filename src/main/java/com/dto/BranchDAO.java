@@ -22,15 +22,6 @@ public class BranchDAO {
 		
 		return result;
 	}
-	
-	public boolean company_insert(CompanyDTO cdto) {
-		boolean result = false;
-		
-		if(sqlSession.insert("Branch.company-insert", cdto) == 1) {
-			result = true;
-		}
-		return result;
-	}
 
 	public Object article_select(int id) {
 		return sqlSession.selectOne("Branch.article-select", id);
@@ -39,9 +30,14 @@ public class BranchDAO {
 	public int article_idmax() {
 		return sqlSession.selectOne("Branch.article-idmax");
 	}
-
-	public Object company_select(int id) {
-		return sqlSession.selectOne("Branch.company-select", id);
+	
+	public boolean company_insert(ComDTO cdto) {
+		boolean result = false;
+		
+		if(sqlSession.insert("Branch.company-insert", cdto) == 1) {
+			result = true;
+		}
+		return result;
 	}
 	
 	
