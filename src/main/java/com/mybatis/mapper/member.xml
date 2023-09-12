@@ -34,7 +34,7 @@
 			,	#{userid}
 			,	#{password}
 			,	#{name}
-			,	#{gender}
+			,	(SELECT g.ID FROM GENDER g WHERE g.TITLE = 'male')
 			,	#{birthday}
 			,	#{phone}
 			,	#{email}
@@ -44,12 +44,15 @@
  	</insert>
  	
  	<select id="login" parameterType="hashmap" resultType="memberdto">
- 		SELECT
-			m.ID , m.USER_ID , m.PASSWORD , m.NAME , m.GENDER ,
-			m.BIRTHDAY , m.PHONE , m.EMAIL , a.DISTRICT AS address , m.DETAIL_ADDR 
+ 		SELECT 
+			m.ID , m.USER_ID , m.PASSWORD, m.NAME,
+			g.TITLE AS GENDER , m.BIRTHDAY , m.EMAIL,
+			a.DISTRICT AS ADDRESS, m.DETAIL_ADDR 
 		FROM "MEMBER" m 
-		LEFT OUTER JOIN ADDRESS a
-		ON m.ADDRESS_ID = a.ID
+		LEFT OUTER JOIN ADDRESS a 
+			ON m.ADDRESS_ID = a.ID 
+		LEFT OUTER JOIN GENDER g 
+			ON m.GENDER_ID = g.ID 
 		WHERE m.USER_ID = #{userid} AND m.PASSWORD = #{password}
  	</select>
  	
