@@ -191,7 +191,7 @@
                         <input type="text" id="address" placeholder="주소" class="addr" name="addr">
                         <br>
                         <br>
-                        <input type="text" id="detailAddress" placeholder="상세주소" class="addr" name="detail_addr">
+                        <input type="text" id="detail_addr" placeholder="상세주소" class="addr" name="detail_addr">
                         <br>
                         <br>
                         <input type="text" id="extraAddress" placeholder="참고항목" class="addr" name="addretc">
