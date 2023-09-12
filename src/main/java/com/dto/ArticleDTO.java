@@ -2,6 +2,7 @@ package com.dto;
 
 public class ArticleDTO {
 	private int id;
+	private String companyname;
 	private String title;
 	private String job;
 	private String career;
@@ -18,6 +19,12 @@ public class ArticleDTO {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getCompanyname() {
+		return companyname;
+	}
+	public void setCompanyname(String companyname) {
+		this.companyname = companyname;
 	}
 	public String getTitle() {
 		return title;
@@ -80,7 +87,12 @@ public class ArticleDTO {
 		this.tag_stack = tag_stack;
 	}
 	
-	
-	
+	@Override
+	public String toString() {
+		return "ArticleDTO [id=" + id + ", companyname=" + companyname + ", title=" + title + ", job=" + job
+				+ ", career=" + career + ", salary=" + salary + ", location=" + location + ", need_amt=" + need_amt
+				+ ", deadline=" + deadline + ", job_explain=" + job_explain + ", qualify=" + qualify + ", tag_stack="
+				+ tag_stack + "]";
+	}
 	
 }

@@ -3,9 +3,9 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Branch">
-	<insert id="article-insert" parameterType="articledto">
+	<!-- <insert id="article-insert" parameterType="articledto">
 		INSERT INTO ARTICLE a VALUES (article_seq.nextval, #{title}, #{job}, #{career}, #{salary}, #{location}, #{need_amt}, #{deadline}, #{job_explain}, #{qualify},#{tag_stack})
-	</insert>
+	</insert> -->
 	<insert id="company-insert" parameterType="companydto">
 		INSERT INTO COMPANY c VALUES (company_seq.nextval, #{company_no}, #{password}, #{name}, #{birth}, #{type}, #{employee_no}, #{sale}, #{ceo},
 							#{url}, #{addr}, ${detail_addr})
@@ -13,11 +13,30 @@
 	<select id="company-select" parameterType="_int" resultType="companydto">
 		SELECT * FROM COMPANY c WHERE ID = #{id}
 	</select>
-	<select id="article-select" parameterType="_int" resultType="articledto">
+	<!-- <select id="article-select" parameterType="_int" resultType="articledto">
 		SELECT * FROM ARTICLE a WHERE ID = #{id}
-	</select>
+	</select> -->
 	<select id="article-idmax" resultType="_int">
 		SELECT MAX(ID) FROM ARTICLE a ORDER BY ID DESC
+	</select>
+		
+	<select id="article-select" parameterType="_int" resultType="articledto">
+		SELECT
+			a."id"
+		,	c."name" AS companyname
+		,	a."title" AS title
+		,	j."type" AS job
+		,	a."career" AS career
+		,	a."salary" AS salary
+		,	CONCAT((SELECT ad.DISTRICT FROM ADDRESS ad WHERE ad.ID = a."id" ), a."detail_addr") AS location
+		,	a."need_amt" AS need_amt
+		,	a."deadline" AS deadline
+		,	a."job_explain" AS job_explain
+		,	a.QUALIFY AS qualify
+		FROM ARTICLE a 
+			LEFT OUTER JOIN COMPANY c ON a."company_id" = c."id" 
+			LEFT OUTER JOIN "job" j ON a."job_id" = j."id"
+		WHERE a."id" = #{id}
 	</select>
 </mapper>
 
