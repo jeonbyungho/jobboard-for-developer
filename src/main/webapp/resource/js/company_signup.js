@@ -1,5 +1,5 @@
 console.log("🖐️company_signup.js");
-document.signupForm.onsubmit = async (e) => {
+async function company_sigup(e) {
 	e.preventDefault();
 	
 	// form 데이터 구성
@@ -20,7 +20,7 @@ document.signupForm.onsubmit = async (e) => {
 			url : form.url.value,
 			address : addr1,
 			detail_addr : (addr2 + form.addretc.value).trim(),
-			content : form.url.value,
+			content : form.content.value,
 		};
 	console.log(form.action);
 	console.table(loginData);

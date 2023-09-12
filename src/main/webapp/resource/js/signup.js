@@ -1,5 +1,5 @@
 console.log("🖐️singup.js");
-document.signupForm.onsubmit = async (e) => {
+async function member_sigup(e) {
 	e.preventDefault();
 	
 	// form 데이터 구성

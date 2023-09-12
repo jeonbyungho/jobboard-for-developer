@@ -37,17 +37,16 @@ public class MemberLoginAction extends ExcuteAction{
 	    
 	    // 로그인 실패
 	    if(member == null) {
-	    	System.out.println("로그인 실패");
 	    	result = "fail";
-	    	return super.excute(req, resp);
+	    	System.out.println("로그인 실패");
+	    // 로그인 성공 시, Session에 로그인 데이터 저장
+	    } else {
+	    	HttpSession session = req.getSession();
+		    session.setAttribute("member", member);
+		    result = "success";
+		    System.out.println(session.getAttribute("member").toString());
 	    }
 	    
-	    // 로그인 성공 시, Session에 로그인 데이터 저장
-	    HttpSession session = req.getSession();
-	    session.setAttribute("member", member);
-	    result = "success";
-	    
-	    System.out.println(session.getAttribute("member").toString());
 	    out.print(result);
 		return super.excute(req, resp);
 	}
