@@ -4,56 +4,31 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="Company">
- 	<!-- <select id="login" parameterType="hashmap" resultType="companydto">
- 		SELECT * FROM COMPANY c
+ 	<!-- 기업 로그인 -->
+ 	<select id="login" parameterType="hashmap" resultType="companydto">
+ 		SELECT
+			c.ID , c.COMPANY_NO , c.PASSWORD ,
+			c.NAME , c.ESTA , cs.TITLE  AS SCALE,
+			c.EMPLOYEE_NO , c.CEO , c.URL ,
+			a.DISTRICT  AS address , c.DETAIL_ADDR ,
+			c.CONTENT 
+		FROM COMPANY c 
+		LEFT OUTER JOIN ADDRESS a 
+			ON c.ADDRESS_ID = a.ID 
+		LEFT OUTER JOIN C_SCALE cs 
+			ON c.C_SCALE_ID = cs.ID
 		WHERE c.COMPANY_NO = #{company_no} AND c.PASSWORD = #{password}
  	</select>
  	
+ 	<!-- 기업 회원가입 -->
  	<insert id="sigup" parameterType="hashmap">
- 		INSERT INTO COMPANY c(
-		c.ID , c.COMPANY_NO, c.PASSWORD,
-		c.NAME, c.BIRTH, c."type",
-		c.EMPLOYEE_NO, c.SALE, c.CEO,
-		c.URL, c.ADDR, c.DETAIL_ADDR)
-		VALUES
-		(COMPANY_SEQ.nextval
-		,	#{company_no}
-		,	#{password}
-		,	#{name}
-		,	#{birth}
-		,	#{type}
-		,	#{employee_no}
-		,	#{sale}
-		,	#{ceo}
-		,	#{url}
-		,	#{addr}
-		,	#{detail_addr}
-		)
- 	</insert> -->
- 	
- 	<select id="login" parameterType="hashmap" resultType="companydto">
- 		SELECT
-			c."id" , c."company_no" , c."password",
-			c."name" , c."esta" , cs."title" AS scale,
-			c."employee_no" , c."ceo" , c."url" ,
-			a.DISTRICT AS address, c."detail_addr" ,
-			c."content"
-		FROM COMPANY c
-		LEFT OUTER JOIN ADDRESS a 
-			ON c."address_id" = a.ID 
-		LEFT OUTER JOIN "c_scale" cs 
-			ON c."c_scale_id" = cs."id"
-		WHERE c."company_no" = #{company_no} AND c."password" = #{password}
- 	</select>
- 	
- 	<insert id="sigup" parameterType="hashmap">
- 		INSERT INTO COMPANY c VALUES(
+		INSERT INTO COMPANY c VALUES (
 			COMPANY_SEQ.nextval
 			,	#{company_no}
 			,	#{password}
 			,	#{name}
 			,	#{esta}
-			,	(SELECT cs."id" FROM "c_scale" cs WHERE cs."title" = #{scale})
+			,	(SELECT cs.ID FROM C_SCALE cs WHERE cs.TITLE = #{scale})
 			,	#{employee_no}
 			,	#{ceo}
 			,	#{url}
