@@ -130,7 +130,7 @@ CREATE TABLE send (
 );
 DROP TABLE send;
 
--- 등록 테이블 생성
+-- 경력 테이블 생성
 CREATE TABLE reg (
     id NUMBER(6),
     resume_id NUMBER(6),
