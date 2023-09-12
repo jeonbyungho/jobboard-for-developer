@@ -20,14 +20,13 @@ public class ArticleInsertAction extends ExcuteAction{
 		JobDTO jdto = new JobDTO();
 		
 		String[] jobArr = req.getParameterValues("job");
-		= String.join(",", jobArr);
+		String newjobArr = String.join(",", jobArr);
 		String[] carrArr = req.getParameterValues("carr");
 		String newcarrArr = String.join(",", carrArr);
 		String[] stackArr = req.getParameterValues("stack");
 		String newstackArr = String.join(",", stackArr);
 		
 		adto.setTitle(req.getParameter("title"));
-		adto.setCareer(req.getParameter("career"));
 		adto.setDetail_addr(req.getParameter("detail_addr"));
 		adto.setJob_explain(req.getParameter("job_explain"));
 		adto.setQualify(req.getParameter("qualify"));
@@ -50,4 +49,5 @@ public class ArticleInsertAction extends ExcuteAction{
 		return super.excute(req, resp);
 		
 	}
+	
 }

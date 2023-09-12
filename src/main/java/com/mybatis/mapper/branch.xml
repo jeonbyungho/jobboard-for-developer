@@ -22,22 +22,27 @@
 	</select>
 	
 	<insert id="article-insert" parameterType="articledto">
-		INSERT INTO "article" a VALUES (article_seq.nextval, #{title}, (SELECT c."id" FROM COMPANY c WHERE c."id" = #{company_id}), 
-									(SELECT j."id"  FROM "job" j WHERE j."type" = #{type}), #{career}, #{salary}, 
-										(SELECT a.ID FROM ADDRESS a WHERE a.DISTRICT = #{address}), #{detail_addr}, #{need_amt}, #{job_explain}, #{deadline}
-										, #{qualify})
+		INSERT INTO "article" a VALUES (article_seq.nextval, #{title}, (SELECT c."id" FROM COMPANY c WHERE c."id" = #{company_id}), #{career}, #{salary}, (SELECT a2.ID FROM ADDRESS a2 WHERE a2.DISTRICT = #{address}), #{detail_addr}, #{need_amt}, #{job_explain}, #{deadline}, #{qualify})
 	</insert>
 	<insert id="company-insert" parameterType="comdto">
-		INSERT INTO COMPANY c VALUES (company_seq.nextval, #{company_no}, #{password}, #{name}, #{date}, 
-										(SELECT cs."id"  FROM "c_scale" cs  WHERE cs."title" = #{title})
-											, #{employee_no}, #{ceo}, #{url}, 
-												(SELECT a.ID FROM ADDRESS a WHERE a.DISTRICT = #{address}), #{detail_addr}, #{content})
+		INSERT INTO COMPANY c VALUES (company_seq.nextval, #{company_no}, #{password}, #{name}, #{date}, (SELECT cs."id"  FROM "c_scale" cs  WHERE cs."title" = #{title}), #{employee_no}, #{ceo}, #{url}, (SELECT a.ID FROM ADDRESS a WHERE a.DISTRICT = #{address}), #{detail_addr}, #{content})
 	</insert>
-	<insert id="stack-insert" parameterType="stackdto">
-		INSERT INTO "skill_stack" ss VALUES (skill_seq.nextval, (SELECT a."id"  FROM "article" a  WHERE a."id" = #{article_id}), #{s_name})
+	<insert id="job_insert" parameterType="String">
+		INSERT INTO JOB j VALUES (
+	   JOB_SEQ.nextval
+	   ,   (SELECT max(a.ID) FROM ARTICLE a)
+	   ,   #{j_name}
+	)
+	;
 	</insert>
-	<insert id="job-insert" parameterType="jobdto">
-		INSERT INTO job j VALUES (job_seq.nextval, (SELECT a."id"  FROM "article" a WHERE a."id" = #{article_id}),#{j_name})
+	
+	<insert id="stack_insert" parameterType="String">
+				INSERT INTO "skill_stack" ss VALUES (
+		   SKILL_SEQ.nextval
+		   ,   (SELECT max(a."id") FROM "article" a)
+		   ,   #{s_name}
+		)
+		;	
 	</insert>
 </mapper>
 

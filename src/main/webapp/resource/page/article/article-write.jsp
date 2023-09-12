@@ -12,7 +12,7 @@
     
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
 	<script src="${pageContext.request.contextPath}/resource/js/kakaomap.js" defer></script>
-	<script src="${pageContext.request.contextPath}/resource/js/article-write.js" defer></script>
+	
 	
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-write.css">
 </head>
@@ -191,7 +191,7 @@
                         <input type="text" id="address" placeholder="주소" class="addr" name="addr">
                         <br>
                         <br>
-                        <input type="text" id="detailAddress" placeholder="상세주소" class="addr" name="addrdetail">
+                        <input type="text" id="detailAddress" placeholder="상세주소" class="addr" name="detail_addr">
                         <br>
                         <br>
                         <input type="text" id="extraAddress" placeholder="참고항목" class="addr" name="addretc">

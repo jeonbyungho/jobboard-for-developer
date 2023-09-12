@@ -7,7 +7,7 @@ public class ArticleDTO {
 	private int company_id;
 	private String career;
 	private int salary;
-	private int addres_id;
+	private int address_id;
 	private String detail_addr;
 	private int need_amt;
 	private String job_explain; 
@@ -38,11 +38,11 @@ public class ArticleDTO {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	public int getAddres_id() {
-		return addres_id;
+	public int getAddress_id() {
+		return address_id;
 	}
-	public void setAddres_id(int addres_id) {
-		this.addres_id = addres_id;
+	public void setAddress_id(int address_id) {
+		this.address_id = address_id;
 	}
 	public String getDetail_addr() {
 		return detail_addr;
@@ -80,7 +80,6 @@ public class ArticleDTO {
 	public void setQualify(String qualify) {
 		this.qualify = qualify;
 	}
-	
 	
 	
 	
