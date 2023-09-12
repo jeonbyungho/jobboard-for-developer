@@ -128,7 +128,6 @@ CREATE TABLE send (
     FOREIGN KEY (company_id) REFERENCES COMPANY (id),
     FOREIGN KEY (resume_id) REFERENCES resume (id)
 );
-DROP TABLE send;
 
 -- 경력 테이블 생성
 CREATE TABLE reg (
