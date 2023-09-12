@@ -53,7 +53,7 @@
 			,	#{password}
 			,	#{name}
 			,	#{esta}
-			,	(SELECT cs."id" FROM "c_scale" cs WHERE cs."title" = #{sale})
+			,	(SELECT cs."id" FROM "c_scale" cs WHERE cs."title" = #{scale})
 			,	#{employee_no}
 			,	#{ceo}
 			,	#{url}
