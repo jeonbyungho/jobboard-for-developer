@@ -1,6 +1,6 @@
 package com.dto;
 
-public class StackDto {
+public class StackDTO {
 	private int id;
 	private int article_id;
 	private String s_name;
@@ -22,8 +22,4 @@ public class StackDto {
 	public void setS_name(String s_name) {
 		this.s_name = s_name;
 	}
-	
-	
-	
-	
 }

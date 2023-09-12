@@ -31,6 +31,7 @@ public class BranchDAO {
 		return sqlSession.selectOne("Branch.article-idmax");
 	}
 	
+	
 	public boolean company_insert(ComDTO cdto) {
 		boolean result = false;
 		
@@ -41,4 +42,21 @@ public class BranchDAO {
 	}
 	
 	
+	public boolean job_insert(JobDTO jdto) {
+		boolean result = false;
+		
+		if(sqlSession.insert("Branch.stack-insert", jdto) == 1) {
+			result = true;
+		}
+		return result;
+	}
+	
+	public boolean stack_insert(StackDTO sdto) {
+		boolean result = false;
+		
+		if(sqlSession.insert("Branch.job-insert", sdto) == 1) {
+			result = true;
+		}
+		return result;
+	}
 }

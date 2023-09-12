@@ -1,7 +1,5 @@
 package com.dto;
 
-import java.sql.Date;
-
 public class ArticleDTO {
 	
 	// article insert DB 

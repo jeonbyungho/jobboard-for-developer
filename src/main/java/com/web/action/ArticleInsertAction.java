@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dto.ArticleDTO;
 import com.dto.BranchDAO;
-import com.dto.StackDto;
+import com.dto.JobDTO;
+import com.dto.StackDTO;
 
 public class ArticleInsertAction extends ExcuteAction{
 	@Override
@@ -15,13 +16,14 @@ public class ArticleInsertAction extends ExcuteAction{
 		
 		BranchDAO bdao = new BranchDAO();
 		ArticleDTO adto = new ArticleDTO();
-		StackDto sdto = new StackDto();
+		StackDTO sdto = new StackDTO();
+		JobDTO jdto = new JobDTO();
 		
 		String[] jobArr = req.getParameterValues("job");
-		String newjobArr = String.join(",", jobArr);
-		String[] carrArr = req.getParameterValues("career");
+		= String.join(",", jobArr);
+		String[] carrArr = req.getParameterValues("carr");
 		String newcarrArr = String.join(",", carrArr);
-		String[] stackArr = req.getParameterValues("s_name");
+		String[] stackArr = req.getParameterValues("stack");
 		String newstackArr = String.join(",", stackArr);
 		
 		adto.setTitle(req.getParameter("title"));
@@ -30,7 +32,9 @@ public class ArticleInsertAction extends ExcuteAction{
 		adto.setJob_explain(req.getParameter("job_explain"));
 		adto.setQualify(req.getParameter("qualify"));
 		adto.setDeadline(req.getParameter("deadline"));
-		adto.setJob_id(newjobArr);
+		jdto.setJ_name(req.getParameter("j_name"));
+		sdto.setS_name(req.getParameter("s_name"));
+		jdto.setJ_name(newjobArr);
 		adto.setCareer(newcarrArr);
 		sdto.setS_name(newstackArr);
 		
