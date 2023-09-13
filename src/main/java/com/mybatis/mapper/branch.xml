@@ -6,20 +6,55 @@
 	
 	<!-- 구인글 생성 -->
 	<insert id="article-insert" parameterType="articledto">
-		INSERT INTO article VALUES (
-			ARTICLE_SEQ.nextval
+		BEGIN
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
+        	SELECT ARTICLE_SEQ.nextval FROM dual
+    	</selectKey> 
+		INSERT INTO ARTICLE a VALUES (
+			#{id}
 			,	#{company_id}
 			,	#{title}
 			,	#{career}
 			,	#{salary}
-			,	(SELECT a.ID FROM ADDRESS a WHERE a.DISTRICT = #{address})
+			,	(SELECT ad.ID FROM ADDRESS ad WHERE ad.DISTRICT = #{address})
 			,	#{detail_addr}
 			,	#{need_amt}
 			,	#{job_explain}
 			,	#{deadline}
 			,	#{qualify}
 		)
+		;
+		
+		INSERT INTO JOB j (
+			j.ID ,
+			j.ARTICLE_ID ,
+			j.NAME 
+		)
+		SELECT JOB_SEQ.nextval, B.* from (
+			<foreach collection="job" item="name" separator="UNION ALL">
+				SELECT
+					#{id},
+					#{name}
+				FROM dual
+			</foreach>
+		)B;
+		
+		INSERT INTO SKILL_STACK ss (
+			ss.ID ,
+			ss.ARTICLE_ID ,
+			ss.NAME 
+		)
+		SELECT JOB_SEQ.nextval, C.* from (
+			<foreach collection="skill_stack" item="name" separator="UNION ALL">
+				SELECT
+					#{id},
+					#{name}
+				FROM dual
+			</foreach>
+		)C;
+		END;
 	</insert>
+	
 	<!-- 직무 -->
 	<insert id="article-job-insert" parameterType="string">
 		INSERT INTO JOB j VALUES (

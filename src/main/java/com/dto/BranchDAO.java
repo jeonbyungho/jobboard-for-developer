@@ -16,7 +16,7 @@ public class BranchDAO {
 	public boolean article_insert(ArticleDTO adto) {
 		boolean result = false;
 		
-		if(sqlSession.insert("Branch.article-insert", adto) == 1) {
+		if(sqlSession.insert("Branch.article-insert", adto) >= 1) {
 			result = true;
 		}
 		
