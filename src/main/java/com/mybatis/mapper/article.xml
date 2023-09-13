@@ -6,14 +6,22 @@
 <mapper namespace="Article">
 	<select id="getArticleList" resultType="articledto">
 		SELECT * FROM (
-			SELECT rownum r, A.* FROM (
-				SELECT * FROM ARTICLE ORDER BY ID DESC ) A ) B
+			SELECT rownum r, A.* FROM 
+			(	SELECT * FROM "article" a
+				INNER JOIN COMPANY c ON a."company_id"=c."id"  
+				INNER JOIN "job" j ON a."job_id"=j."id" 
+				INNER JOIN "address" a2 ON a."address_id"=a2."id"
+			) A 
+		) B
 		WHERE 	B.r BETWEEN #{startRow} AND #{endRow}
 	</select>
 	<select id="getArticleCnt" resultType="_int">
-		SELECT COUNT(*) FROM ARTICLE
+		SELECT COUNT(*) FROM "article"
 	</select>
+	<!-- <select id="getSelectedCnt" resultType="_int">
+		SELECT COUNT(*) FROM ARTICLE where job=#{job} AND career=#{career}
+	</select> -->
 	<select id="searchArticle" parameterType="hashmap" resultType="articledto">
-		SELECT * FROM ARTICLE WHERE job = #{job} AND CAREER = #{career};
+		SELECT * FROM ARTICLE a WHERE job =#{job} AND CAREER =#{career}
 	</select>
 </mapper>

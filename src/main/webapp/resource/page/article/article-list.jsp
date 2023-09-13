@@ -8,107 +8,15 @@
 <meta charset="UTF-8">
 <title>게시판 목록</title>
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<style>
-        #head {
-            padding: 20px 0 20px 10px;
-        }
-
-        #siteimg {
-            float: left;
-        }
-
-        #explain {
-            float: left;
-            margin-left: 50px;
-
-        }
-
-        #register {
-            color: blue;
-            float: right;
-            padding-right: 20px;
-
-        }
-
-        #line1 {
-            margin-top: 30px;
-            background-color: rgb(206, 206, 206);
-            height: 1px;
-        }
-
-        #search {
-            margin: 20px 20px;
-        }
-       
-        #search#cnt {
-            float: left;
-         
-           
-        }
-        #search#job {
-            float: left;
-        }
-
-        #search#career {
-            float: left;
-        }
-
-        .job-list {
-            width: 100%;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: white;
-
-        }
-
-        .job-item {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: white;
-        }
-        
-        a:visited {
-			color: black; text-decoration: none;
-		}
-		a:hover {
-			color: black; text-decoration: none; font-weight: bold;
-		}
-		a:link {
-			color: black; text-decoration: none;
-		}
-		table {
-			margin: 0 auto;
-		}
-
-        .banner {
-            padding-top: 10px;
-            padding-bottom: 30px;
-            background-color:lightgray;   
-        }
-        .content {
-            padding-top: 10px;
-            padding-bottom: 30px;   
-        }
-    
-        #fix1 {
-            position: fixed;
-            background: lightgray;
-            height: 100%;
-            position: sticky;
-            top: 0;
-            left: 0;
-            
-        }
-    </style>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/articlelist.css">
 </head>
 <body>
-    <form id="board">
+    <form id="board" action="">
     <c:set var="articleList" value="${requestScope.articleList }" />
 	<c:set var="totalCnt" value="${requestScope.totalCnt }" />
         <div id="head">
             <div id="siteimg">
-                <a href=""><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png" alt=""></a>
+                <a href=""><img src="${pageContext.request.contextPath}/resource/img/teamlogo.jpg" alt=""></a>
             </div>
             <div id="explain" style="padding-top:5px;">
                 채용공고
@@ -144,18 +52,18 @@
 
         <div class="job-list">
             
-            <div style="width:1864px;">
+            <div style="width:1950px;">
                 <div class="banner" align="left">
                     <div id="fix1" style="float:left; width:100px;" >번호</div>
-                    <div style="float:left; width:100px;" >직무</div>
-                    <div style="float:left; width:100px;" >경력</div>
+                    <div style="float:left; width:150px;" >기업이름</div>
+                    <div style="float:left; width:150px;" >직무</div>
+                    <div style="float:left; width:150px;" >경력</div>
                     <div style="float:left; width:150px;" >연봉</div>
-                    <div style="float:left; width:100px;" >지역</div>
-                    <div style="float:left; width:100px;" >채용수</div>
-                    <div style="float:left; width:150px;" >마감기한</div>
-                    <div style="float:left; width:650px;" >직무설명</div>
-                    <div style="float:left; width:100px;" >자격</div>
-                    <div style="float:left; width:100px;" >태그스택</div>
+                    <div style="float:left; width:150px;" >주소</div>
+                    <div style="float:left; width:150px;" >상세주소</div>
+                    <div style="float:left; width:200px;" >채용수</div>
+                    <div style="float:left; width:600px;" >직무설명</div>
+                    <div style="float:left; width:150px;" >자격</div>
                 </div>
 
 
@@ -163,18 +71,18 @@
                 	<c:when test="${articleList != null and fn:length(articleList) > 0 }">
                 		<c:forEach var="article" items="${articleList }">
                 			<a href="${pageContext.request.contextPath}/article/${article.id}">
-                				<div style="border-bottom:1px solid #CCD1D1;" class="content" align="left" 
+                				<div id="main" style="border-bottom:1px solid #CCD1D1; b-color:#03D069;" class="content" align="left"  
 								onmouseover="this.style.background='#bbdefb'" onmouseout="this.style.background=''" >
-									<div style="float: left; width: 100px;">${article.id }</div>
-									<div style="float: left; width: 100px;">${article.job }</div>
-									<div style="float: left; width: 100px;">${article.career }</div>
+									<div style="float: left; width: 100px; color:#03D069">${article.id }</div>
+									<div style="float: left; width: 150px;">${article.name }</div>
+									<div style="float: left; width: 150px;">${article.type }</div>
+									<div style="float: left; width: 150px;">${article.career }</div>
 									<div style="float: left; width: 150px;">${article.salary }</div>
-									<div style="float: left; width: 100px;">${article.location }</div>
-									<div style="float: left; width: 100px;">${article.need_amt }</div>
-									<div style="float: left; width: 150px;">${article.deadline }</div>
-									<div style="float: left; width: 650px;">${article.job_explain }</div>
-									<div style="float: left; width: 100px;">${article.qualify }</div>
-									<div style="float: left; width: 100px;">${article.tag_stack }</div>
+									<div style="float: left; width: 150px;">${article.district}</div>
+									<div style="float: left; width: 150px;">${article.detail_addr }</div>
+									<div style="float: left; width: 200px;">${article.need_amt }</div>
+									<div style="float: left; width: 600px;">${article.job_explain }</div>
+									<div style="float: left; width: 150px;">${article.qualify }</div>
 								</div>
                 			</a>
 							
@@ -182,7 +90,7 @@
                 	</c:when>
                 	<c:otherwise>
                 		 <div style="height: 50px;">
-                    		<div style="text-align: center; width: 1700px;">등록된 구직글이 없습니다.</div>
+                    		<div style="text-align: center; width: 1950px;">등록된 구직글이 없습니다.</div>
                			 </div>
                 	</c:otherwise>
                 </c:choose>
@@ -221,21 +129,24 @@
             </div>          
         </div>
     </form>
+    
     <script>
-		let xhr = new XMLHttpRequest();
-		
-		let job = document.getElementById("job");
-		let career = document.getElementById("career");
-		
-		xhr.open("GET", "request_search.jsp?job="+job.value+"&career="+career.value,true);
-		xhr.send();
-		xhr.onreadystatechange = function() {
-			// 응답, 성공
-			if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-				document.getElementById("result").innerHTML = xhr.responseText;
-				
-			}
-		} 
+    	function article_search(){
+    		let xhr = new XMLHttpRequest();
+    		
+    		let job = document.getElementById("job");
+    		let career = document.getElementById("career");
+    		
+    		xhr.open("post", "/article/list?job="+job.value+"&career="+career.value,false);
+    		xhr.send();
+    		xhr.onreadystatechange = function() {
+    			// 응답, 성공
+    			if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+    				document.getElementById("main").innerHTML = xhr.responseText; 				
+    			}
+    		}
+    		document.
+    	} 
 	</script>
     
 </body>
