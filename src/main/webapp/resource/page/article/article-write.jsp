@@ -12,6 +12,7 @@
     
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js" defer></script>
 	<script src="${pageContext.request.contextPath}/resource/js/kakaomap.js" defer></script>
+	<script src="${pageContext.request.contextPath}/resource/js/article-write.js" defer></script>
 	
 	
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-write.css">
@@ -188,7 +189,7 @@
                         <input type="button" id="locationbutton" onclick="execDaumPostcode()" value="우편번호 찾기">
                         <br>
                         <br>
-                        <input type="text" id="address" placeholder="주소" class="addr" name="addr">
+                        <input type="text" id="address" placeholder="주소" class="addr" name="address">
                         <br>
                         <br>
                         <input type="text" id="detail_addr" placeholder="상세주소" class="addr" name="detail_addr">

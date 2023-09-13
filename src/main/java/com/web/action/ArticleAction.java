@@ -20,7 +20,6 @@ public class ArticleAction extends ExcuteAction{
 		int no = 0;
 		if(info == null) {
 			setPath("./resource/page/article/article-write.jsp");
-			System.out.println("dddd");
 			return super.excute(req, resp);
 		} else {
 			info = info.substring(1);
