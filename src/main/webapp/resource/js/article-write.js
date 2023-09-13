@@ -32,10 +32,12 @@ console.log("👌article-write");
 	// form 데이터 구성
 	const form = e.target;
 	
-	let formData = new FormData(document.getElementById("form"));
+	let formData = new FormData(form);
 	
 	const address = form.address.value;
-	const addr1 = address.split(' ', 1).join();
+	document.writeln(address);
+	const addr1 = address.split(' ')[0];
+	document.writeln(addr1);
 	const addr2 = address.substring(addr1.length);
 	const job1 = formData.append('job',['모바일', '프론트엔드', '풀스택', '백엔드', '데이터', '언리얼엔진', 'AI', '기타']);
 	

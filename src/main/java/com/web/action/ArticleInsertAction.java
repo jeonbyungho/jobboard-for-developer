@@ -19,7 +19,6 @@ public class ArticleInsertAction extends ExcuteAction{
 		
 		article.setCompany_id(1);
 		article.setTitle(req.getParameter("title"));
-		article.setCareer(req.getParameter("career"));
 		article.setSalary(Integer.parseInt(req.getParameter("salary")));
 		article.setAddress(req.getParameter("address"));
 		article.setDetail_addr(req.getParameter("detail_addr"));
@@ -27,6 +26,11 @@ public class ArticleInsertAction extends ExcuteAction{
 		article.setJob_explain(req.getParameter("job_explain"));
 		article.setDeadline(req.getParameter("deadline"));
 		article.setQualify(req.getParameter("qualify"));
+		
+		String[] corrArr = req.getParameterValues("career");
+		String newcorrArr = String.join(", ", corrArr);
+		article.setCareer(newcorrArr);
+		
 		
 		String[] job = req.getParameterValues("job");
 		article.setJob(job);

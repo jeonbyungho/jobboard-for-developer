@@ -14,10 +14,14 @@
 </head>
 <body>
 	<c:set var="article" value="${requestScope.article }"></c:set>
-
+	<c:set var="jobs" value="${requestScope.job }"></c:set>
+	<c:set var="stacks" value="${requestScope.stack }"></c:set>
+	<c:set var="company" value="${requestScope.company }"></c:set>
+	<c:set var="addresss" value="${requestScope.address }"></c:set>
+	
     <header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
 
-	<c:set var="company" value="${requestScope.company }"></c:set>
+	
     <form action="" id="reghead" name="reghead"> <!-- head-->
         <div>
             <br>
@@ -49,7 +53,7 @@
                     직무
                 </th>
                 <td align="left">
-                    <c:forEach items="${fn:split(article.job, ',') }" var="item">
+                    <c:forEach items="${jobs}" var="item">
                     	&emsp;<span id="selectvalue" name="selectvalue">${item}</span>
                     </c:forEach>
                 </td>
@@ -83,7 +87,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="location" name="location">${article.location }</span>
+                    &emsp;<span id="location" name="location">${addresss }</span>
                 </td>
             </tr>
             <tr>
@@ -145,8 +149,8 @@
                 </th>
                 <td align="left" id="stackbody" name="stackbody">
                     <br>
-                    <c:forEach items="${fn:split(article.tag_stack, ',') }" var="item">
-                    	&emsp;<span id="stack" name="stack">${item}</span>
+                    <c:forEach items="${stacks }" var="item">
+                    	&emsp;<span id="stack" name="skill_stack">${item}</span>
                     </c:forEach>
                 </td>
             </tr>
@@ -177,7 +181,7 @@
                                 설립일
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
-                                <span id="birth">${company.birth }</span>
+                                <span id="birth">${company.esta }</span>
                             </td>
                         </tr>
                         <tr>
@@ -185,7 +189,7 @@
                                 분류
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
-                                <span id="type">${company.type }</span>
+                                <span id="type">${company.SCALE }</span>
                             </td>
                         </tr>
                         <tr>
@@ -211,15 +215,7 @@
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
                                 <br>
-                                <span id="addr" name="addr">${company.addr }</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th align="center" id="logininfohead" name="logininfohead">
-                                상세주소
-                            </th>
-                            <td align="left" id="logininfobody" name="logininfobody">
-                                <span id="detail_addr">${company.detail_addr }</span>
+                                <span id="addr" name="addr">${company.ADDRESS }</span>
                             </td>
                         </tr>
                     </table>

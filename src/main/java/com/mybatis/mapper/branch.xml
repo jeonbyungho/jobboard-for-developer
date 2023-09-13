@@ -51,6 +51,21 @@
 		)C;
 		END;
 	</insert>
+	<select id="article-select" parameterType="_int" resultType="articledto">
+		SELECT * FROM "article" a WHERE a."id" = #{id}
+	</select>
+	<select id="job-select" parameterType="_int" resultType="string">
+		SELECT j.NAME FROM JOB j WHERE j.ARTICLE_ID = #{id}
+	</select>
+	<select id="stack-select" parameterType="_int" resultType="string">
+		SELECT ss."name" FROM "skill_stack" ss WHERE ss."article_id" = #{id}
+	</select>
+	<select id="address-select" parameterType="_int" resultType="string">
+		SELECT a2.DISTRICT || a."detail_addr" AS address FROM "article" a 
+	LEFT OUTER JOIN ADDRESS a2 
+		ON a."address_id" = a2.ID
+WHERE a."id" = #{id} 
+	</select>
 </mapper>
 
 

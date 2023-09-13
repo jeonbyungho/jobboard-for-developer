@@ -30,4 +30,9 @@ public class CompanyDAO implements UserDAO<CompanyDTO>{
 		int result = sqlSession.insert("Company.sigup", map);
 		return result > 0 ? true : false;
 	}
+	
+	
+	public Map<String, String> byId(int id){
+		return sqlSession.selectOne("Company.byId", id);
+	}
 }

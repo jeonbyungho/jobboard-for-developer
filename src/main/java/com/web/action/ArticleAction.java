@@ -1,12 +1,15 @@
 package com.web.action;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dto.ArticleDTO;
 import com.dto.BranchDAO;
+import com.dto.CompanyDAO;
 
 public class ArticleAction extends ExcuteAction{
 	
@@ -27,9 +30,22 @@ public class ArticleAction extends ExcuteAction{
 			System.out.println(no);
 		}
 		BranchDAO bdao = new BranchDAO();
-		ArticleDTO adto = (ArticleDTO) bdao.article_select(no);
+		CompanyDAO cdao = new CompanyDAO();
+		ArticleDTO adto1 = (ArticleDTO) bdao.article_select(no);
+		List<String> adto2 = bdao.job_select(no);
+		List<String> adto3 = bdao.stack_select(no);
+		List<String> adto4 = bdao.address_select(no);
 		
-		req.setAttribute("article", adto);
+		Map<String, String> cmap = cdao.byId(adto1.getCompany_id());
+		for (String k : cmap.keySet()) {
+			System.out.println(k);
+		}
+		System.out.println();
+		req.setAttribute("article", adto1);
+		req.setAttribute("job", adto2);
+		req.setAttribute("stack", adto3);
+		req.setAttribute("company", cmap);
+		req.setAttribute("address", adto4);
 		
 		setPath("../resource/page/article/article-view.jsp");
 		
