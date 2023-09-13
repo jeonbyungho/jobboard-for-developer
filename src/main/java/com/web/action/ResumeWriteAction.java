@@ -21,12 +21,12 @@ public class ResumeWriteAction extends ExcuteAction {
 		HttpSession session = req.getSession();
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		
-		rdto.setUser_id(Integer.toString(member.getId()));
-		rdto.setCareer(req.getParameter("CAREER"));
-		rdto.setSchool(req.getParameter("SCHOOL"));
-		rdto.setPortfolio(req.getParameter("PORTFOLIO"));
-		rdto.setReg_date(req.getParameter("REG_DATE"));
-		rdto.setLicence(req.getParameter("LICENCE"));
+//		rdto.setUser_id(Integer.toString(member.getId()));
+//		rdto.setCareer(req.getParameter("CAREER"));
+//		rdto.setSchool(req.getParameter("SCHOOL"));
+//		rdto.setPortfolio(req.getParameter("PORTFOLIO"));
+//		rdto.setReg_date(req.getParameter("REG_DATE"));
+//		rdto.setLicence(req.getParameter("LICENCE"));
 		
 		System.out.println(rdto.toString());
 		
