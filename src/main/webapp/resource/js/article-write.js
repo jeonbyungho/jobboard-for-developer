@@ -32,12 +32,17 @@ console.log("👌article-write");
 	// form 데이터 구성
 	const form = e.target;
 	
+	let formData = new FormData(document.getElementById("form"));
+	
 	const address = form.address.value;
 	const addr1 = address.split(' ', 1).join();
 	const addr2 = address.substring(addr1.length);
-	const job1 = formdata.append('job',['모바일', '프론트엔드', '풀스택', '백엔드', '데이터', '언리얼엔진', 'AI', '기타']);
-	const carr1 = formdata.append('carr', ['신입', '경력', '인턴']);
-	const stack1 = formdata.append('stack', ['Java', 'Spring Boot', 'Spring', 'Android', 'Unreal5', 'MySQL', 'PHP', 'AJAX', 'MSSQL', 'JSP', 'Flutter', 'Python', 'R', 'Pytorch', 'Tensorflow']);
+	const job1 = formData.append('job',['모바일', '프론트엔드', '풀스택', '백엔드', '데이터', '언리얼엔진', 'AI', '기타']);
+	
+	
+	
+	const carr1 = formData.append('carr', ['신입', '경력', '인턴']);
+	const stack1 = formData.append('stack', ['Java', 'Spring Boot', 'Spring', 'Android', 'Unreal5', 'MySQL', 'PHP', 'AJAX', 'MSSQL', 'JSP', 'Flutter', 'Python', 'R', 'Pytorch', 'Tensorflow']);
 	
 	const ArticleWriteData = {
 			title : form.title.value,
@@ -50,7 +55,7 @@ console.log("👌article-write");
 			qualify : form.qualify.value,
 			stack : stack1,
 			address : addr1,
-			detail_addr : (addr2 + form.addretc.value).trim(),
+			detail_addr : (addr2 + form.detail_addr.value + form.addretc.value).trim(),
 		};
 	console.log(form.action);
 	console.table(loginData);
@@ -71,7 +76,7 @@ console.log("👌article-write");
 		
 		// 회원 가입 성공
 		if(jsonData.result == "success"){
-			alert('회원가입 성공!');
+			alert('aaaa');
 			location = jsonData.url;
 		// 실패
 		} else if(jsonData.result == "fail") alert('회원가입을 실패하였습니다.');
@@ -79,6 +84,6 @@ console.log("👌article-write");
 	// 오류 발생
 	} catch (error) {
 		console.error("Error:", error);
-		alert('알 수 없는 이유로 로그인 실패..');
+		alert('bbbb');
 	}
 }

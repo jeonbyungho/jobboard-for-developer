@@ -147,10 +147,10 @@
                         <br>
                         경력
                     </th>
-                    <td align="left" id="career" colspan="8">
+                    <td align="left" id="carr" colspan="8">
                         <br>
-                        &emsp;&emsp; 신입 <input type="checkbox" id="new" name="carr" value="신입"> &emsp;&emsp; 경력 <input type="checkbox" id="notnew" name="carr" value="경력">
-                        &emsp;&emsp; 인턴 <input type="checkbox" id="new" name="carr" value="인턴">
+                        &emsp;&emsp; 신입 <input type="checkbox" id="new" name="career" value="신입"> &emsp;&emsp; 경력 <input type="checkbox" id="notnew" name="career" value="경력">
+                        &emsp;&emsp; 인턴 <input type="checkbox" id="new" name="career" value="인턴">
                     </td>
                 </tr>
                 <tr>

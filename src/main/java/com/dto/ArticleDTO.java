@@ -3,7 +3,6 @@ package com.dto;
 import java.util.Arrays;
 
 public class ArticleDTO {
-	
 	private int id;
 	private int company_id;
 	private String title;
@@ -105,4 +104,5 @@ public class ArticleDTO {
 				+ need_amt + ", job_explain=" + job_explain + ", deadline=" + deadline + ", qualify=" + qualify
 				+ ", job=" + Arrays.toString(job) + ", skill_stack=" + Arrays.toString(skill_stack) + "]";
 	}
+	
 }
