@@ -54,23 +54,6 @@
 		)C;
 		END;
 	</insert>
-	
-	<!-- 직무 -->
-	<insert id="article-job-insert" parameterType="string">
-		INSERT INTO JOB j VALUES (
-			JOB_SEQ.nextval
-			,	(SELECT max(a.ID) FROM ARTICLE a)
-			,	#{name}
-		)
-	</insert>
-	<!-- 기술 스택 -->
-	<insert id="article-stack-insert" parameterType="string">
-		INSERT INTO SKILL_STACK ss VALUES (
-			SKILL_STACK_SEQ.nextval
-			,	(SELECT max(a.ID) FROM ARTICLE a)
-			,	#{name}
-		)
-	</insert>
 </mapper>
 
 

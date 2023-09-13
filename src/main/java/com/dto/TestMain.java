@@ -6,21 +6,22 @@ public class TestMain {
 		// action
 		// dto
 		ArticleDTO article = new ArticleDTO();
-		article.setCompany_id(2);
-		article.setTitle("테스트 구인글");
-		article.setCareer("신입");
-		article.setSalary(10000);
-		article.setAddress("경기");
-		article.setDetail_addr("경기 어딘가");
-		article.setNeed_amt(6);
-		article.setJob_explain("이런저런 요구");
-		article.setDeadline("2023-09-21");
-		article.setQualify("글자");
 		
-		String[] job = {"backend", "ai"};
+		article.setCompany_id(2);
+		article.setTitle("지금 구인글 올립니다.");
+		article.setCareer("경력, 신입");
+		article.setSalary(50000);
+		article.setAddress("인천");
+		article.setDetail_addr("인천 어딘가 상세 주소");
+		article.setNeed_amt(2);
+		article.setJob_explain("자격사항?");
+		article.setDeadline("2023-02-22");
+		article.setQualify("이런거 필요함!");
+		
+		String[] job = {"backend", "frontend","data", "ai"};
 		article.setJob(job);
 		
-		String[] skill_stack = {"java", "jsp", "servet", "c"};
+		String[] skill_stack = {"python", "c++", "jsp"};
 		article.setSkill_stack(skill_stack);
 		System.out.println(article.toString());
 		
