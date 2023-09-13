@@ -21,7 +21,7 @@ public class ResumeDAO {
 	}
 
 	public boolean save(ResumeDTO rdto) {
-		if (sqlSession.insert("Resume.write", rdto) == 1) {
+		if (sqlSession.insert("Resume.write", rdto) > 0) {
 			// 성공시
 			return true;
 		}

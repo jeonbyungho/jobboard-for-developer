@@ -1,24 +1,27 @@
 package com.dto;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class ResumeDTO {
 	private int id;
-	private String user_id;
+	private int member_id;
 	private String career;
-	private String school;
 	private String portfolio;
-	private String reg_date;
-	private String licence;
+	private List<RegDTO> reg;
+	private List<SchoolDTO> school;
+	private List<LiecenceDTO> liecence;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUser_id() {
-		return user_id;
+	public int getMember_id() {
+		return member_id;
 	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
 	}
 	public String getCareer() {
 		return career;
@@ -26,36 +29,34 @@ public class ResumeDTO {
 	public void setCareer(String career) {
 		this.career = career;
 	}
-	public String getSchool() {
-		return school;
-	}
-	public void setSchool(String school) {
-		this.school = school;
-	}
 	public String getPortfolio() {
 		return portfolio;
 	}
 	public void setPortfolio(String portfolio) {
 		this.portfolio = portfolio;
 	}
-	public String getReg_date() {
-		return reg_date;
+	public List<RegDTO> getReg() {
+		return reg;
 	}
-	public void setReg_date(String reg_date) {
-		this.reg_date = reg_date;
+	public void setReg(List<RegDTO> reg) {
+		this.reg = reg;
 	}
-	public String getLicence() {
-		return licence;
+	public List<SchoolDTO> getSchool() {
+		return school;
 	}
-	public void setLicence(String licence) {
-		this.licence = licence;
+	public void setSchool(List<SchoolDTO> school) {
+		this.school = school;
 	}
 	@Override
 	public String toString() {
-		return "ResumeDTO [id=" + id + ", user_id=" + user_id + ", career=" + career + ", school=" + school
-				+ ", portfolio=" + portfolio + ", reg_date=" + reg_date + ", licence=" + licence + "]";
+		return "ResumeDTO [id=" + id + ", member_id=" + member_id + ", career=" + career + ", portfolio=" + portfolio
+				+ ", reg=" + reg + ", school=" + school + "]";
 	}
-	
-	
-	
+	public List<LiecenceDTO> getLiecence() {
+		return liecence;
+	}
+	public void setLiecence(List<LiecenceDTO> liecence) {
+		this.liecence = liecence;
+	}
+
 }

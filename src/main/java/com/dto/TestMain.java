@@ -1,34 +1,69 @@
 package com.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestMain {
 
 	public static void main(String[] args) {
 		// action
 		// dto
-		ArticleDTO article = new ArticleDTO();
+		ResumeDAO rdao = new ResumeDAO();
+		ResumeDTO resume = new ResumeDTO();
 		
-		article.setCompany_id(2);
-		article.setTitle("지금 구인글 올립니다.");
-		article.setCareer("경력, 신입");
-		article.setSalary(50000);
-		article.setAddress("인천");
-		article.setDetail_addr("인천 어딘가 상세 주소");
-		article.setNeed_amt(2);
-		article.setJob_explain("자격사항?");
-		article.setDeadline("2023-02-22");
-		article.setQualify("이런거 필요함!");
+		resume.setMember_id(5);
+		resume.setCareer("경력");
+		resume.setPortfolio("http:local.com");
+		// 경력
+		ArrayList<RegDTO> regs = new ArrayList<RegDTO>();
+		RegDTO reg = new RegDTO();
+		reg.setName("옛날 회사");
+		reg.setJob("백엔드");
+		reg.setSwork_day("2020-01-01");
+		reg.setEwork_day("2021-01-01");
 		
-		String[] job = {"backend", "frontend","data", "ai"};
-		article.setJob(job);
+		RegDTO reg2 = new RegDTO();
+		reg2.setName("얼마전 회사");
+		reg2.setJob("풀스택");
+		reg2.setSwork_day("2021-02-01");
+		reg2.setEwork_day("2023-09-13");
 		
-		String[] skill_stack = {"python", "c++", "jsp"};
-		article.setSkill_stack(skill_stack);
-		System.out.println(article.toString());
+		regs.add(reg);
+		regs.add(reg2);
+		resume.setReg( (List<RegDTO>) regs);
 		
-		// dao
-		BranchDAO bdao = new BranchDAO();
-		boolean result = bdao.article_insert(article);
-		System.out.println("Insert 성공 여부 : " + result);
+		// 학교
+		ArrayList<SchoolDTO> sch = new ArrayList<SchoolDTO>();
+		SchoolDTO sdto = new SchoolDTO();
+		
+		sdto.setMember_id(4);
+		sdto.setRating("대학교");
+		sdto.setName("서울");
+		sdto.setDepartment("컴공");
+		sdto.setStatus("졸업예정");
+		sdto.setGrade(45);
+		
+		sch.add(sdto);
+		
+		resume.setSchool((List<SchoolDTO>) sch);
+		
+		
+		
+		//자격증
+		ArrayList<LiecenceDTO> li = new ArrayList<LiecenceDTO>();
+		LiecenceDTO ldto = new LiecenceDTO();
+		
+		ldto.setResume_id("dd");
+		ldto.setTitle("정처기");
+		li.add(ldto);
+		
+		resume.setLiecence((List<LiecenceDTO>) li);
+		// 출력
+		System.out.println(resume.toString());
+		boolean result = rdao.save(resume);
+		System.out.println(result);
 	}
+	
+		
 
 }

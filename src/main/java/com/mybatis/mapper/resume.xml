@@ -3,8 +3,48 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="Resume">
-	<insert id="write" parameterType="com.dto.ResumeDTO">
-		INSERT INTO "RESUME" VALUES
-		(resume_seq.NEXTVAL, #{user_id} , #{career} , #{school} , #{portfolio}, #{reg_date},#{licence})
+	<insert id="write" parameterType="resumedto">
+		BEGIN
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
+        	SELECT RESUME_SEQ.nextval FROM dual
+    	</selectKey> 
+    	INSERT INTO RESUME r (
+			r.ID , r.MEMBER_ID , r.CAREER , r.PORTFOLIO )
+		VALUES (
+			#{id}
+			,	#{member_id}
+			,	#{career}
+			,	#{portfolio}
+			);
+		
+		INSERT INTO REG re (
+			re.ID ,re.RESUME_ID ,re.NAME ,re.JOB ,re.SWORK_DAY ,re.EWORK_DAY )
+		SELECT REG_SEQ.nextval, A.* FROM(
+			<foreach collection="reg" item="r" separator="UNION ALL">
+				SELECT
+					#{id}, #{r.name}, #{r.job}, #{r.swork_day}, #{r.ework_day}
+				FROM dual
+			</foreach>
+		)A;
+		
+		INSERT INTO SCHOOL s (
+			s.ID, s.MEMBER_ID, s.RATING, s.NAME, s.DEPARTMENT, s.STATUS, s.GRADE)
+		SELECT SCHOOL_SEQ.nextval, B.* FROM(
+			<foreach collection="school" item="sc" separator="UNION ALL">
+				SELECT
+					 #{sc.member_id}, #{sc.rating}, #{sc.name}, #{sc.department}, #{sc.status}, #{sc.grade} 
+				FROM dual
+			</foreach>
+		)B;
+		
+		INSERT INTO LIECENCE l (
+		l.ID , l.RESUME_ID , l.TITLE)
+		SELECT LIECENCE_SEQ.nextval, C.*FROM(
+			<foreach collection="liecence" item="li" separator="UNION ALL">
+			SELECT
+				#{id} , #{li.title} FROM dual
+		</foreach>
+		)C;
+		END;
 	</insert>
 </mapper>
