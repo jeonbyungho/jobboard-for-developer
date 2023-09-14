@@ -1,6 +1,8 @@
 package com.web.action;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,13 +40,18 @@ public class ArticleListAction extends ExcuteAction{
 				
 		endPage = endPage > totalPage ? totalPage : endPage;
 		
+		List<Map<String, Object>> bo = adao.getArticleList(startRow, endRow);
+		for(Object ob : bo) {
+			System.out.println(ob.toString());
+		}
+		
 		req.setAttribute("totalPage", totalPage);
 		req.setAttribute("nowPage", page);
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);
 		
 		req.setAttribute("totalCnt", totalCnt);
-		req.setAttribute("articleList", adao.getArticleList(startRow, endRow)); 
+		req.setAttribute("articleList", bo); 
 		setRedirect(false);		
 		setPath("../resource/page/article/article-list.jsp");
 		return super.excute(req, resp);

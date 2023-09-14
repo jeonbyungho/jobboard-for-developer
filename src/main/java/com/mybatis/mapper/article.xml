@@ -4,12 +4,21 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="Article">
-	<select id="getArticleList" resultType="articledto">
+
+	<select id="getArticleList" resultType="hashmap">
 		SELECT * FROM (
-			SELECT rownum r, A.* FROM (
-				SELECT * FROM ARTICLE ORDER BY ID DESC ) A ) B
-		WHERE 	B.r BETWEEN #{startRow} AND #{endRow}
+			SELECT
+				rownum r, a.ID, c.NAME , a.TITLE, a.CAREER , a.SALARY , 
+				(SELECT ad.DISTRICT FROM ADDRESS ad WHERE ad.ID = a.ADDRESS_ID) ||' ' ||a.DETAIL_ADDR adreess,
+				a.NEED_AMT
+			FROM ARTICLE a
+			LEFT OUTER JOIN COMPANY c
+				ON a.COMPANY_ID = c.ID 
+			LEFT OUTER JOIN ADDRESS a2 
+				ON a.ADDRESS_ID = a2.ID )
+		WHERE r BETWEEN #{startRow} AND #{endRow}
 	</select>
+	
 	<select id="getArticleCnt" resultType="_int">
 		SELECT COUNT(*) FROM ARTICLE
 	</select>

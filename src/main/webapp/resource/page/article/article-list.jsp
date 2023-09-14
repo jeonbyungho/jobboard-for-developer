@@ -52,37 +52,33 @@
 
         <div class="job-list">
             
-            <div style="width:1950px;">
+            <div style="width:900px;">
                 <div class="banner" align="left">
                     <div id="fix1" style="float:left; width:100px;" >번호</div>
                     <div style="float:left; width:150px;" >기업이름</div>
+                    <div style="float:left; width:150px;" >제목</div>
                     <div style="float:left; width:150px;" >직무</div>
                     <div style="float:left; width:150px;" >경력</div>
                     <div style="float:left; width:150px;" >연봉</div>
                     <div style="float:left; width:150px;" >주소</div>
-                    <div style="float:left; width:150px;" >상세주소</div>
                     <div style="float:left; width:200px;" >채용수</div>
-                    <div style="float:left; width:600px;" >직무설명</div>
-                    <div style="float:left; width:150px;" >자격</div>
                 </div>
 
 
                 <c:choose>
                 	<c:when test="${articleList != null and fn:length(articleList) > 0 }">
                 		<c:forEach var="article" items="${articleList }">
-                			<a href="${pageContext.request.contextPath}/article/${article.id}">
+                			<a href="${pageContext.request.contextPath}/article/${article.ID}">
                 				<div id="main" style="border-bottom:1px solid #CCD1D1; b-color:#03D069;" class="content" align="left"  
 								onmouseover="this.style.background='#bbdefb'" onmouseout="this.style.background=''" >
 									<div style="float: left; width: 100px; color:#03D069">${article.id }</div>
-									<div style="float: left; width: 150px;">${article.name }</div>
-									<div style="float: left; width: 150px;">${article.type }</div>
-									<div style="float: left; width: 150px;">${article.career }</div>
-									<div style="float: left; width: 150px;">${article.salary }</div>
-									<div style="float: left; width: 150px;">${article.district}</div>
-									<div style="float: left; width: 150px;">${article.detail_addr }</div>
-									<div style="float: left; width: 200px;">${article.need_amt }</div>
-									<div style="float: left; width: 600px;">${article.job_explain }</div>
-									<div style="float: left; width: 150px;">${article.qualify }</div>
+									<div style="float: left; width: 150px;">${article.R }</div>
+									<div style="float: left; width: 150px;">${article.NAME }</div>
+									<div style="float: left; width: 150px;">${article.TITLE }</div>
+									<div style="float: left; width: 150px;">${article.CAREER }</div>
+									<div style="float: left; width: 150px;">${article.SALARY }</div>
+									<div style="float: left; width: 150px;">${article.ADREESS}</div>
+									<div style="float: left; width: 200spx;">${article.NEED_AMT }</div>
 								</div>
                 			</a>
 							

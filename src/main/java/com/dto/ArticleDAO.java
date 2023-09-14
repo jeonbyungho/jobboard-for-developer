@@ -2,6 +2,7 @@ package com.dto;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -17,12 +18,12 @@ public class ArticleDAO {
 		sqlSession = factory.openSession(true);
 	}
 	
-	public List<ArticleDTO> getArticleList(int startRow, int endRow) {
+	public List<Map<String, Object>> getArticleList(int startRow, int endRow) {
 		HashMap<String, Integer> datas = new HashMap<>();
 		datas.put("startRow", startRow);
 		datas.put("endRow", endRow);
 		
-		List<ArticleDTO> list = 
+		List<Map<String, Object>> list = 
 				sqlSession.selectList("Article.getArticleList", datas);
 		return list;
 	}
