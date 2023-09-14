@@ -108,54 +108,59 @@
             </div>
         </div>
     </fieldset>
-    <!-- 경력부분 -->
-    <fieldset>
-        <div class="box">
-            <div id="career_now" class="content-section">
-                <h2 class="career">경력</h2>
-                <input type="checkbox" id="careerNowRoot">
-                <label for="careerNowRoot">정보열기</label>
-                <ul id="careerNowList">
-                    <!-- 이 부분에 추가된 리스트 아이템이 표시됩니다. -->
-                </ul>
-                <label for="PORTFOLIO">Portfolio:</label>
-                <input type="text" id="PORTFOLIO" name="PORTFOLIO" required><br><br>
-                <button type="button" class="editButton">추가/수정하기</button>
-            </div>
-        </div>
-    </fieldset>
-
-  	<fieldset>
-        <div class="box">
-            <div id="reg_date" class="content-section">
-                <h2 class="career">reg_date</h2>
-                <input type="checkbox" id="reg_dateRoot">
-                <label for="reg_dateRoot">정보열기</label>
-                <ul id="reg_dateList">
-                    <!-- 이 부분에 추가된 리스트 아이템이 표시됩니다. -->
-                </ul>
-                <label for="PORTFOLIO">자격증:</label>
-                <input type="text" id="REG_DATE" name="REG_DATE" required><br><br>
-                <button type="button" class="editButton">추가/수정하기</button>
-            </div>
-        </div>
-    	</fieldset>
-    	
-    <fieldset>
-        <div class="box">
-            <div id="license" class="content-section">
-                <h2 class="career">경력</h2>
-                <input type="checkbox" id="licenseRoot">
-                <label for="licenseRoot">정보열기</label>
-                <ul id="licenseList">
-                    <!-- 이 부분에 추가된 리스트 아이템이 표시됩니다. -->
-                </ul>
-                <label for="PORTFOLIO">자격증:</label>
-                <input type="text" id="LICENCE" name="LICENCE" required><br><br>
-                <button type="button" class="editButton">추가/수정하기</button>
-            </div>
-        </div>
-    </fieldset>
+	<!-- 포트폴리오 부분 -->
+		<fieldset>
+			<div class="box">
+				<div id="portfolio" class="content-section">
+					<h2 class="portfolio">포트폴리오</h2>
+					<input type="checkbox" id="portfolioRoot"> <label
+						for="portfolioRoot">정보열기</label>
+					<ul id="portfolioList">
+						<!-- 이 부분에 추가된 리스트 아이템이 표시됩니다. -->
+					</ul>
+					<input type="text" id="PORTFOLIO" name="PORTFOLIO" required><br>
+					<br>
+					<button type="button" class="editButton">추가하기</button>
+					<button type="button" class="deleteButton">삭제하기</button>
+				</div>
+			</div>
+		</fieldset>
+	
+	<!-- 경력 -->
+	<fieldset>
+			<div class="box">
+				<div id="reg_date" class="content-section">
+					<h2 class="reg_date">경력 사항</h2>
+					<input type="checkbox" id="reg_date"> <label
+						for="reg_dateRoot">정보열기</label>
+					<ul id="reg_dateList">
+						<!-- 이 부분에 추가된 리스트 아이템이 표시됩니다. -->
+					</ul>
+					<input type="text" id="REG_DATE" name="REG_DATE" required><br>
+					<br>
+					<button type="button" class="editButton">추가하기</button>
+					<button type="button" class="deleteButton">삭제하기</button>
+				</div>
+			</div>
+		</fieldset>
+    
+    <!-- 자격증 -->
+	<fieldset>
+			<div class="box">
+				<div id="license" class="content-section">
+					<h2 class="license">보유 자격증</h2>
+					<input type="checkbox" id="licenseRoot"> <label
+						for="licenseRoot">정보열기</label>
+					<ul id="licenseList">
+						<!-- 이 부분에 추가된 리스트 아이템이 표시됩니다. -->
+					</ul>
+					<input type="text" id="LICENCE" name="LICENCE" required><br>
+					<br>
+					<button type="button" class="editButton">추가하기</button>
+					<button type="button" class="deleteButton">삭제하기</button>
+				</div>
+			</div>
+		</fieldset>
     <!-- 이력서 하단 부분 -->
     <div class="resume_btm">
         <section id="resume_title">
@@ -205,4 +210,3 @@
     
 </body>
 </html>
-	

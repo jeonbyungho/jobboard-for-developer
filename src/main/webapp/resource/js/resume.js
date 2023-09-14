@@ -50,26 +50,31 @@ const schoolList = document.querySelector("#school_endList");
 schoolEditButton.addEventListener("click", () => {
 	const schoolInputElement = document.getElementById("SCHOOL");
 	const schoolListItem = document.createElement("li");
+
 	const rating = document.createElement("input");
 	rating.setAttribute('name', 'rating');
+
 	const schoolName = document.createElement("input");
 	schoolName.setAttribute('name', 'schoolName');
+
 	const department = document.createElement("input");
 	department.setAttribute('name', 'department');
+
 	const status = document.createElement("input");
 	status.setAttribute('name', 'status');
+
 	const grade = document.createElement("input");
 	grade.setAttribute('name', 'grade');
+
 	schoolListItem.innerHTML = `
         <input type="checkbox">
         ${schoolInputElement.value}
     `;
-	schoolList.appendChild(schoolListItem);
-	schoolListItem.append(rating);
-	schoolListItem.append(schoolName);
-	schoolListItem.append(department);
-	schoolListItem.append(status);
-	schoolListItem.append(grade);
+	schoolListItem.appendChild(schoolRatingInput);
+	schoolListItem.appendChild(schoolNameInput);
+	schoolListItem.appendChild(departmentInput);
+	schoolListItem.appendChild(statusInput);
+	schoolListItem.appendChild(gradeInput);
 	schoolInputElement.value = ""; // 입력 필드 초기화
 });
 
@@ -117,26 +122,31 @@ const regDateDeleteButton = document.querySelector("#reg_date .deleteButton");
 const regDateList = document.querySelector("#reg_dateList");
 
 regDateEditButton.addEventListener("click", () => {
+	const regDateInputElement = document.getElementById("REG_DATE");
 	const regDateListItem = document.createElement("li");
-	const regName = document.createElement("input"); // 변수명 수정
-	regName.setAttribute('name', 'regName');
-	const regJob = document.createElement("input"); // 변수명 수정
+
+	const regname = document.createElement("input");
+	regname.setAttribute('name', 'regName');
+
+	const regJob = document.createElement("input");
 	regJob.setAttribute('name', 'regJob');
-	const regSword_day = document.createElement("input"); // 변수명 수정
+
+	const regSword_day = document.createElement("input");
 	regSword_day.setAttribute('name', 'regSword_day');
-	const regEword_day = document.createElement("input"); // 변수명 수정
+
+	const regEword_day = document.createElement("input");
 	regEword_day.setAttribute('name', 'regEword_day');
-	const rating = document.createElement("input");
-	rating.setAttribute('name', 'rating');
 
-	//regDateList.appendChild(regDateListItem);
-	regDateListItem.appendChild(regName);
-	regDateListItem.appendChild(regJob);
-	regDateListItem.appendChild(regSword_day);
-	regDateListItem.appendChild(regEword_day);
-	regDateListItem.appendChild(rating);
-
+	regDateListItem.innerHTML = `
+        <input type="checkbox">
+        ${regDateInputElement.value}
+    `;
 	regDateList.appendChild(regDateListItem);
+	regDateListItem.append(regName);
+	regDateListItem.append(regJob);
+	regDateListItem.append(regSword_day);
+	regDateListItem.append(regEword_day);
+	regDateInputElement.value = ""; // 입력 필드 초기화
 });
 
 regDateDeleteButton.addEventListener("click", () => {
@@ -158,15 +168,15 @@ const licenseList = document.querySelector("#licenseList");
 licenseEditButton.addEventListener("click", () => {
 	const licenseInputElement = document.getElementById("LICENCE");
 	const licenseListItem = document.createElement("li");
-	const title = document.createElement("input");
-	title.setAttribute('name', 'licensetitle');
-	licenseList.appendChild(title);
 
+	const titleInput = document.createElement("input");
+	titleInput.setAttribute('name', 'licenseTitle');
 	licenseListItem.innerHTML = `
         <input type="checkbox">
         ${licenseInputElement.value}
     `;
 	licenseList.appendChild(licenseListItem);
+	licenseListItem.appendChild(titleInput);
 	licenseInputElement.value = ""; // 입력 필드 초기화
 });
 
@@ -182,68 +192,72 @@ licenseDeleteButton.addEventListener("click", () => {
 });
 
 
- //폼 제출 버튼 선택
-const submitButton = document.querySelector(".result");
-
+//// 폼 제출 버튼 선택
+//const submitButton = document.querySelector(".result");
+//
 //// 폼 제출 이벤트 핸들러 등록
-submitButton.addEventListener("click", function (e) {
-//    // 각 필드의 값을 가져와서 검증
-    const careerValue = document.getElementById("CAREER").value.trim();
-    const schoolValue = document.getElementById("SCHOOL").value.trim();
-    const portfolioValue = document.getElementById("PORTFOLIO").value.trim();
-    const regDateValue = document.getElementById("REG_DATE").value.trim();
-    const licenceValue = document.getElementById("LICENCE").value.trim();
+//submitButton.addEventListener("click", function(e) {
+//	// 각 필드의 값을 가져와서 검증
+//	const careerValue = document.getElementById("CAREER").value.trim();
+//	const schoolValue = document.getElementById("SCHOOL").value.trim();
+//	const portfolioValue = document.getElementById("PORTFOLIO").value.trim();
+//	const regDateValue = document.getElementById("REG_DATE").value.trim();
+//	const licenceValue = document.getElementById("LICENCE").value.trim();
+//
+//	if (!careerValue || !schoolValue || !portfolioValue || !regDateValue || !licenceValue) {
+//		// 하나 이상의 필드가 비어 있을 경우 제출을 중단하고 에러 메시지 표시
+//		alert("모든 항목을 입력해주세요.");
+//		e.preventDefault(); // 제출 중단
+//	}
+//});
 
-    if (!careerValue || !schoolValue || !portfolioValue || !regDateValue || !licenceValue) {
-        // 하나 이상의 필드가 비어 있을 경우 제출을 중단하고 에러 메시지 표시
-        alert("모든 항목을 입력해주세요.");
-        e.preventDefault(); // 제출 중단
-    }
-});
+//// resume.js
+//
+//function validateCareer() {
+//	var careerTag = document.getElementById("CAREER");
+//
+//	if (careerTag.value === "") {
+//		alert("직군을 입력하세요");
+//		careerTag.focus();
+//	}
+//}
+//
+//function validateSchool() {
+//	var schoolTag = document.getElementById("SCHOOL");
+//
+//	if (schoolTag.value === "") {
+//		alert("학력을 입력하세요");
+//		schoolTag.focus();
+//	}
+//}
+//
+//function validatePortfolio() {
+//	var portfolioTag = document.getElementById("PORTFOLIO");
+//
+//	if (portfolioTag.value === "") {
+//		alert("포트폴리오를 입력하세요");
+//		portfolioTag.focus();
+//	}
+//}
+//
+//function validateRegDate() {
+//	var regDateTag = document.getElementById("REG_DATE");
+//
+//	if (regDateTag.value === "") {
+//		alert("경력 사항을 입력하세요");
+//		regDateTag.focus();
+//	}
+//}
+//
+//function validateLicence() {
+//	var licenceTag = document.getElementById("LICENCE");
+//
+//	if (licenceTag.value === "") {
+//		alert("자격증 정보를 입력하세요");
+//		licenceTag.focus();
+//	}
+//}
+//
 
-// resume.js
 
-function validateCareer() {
-    var careerTag = document.getElementById("CAREER");
 
-    if (careerTag.value === "") {
-        alert("직군을 입력하세요");
-        careerTag.focus();
-    }
-}
-
-function validateSchool() {
-    var schoolTag = document.getElementById("SCHOOL");
-
-    if (schoolTag.value === "") {
-        alert("학력을 입력하세요");
-        schoolTag.focus();
-    }
-}
-
-function validatePortfolio() {
-    var portfolioTag = document.getElementById("PORTFOLIO");
-
-    if (portfolioTag.value === "") {
-        alert("포트폴리오를 입력하세요");
-        portfolioTag.focus();
-    }
-}
-
-function validateRegDate() {
-    var regDateTag = document.getElementById("REG_DATE");
-
-    if (regDateTag.value === "") {
-        alert("경력 사항을 입력하세요");
-        regDateTag.focus();
-    }
-}
-
-function validateLicence() {
-    var licenceTag = document.getElementById("LICENCE");
-
-    if (licenceTag.value === "") {
-        alert("자격증 정보를 입력하세요");
-        licenceTag.focus();
-    }
-}
