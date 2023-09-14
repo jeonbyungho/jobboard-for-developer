@@ -19,10 +19,6 @@ public class MainAction extends ExcuteAction{
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 		System.out.println("메인 페이지 실행!");
 		
-		ArticleDAO adao = new ArticleDAO();
-		List<ArticleDTO> articleList = adao.getArticleList(1, 10);
-		
-		req.setAttribute("articleList", articleList);
 		return super.excute(req, resp);
 	}
 }

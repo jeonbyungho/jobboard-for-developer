@@ -37,4 +37,16 @@
 			,	#{content}
 		)
  	</insert>
+ 	
+ 	<select id="byId" parameterType="_int" resultType="hashmap">
+ 		SELECT 
+ 			c."company_no" , c."name" , c."esta" , cs."title" as scale , 
+ 			c."employee_no" , c."ceo" , a.DISTRICT || c."detail_addr" AS address, c."content", c."url"  
+		FROM COMPANY c
+		LEFT OUTER JOIN ADDRESS a
+			ON c."address_id" = a.ID 
+		LEFT OUTER JOIN "c_scale" cs 
+			ON c."c_scale_id" = cs."id"
+		WHERE c."id" = #{id}
+ 	</select>
  </mapper>

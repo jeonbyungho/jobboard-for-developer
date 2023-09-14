@@ -7,33 +7,41 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dto.ArticleDTO;
 import com.dto.BranchDAO;
+import com.dto.JobDTO;
+import com.dto.StackDTO;
 
 public class ArticleInsertAction extends ExcuteAction{
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
-//		BranchDAO bdao = new BranchDAO();
-//		ArticleDTO adto = new ArticleDTO();
-//		String[] jobArr = req.getParameterValues("job");
-//		String newjobArr = String.join(",", jobArr);
-//		String[] corrArr = req.getParameterValues("carr");
-//		String newcorrArr = String.join(",", corrArr);
-//		String[] stackArr = req.getParameterValues("stack");
-//		String newstackArr = String.join(",", stackArr);
-//		
-//		adto.setTitle(req.getParameter("title"));
-//		adto.setSalary(req.getParameter("salary"));
-//		adto.setNeed_amt(req.getParameter("need_amt"));
-//		adto.setJob_explain(req.getParameter("job_explain"));
-//		adto.setQualify(req.getParameter("qualify"));
-//		adto.setDeadline(req.getParameter("deadline"));
-//		adto.setLocation(req.getParameter("location"));
-//		adto.setJob(newjobArr);
-//		adto.setCareer(newcorrArr);
-//		adto.setTag_stack(newstackArr);
-		
 		BranchDAO bdao = new BranchDAO();
 		ArticleDTO article = new ArticleDTO();
+		
+		article.setCompany_id(1);
+		article.setTitle(req.getParameter("title"));
+		article.setSalary(Integer.parseInt(req.getParameter("salary")));
+		article.setAddress(req.getParameter("address"));
+		article.setDetail_addr(req.getParameter("detail_addr"));
+		article.setNeed_amt(Integer.parseInt(req.getParameter("need_amt")));
+		article.setJob_explain(req.getParameter("job_explain"));
+		article.setDeadline(req.getParameter("deadline"));
+		article.setQualify(req.getParameter("qualify"));
+		
+		String[] corrArr = req.getParameterValues("career");
+		String newcorrArr = String.join(", ", corrArr);
+		article.setCareer(newcorrArr);
+		
+		
+		String[] job = req.getParameterValues("job");
+		article.setJob(job);
+		
+		String[] skill_stack = req.getParameterValues("stack");
+		article.setSkill_stack(skill_stack);
+		System.out.println(article.toString());
+		
+		boolean result = bdao.article_insert(article);
+		// dao
+		System.out.println("Insert 성공 여부 : " + result);
 		
 		setRedirect(true);
 		

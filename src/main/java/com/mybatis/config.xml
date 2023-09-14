@@ -10,6 +10,9 @@
 	<typeAlias type="com.dto.ResumeDTO" alias="resumedto"/>
 	<typeAlias type="com.dto.ArticleDTO" alias="articledto"/>
 	<typeAlias type="com.dto.CompanyDTO" alias="companydto"/>
+	<typeAlias type="com.dto.ComDTO" alias="comdto"/>
+	<typeAlias type="com.dto.StackDTO" alias="stackdto"/>
+	<typeAlias type="com.dto.JobDTO" alias="jobdto"/>
 </typeAliases>
 
 <!-- JDBC Connection 세팅 -->
