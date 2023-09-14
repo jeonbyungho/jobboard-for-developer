@@ -1,0 +1,92 @@
+/*article-list.jsp의 css*/ 
+		#head {
+            padding: 20px 0 20px 10px;
+        }
+
+        #siteimg {
+            float: left;
+        }
+
+        #explain {
+            float: left;
+            margin-left: 50px;
+
+        }
+
+        #register {
+            color: blue;
+            float: right;
+            padding-right: 20px;
+
+        }
+
+        #line1 {
+            margin-top: 40px;
+            width: 1950px;
+            background-color:#03D069;
+            height: 1px;
+        }
+
+        #search {
+            margin: 20px 20px;
+        }
+       
+        #search#cnt {
+            float: left;
+         
+           
+        }
+        #search#job {
+            float: left;
+        }
+
+        #search#career {
+            float: left;
+        }
+
+        .job-list {
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+
+        }
+
+        .job-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+        }
+        
+        a:visited {
+			color: black; text-decoration: none;
+		}
+		a:hover {
+			color: black; text-decoration: none; font-weight: bold;
+		}
+		a:link {
+			color: black; text-decoration: none;
+		}
+		table {
+			margin: 0 auto;
+		}
+
+        .banner {
+            padding-top: 10px;
+            padding-bottom: 30px;
+            background-color:#03D069;   
+        }
+        .content {
+            padding-top: 10px;
+            padding-bottom: 30px;   
+        }
+    
+        #fix1 {
+            position: fixed;
+            height: 100%;
+            position: sticky;
+            top: 0;
+            left: 0;
+            
+        }
