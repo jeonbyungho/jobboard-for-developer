@@ -1,13 +1,9 @@
 package com.web.action;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.dto.ArticleDAO;
-import com.dto.ArticleDTO;
 
 public class MainAction extends ExcuteAction{
 	

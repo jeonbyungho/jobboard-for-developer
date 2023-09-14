@@ -1,6 +1,5 @@
 package com.dto;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class ResumeDTO {

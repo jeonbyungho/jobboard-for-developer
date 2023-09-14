@@ -12,7 +12,6 @@ import org.json.simple.JSONObject;
 import com.dto.ArticleDTO;
 import com.dto.BranchDAO;
 import com.dto.CompanyDTO;
-import com.dto.UserDTO;
 
 public class ArticleInsertAction extends ExcuteAction{
 	@Override
