@@ -77,6 +77,11 @@
 				ON a.ADDRESS_ID = a2.ID
 		WHERE a.ID = #{id} 
 	</select>
+	
+	<!-- 가장 최신 글 조회 -->
+	<select id="article-idmax" resultType="int">
+		SELECT max(a.ID) FROM ARTICLE a
+	</select>
 </mapper>
 
 
