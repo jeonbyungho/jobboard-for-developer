@@ -15,7 +15,7 @@ public class TestMain {
 		resume.setCareer("경력");
 		resume.setPortfolio("http:local.com");
 		// 경력
-		ArrayList<RegDTO> regs = new ArrayList<RegDTO>();
+		List<RegDTO> regs = new ArrayList<RegDTO>();
 		RegDTO reg = new RegDTO();
 		reg.setName("옛날 회사");
 		reg.setJob("백엔드");
@@ -33,7 +33,7 @@ public class TestMain {
 		resume.setReg( (List<RegDTO>) regs);
 		
 		// 학교
-		ArrayList<SchoolDTO> sch = new ArrayList<SchoolDTO>();
+		List<SchoolDTO> sch = new ArrayList<SchoolDTO>();
 		SchoolDTO sdto = new SchoolDTO();
 		
 		sdto.setMember_id(4);
@@ -50,7 +50,7 @@ public class TestMain {
 		
 		
 		//자격증
-		ArrayList<LiecenceDTO> li = new ArrayList<LiecenceDTO>();
+		List<LiecenceDTO> li = new ArrayList<LiecenceDTO>();
 		LiecenceDTO ldto = new LiecenceDTO();
 		
 		ldto.setResume_id("dd");

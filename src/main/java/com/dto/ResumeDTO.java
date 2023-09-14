@@ -47,16 +47,16 @@ public class ResumeDTO {
 	public void setSchool(List<SchoolDTO> school) {
 		this.school = school;
 	}
-	@Override
-	public String toString() {
-		return "ResumeDTO [id=" + id + ", member_id=" + member_id + ", career=" + career + ", portfolio=" + portfolio
-				+ ", reg=" + reg + ", school=" + school + "]";
-	}
 	public List<LiecenceDTO> getLiecence() {
 		return liecence;
 	}
 	public void setLiecence(List<LiecenceDTO> liecence) {
 		this.liecence = liecence;
+	}
+	@Override
+	public String toString() {
+		return "ResumeDTO [id=" + id + ", member_id=" + member_id + ", career=" + career + ", portfolio=" + portfolio
+				+ ", reg=" + reg + ", school=" + school + ", liecence=" + liecence + "]";
 	}
 
 }
