@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dto.ArticleDTO;
 import com.dto.BranchDAO;
-import com.dto.JobDTO;
-import com.dto.StackDTO;
 
 public class ArticleInsertAction extends ExcuteAction{
 	@Override

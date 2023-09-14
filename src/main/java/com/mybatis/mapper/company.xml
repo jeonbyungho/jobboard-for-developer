@@ -40,13 +40,14 @@
  	
  	<select id="byId" parameterType="_int" resultType="hashmap">
  		SELECT 
- 			c."company_no" , c."name" , c."esta" , cs."title" as scale , 
- 			c."employee_no" , c."ceo" , a.DISTRICT || c."detail_addr" AS address, c."content", c."url"  
+			c.COMPANY_NO , c.NAME , c.ESTA , cs.TITLE as scale , 
+			c.EMPLOYEE_NO , c.CEO , a.DISTRICT || ' ' || c.DETAIL_ADDR AS address, 
+			c.CONTENT , c.URL 
 		FROM COMPANY c
 		LEFT OUTER JOIN ADDRESS a
-			ON c."address_id" = a.ID 
-		LEFT OUTER JOIN "c_scale" cs 
-			ON c."c_scale_id" = cs."id"
-		WHERE c."id" = #{id}
+			ON c.ADDRESS_ID = a.ID 
+		LEFT OUTER JOIN C_SCALE cs
+			ON c.C_SCALE_ID = cs.ID 
+		WHERE c.ID = #{id}
  	</select>
  </mapper>
