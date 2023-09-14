@@ -17,13 +17,12 @@ public class BranchDAO {
 	}
 
 	public boolean article_insert(ArticleDTO adto) {
-		boolean result = false;
-		
-		if(sqlSession.insert("Branch.article-insert", adto) >= 1) {
-			result = true;
+		try {
+			sqlSession.insert("Branch.article-insert", adto);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		return result;
+		return false;
 	}
 
 	public Object article_select(int id) {
