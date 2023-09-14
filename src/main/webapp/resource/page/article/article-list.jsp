@@ -42,7 +42,7 @@
                 <option value="senior">경력</option>
                 <option value="intern">인턴</option>
             </select>
-            <input type=button value="검색" onclick = "article_search();"/>
+            <input type=button value="검색" onclick = "article_search();"/> <!-- 이 버튼을 누르면 비동기로 게시판 목록을 갱신해줘. -->
             <span id="cnt">
                 &emsp; 글 개수 ${totalCnt } 개
             </span>
@@ -132,20 +132,7 @@
     
     <script>
     	function article_search(){
-    		let xhr = new XMLHttpRequest();
-    		
-    		let job = document.getElementById("job");
-    		let career = document.getElementById("career");
-    		
-    		xhr.open("post", "/article/list?job="+job.value+"&career="+career.value,false);
-    		xhr.send();
-    		xhr.onreadystatechange = function() {
-    			// 응답, 성공
-    			if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-    				document.getElementById("main").innerHTML = xhr.responseText; 				
-    			}
-    		}
-    		document.
+    		/* 비동기로 구현. */
     	} 
 	</script>
     
