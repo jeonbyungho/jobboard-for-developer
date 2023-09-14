@@ -4,24 +4,23 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="Article">
-	<select id="getArticleList" resultType="articledto">
+
+	<select id="getArticleList" resultType="hashmap">
 		SELECT * FROM (
-			SELECT rownum r, A.* FROM 
-			(	SELECT * FROM "article" a
-				INNER JOIN COMPANY c ON a."company_id"=c."id"  
-				INNER JOIN "job" j ON a."job_id"=j."id" 
-				INNER JOIN "address" a2 ON a."address_id"=a2."id"
-			) A 
-		) B
-		WHERE 	B.r BETWEEN #{startRow} AND #{endRow}
+			SELECT
+				rownum r, a.ID, c.NAME , a.TITLE, a.CAREER , a.SALARY , 
+				(SELECT ad.DISTRICT FROM ADDRESS ad WHERE ad.ID = a.ADDRESS_ID) ||' ' ||a.DETAIL_ADDR adreess,
+				a.NEED_AMT
+			FROM ARTICLE a
+			LEFT OUTER JOIN COMPANY c
+				ON a.COMPANY_ID = c.ID 
+			LEFT OUTER JOIN ADDRESS a2 
+				ON a.ADDRESS_ID = a2.ID )
+		WHERE r BETWEEN #{startRow} AND #{endRow}
 	</select>
+	
 	<select id="getArticleCnt" resultType="_int">
-		SELECT COUNT(*) FROM "article"
+		SELECT COUNT(*) FROM ARTICLE
 	</select>
-	<!-- <select id="getSelectedCnt" resultType="_int">
-		SELECT COUNT(*) FROM ARTICLE where job=#{job} AND career=#{career}
-	</select> -->
-	<select id="searchArticle" parameterType="hashmap" resultType="articledto">
-		SELECT * FROM ARTICLE a WHERE job =#{job} AND CAREER =#{career}
-	</select>
+	
 </mapper>

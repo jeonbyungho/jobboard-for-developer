@@ -3,20 +3,57 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Branch">
+	
+	<!-- 구인글 생성 -->
 	<insert id="article-insert" parameterType="articledto">
-		INSERT INTO ARTICLE a VALUES (article_seq.nextval, #{job}, #{career}, #{salary}, 
-									#{location}, #{need_amt}, #{deadline}, #{job_explain}, #{qualify},#{tag_stack})
+		BEGIN
+		<selectKey resultType="int" keyProperty="id" order="BEFORE">
+        	SELECT ARTICLE_SEQ.nextval FROM dual
+    	</selectKey> 
+		INSERT INTO ARTICLE a VALUES (
+			#{id}
+			,	#{company_id}
+			,	#{title}
+			,	#{career}
+			,	#{salary}
+			,	(SELECT ad.ID FROM ADDRESS ad WHERE ad.DISTRICT = #{address})
+			,	#{detail_addr}
+			,	#{need_amt}
+			,	#{job_explain}
+			,	#{deadline}
+			,	#{qualify}
+		)
+		;
+		
+		INSERT INTO JOB j (
+			j.ID ,
+			j.ARTICLE_ID ,
+			j.NAME 
+		)
+		SELECT JOB_SEQ.nextval, B.* from (
+			<foreach collection="job" item="name" separator="UNION ALL">
+				SELECT
+					#{id},
+					#{name}
+				FROM dual
+			</foreach>
+		)B;
+		
+		INSERT INTO SKILL_STACK ss (
+			ss.ID ,
+			ss.ARTICLE_ID ,
+			ss.NAME 
+		)
+		SELECT JOB_SEQ.nextval, C.* from (
+			<foreach collection="skill_stack" item="name" separator="UNION ALL">
+				SELECT
+					#{id},
+					#{name}
+				FROM dual
+			</foreach>
+		)C;
+		END;
 	</insert>
-	<insert id="company-insert" parameterType="articledto">
-		INSERT INTO COMPANY c VALUES (company_seq.nextval, #{company_no}, #{password}, #{name}, #{birth}, #{type}, #{employee_no}, #{sale}, #{ceo},
-							#{url}, #{addr}, ${detail_addr})
-	</insert>
-	<select id="company-select" parameterType="_int" resultType="companydto">
-		SELECT * FROM COMPANY c WHERE ID = #{id}
-	</select>
-	<select id="article-select" parameterType="_int" resultType="companydto">
-		SELECT * FROM ARTICLE a WHERE ID = #{id}
-	</select>
 </mapper>
 
 

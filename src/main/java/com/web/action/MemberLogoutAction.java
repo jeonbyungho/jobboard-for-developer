@@ -1,6 +1,7 @@
 package com.web.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,19 +13,21 @@ public class MemberLogoutAction extends ExcuteAction{
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HttpSession session = req.getSession();
-		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		Object member = session.getAttribute("member");
+		
+		PrintWriter out = resp.getWriter();
+		String result;
 		
 		if(member != null) {
-			System.out.println(member.toString() + " 로그아웃!");
 			session.removeAttribute("member");
-			
-            session.setAttribute("logout", "success");
-			setRedirect(true);
-			setPath(req.getContextPath() + "/");
+			System.out.println("로그아웃 : " + member.toString());
+			result = "success";
 		} else {
-			System.out.println("Error:로그인되지 않는 상태로 로그아웃 시도!");
+			System.out.println("로그인 없이, 로그아웃 시도함.");
+			result = "fail";
 		}
 		
+		out.print(result);
 		return super.excute(req, resp);
 	}
 }

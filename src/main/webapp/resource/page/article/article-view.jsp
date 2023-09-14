@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>     
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,31 +10,32 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-view.css">
+	<link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
 </head>
 <body>
+	<c:set var="article" value="${requestScope.article }"></c:set>
+
+    <header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
+
+	<c:set var="company" value="${requestScope.company }"></c:set>
     <form action="" id="reghead" name="reghead"> <!-- head-->
         <div>
             <br>
-            <div id="siteimg" name="siteimg">
-                <a href="/index.jsp"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png" alt=""></a>
-            </div>
-            <div id="login" name="login">
-                 &emsp;<a href="">로그인</a>&emsp;&emsp;<a href="">회원가입</a>
-            </div>
         </div>
         <br>
         <div id="headbox" name="headbox">
             <!-- 빈 라인 -->
         </div>
     </form>
+
     <form action="" id="body" name="body">
         <div id="jobname" name="jobname">
             <br>
-            <span id="name" name="name">구직글 올린 기업명</span>
+            <span id="name" name="name">${company.name }</span>
         </div>
         <br>
         <div id="jobtitle" name="jobtitle">
-            <span id="title">구직글에 작성한 제목</span>
+            <span id="title">${article.title }</span>
         </div>
         <div id="bodybox" name="bodybox">
             <!-- 빈 라인 -->
@@ -46,7 +49,9 @@
                     직무
                 </th>
                 <td align="left">
-                    &emsp;<span id="selectvalue" name="selectvalue">선택한 직무나옴(for문)</span>
+                    <c:forEach items="${fn:split(article.job, ',') }" var="item">
+                    	&emsp;<span id="selectvalue" name="selectvalue">${item}</span>
+                    </c:forEach>
                 </td>
             </tr>
             <tr>
@@ -56,7 +61,9 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="career" name="career">선택한 경력나옴(for문)</span>
+                    <c:forEach items="${fn:split(article.career, ',') }" var="item">
+                    	&emsp;<span id="career" name="career">${item}</span>
+                    </c:forEach>
                 </td>
             </tr>
             <tr>
@@ -66,7 +73,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="sales" name="sales">작성한 급여나옴</span>
+                    &emsp;<span id="sales" name="sales">${article.salary }</span>만원
                 </td>
             </tr>
             <tr>
@@ -76,7 +83,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="location" name="location">선택한 지역 나옴</span>
+                    &emsp;<span id="location" name="location">${article.location }</span>
                 </td>
             </tr>
             <tr>
@@ -86,7 +93,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="need_amt" name="need_amt">작성한 모집인원 나옴</span>
+                    &emsp;<span id="need_amt" name="need_amt">${article.need_amt }</span>명
                 </td>
             </tr>
             <tr>
@@ -96,7 +103,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="date" name="date">선택한 마감일 나옴</span>
+                    &emsp;<span id="date" name="date">${article.deadline.substring(0,10) }</span>
                 </td>
             </tr>
         </table>
@@ -112,7 +119,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="job_explain" name="job_explain">작성한 직무소개 나옴</span>
+                    &emsp;<span id="job_explain" name="job_explain">${article.job_explain }</span>
                 </td>
             </tr>
             <tr>
@@ -122,7 +129,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="qualify" name="qualify">작성한 자격요건 나옴</span>
+                    &emsp;<span id="qualify" name="qualify">${article.qualify }</span>
                 </td>
             </tr>
         </table>
@@ -138,7 +145,9 @@
                 </th>
                 <td align="left" id="stackbody" name="stackbody">
                     <br>
-                    &emsp;<span id="stack" name="stack">선택한 스택나옴(for문)&emsp;</span>
+                    <c:forEach items="${fn:split(article.tag_stack, ',') }" var="item">
+                    	&emsp;<span id="stack" name="stack">${item}</span>
+                    </c:forEach>
                 </td>
             </tr>
         </table>
@@ -155,10 +164,10 @@
             </div>
             <div id="boxbody" name="boxbody">
                 <div id="logininfoname" name="logininfoname">
-                    &emsp;<span id="name" name="name">로그인정보를 이용한 기업명</span>
+                    &emsp;<span id="name" name="name">${company.name }</span>
                 </div>
                 <div id="logininfotext" name="logininfotext">
-                    &emsp;&emsp;<span id="text" name="text">로그인정보를 이용한 기업설명</span>
+                    &emsp;&emsp;<span id="text" name="text"><!-- 기업 설명 테이블이 아직 없음 --></span>
                 </div>
                 <br>
                 <div>
@@ -168,7 +177,7 @@
                                 설립일
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
-                                <span id="birth">로그인정보를 이용한 설립일</span>
+                                <span id="birth">${company.birth }</span>
                             </td>
                         </tr>
                         <tr>
@@ -176,7 +185,7 @@
                                 분류
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
-                                <span id="type">로그인정보를 이용한 기업분류</span>
+                                <span id="type">${company.type }</span>
                             </td>
                         </tr>
                         <tr>
@@ -184,17 +193,17 @@
                                 사원 수
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
-                                <span id="employee_no" name="employee_no">로그인정보를 이용한 사원 수</span>
+                                <span id="employee_no" name="employee_no">${company.employee_no }</span>명
                             </td>
                         </tr>
-                        <tr>
+                        <%-- <tr>
                             <th align="center" id="logininfohead" name="logininfohead">
                                 매출액
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody"> 
-                                <span id="sale">로그인정보를 이용한 매출액</span>
+                                <span id="sale">${company.sale }</span>
                             </td>
-                        </tr>
+                        </tr> --%>
                         <tr>
                             <th align="center" id="logininfohead" name="logininfohead">
                                 <br>
@@ -202,7 +211,7 @@
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
                                 <br>
-                                <span id="addr" name="addr">로그인정보를 이용한 주소</span>
+                                <span id="addr" name="addr">${company.addr }</span>
                             </td>
                         </tr>
                         <tr>
@@ -210,7 +219,7 @@
                                 상세주소
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
-                                <span id="detail_addr">로그인정보를 이용한 상세주소</span>
+                                <span id="detail_addr">${company.detail_addr }</span>
                             </td>
                         </tr>
                     </table>
@@ -225,11 +234,11 @@
                 </div>
                 <br>
                 <div id="logininfoceo" name="logininfoceo">
-                    &emsp;<span id="ceo">대표자명</span>
+                    &emsp;<span id="ceo">${company.ceo }</span>
                 </div>
                 <br>
                 <div id="logininfourl" name="logininfourl">
-                    &emsp;<span id="url" name="url">홈페이지주소@ㅁㅁㅁ.com</span>
+                    &emsp;<span id="url" name="url">${company.url }</span>
                 </div>
             </div>
             <div id="footerbox" name="footerbox">
@@ -237,7 +246,7 @@
             </div>
         </div>
     </form> 
-    <form action="/resume.jsp" id="joinbox" name="joinbox">
+    <form action="${pageContext.request.contextPath}/resume.jsp" id="joinbox" name="joinbox">
             <div id="join" name="join">
                 <button id="buttonjoin" type="submit" name="buttonjoin">지원하기</button>
             </div>

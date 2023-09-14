@@ -29,21 +29,28 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/", new MainAction());
 		
 		getActionMap.put("/member/login", new ExcuteAction("../resource/page/login/login.jsp"));
-		getActionMap.put("/member/join", new ExcuteAction("../resource/page/login/signup.jsp"));
+		getActionMap.put("/member/signup", new ExcuteAction("../resource/page/login/signup.jsp"));
 		getActionMap.put("/member/logout", new MemberLogoutAction());
+		
+		getActionMap.put("/signup", new ExcuteAction("./resource/page/login/signup2.jsp"));
 		
 		getActionMap.put("/member/resume", new ExcuteAction("../resource/page/member/resume.jsp"));
 		
 		getActionMap.put("/company/login", new ExcuteAction("../resource/page/login/login.jsp"));
-		getActionMap.put("/company/join", new ExcuteAction("../resource/page/login/signup.jsp"));
+		getActionMap.put("/company/signup", new ExcuteAction("../resource/page/login/signup.jsp"));
 		
-		getActionMap.put("/article", new AriticleAction());
+		getActionMap.put("/article", new ArticleAction());
 		getActionMap.put("/article/list", new ArticleListAction());
 		
 		// 요청 방식 POST
-		postActionMap.put("/member/login", new MemberLoginAction());
+		postActionMap.put("/member/login", new MemberLoginAction(true));
+		postActionMap.put("/member/signup", new MemberSingupAction(true));
+		postActionMap.put("/member/resume", new ResumeWriteAction());
+		
+		postActionMap.put("/company/login", new MemberLoginAction(false));
+		postActionMap.put("/company/signup", new MemberSingupAction(false));
+		
 		postActionMap.put("/article", new ArticleInsertAction());
-		postActionMap.put("/article/list", new ArticlesearchAction());
 		
 	}
 	
