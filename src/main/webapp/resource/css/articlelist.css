@@ -1,92 +1,237 @@
-/*article-list.jsp의 css*/ 
-		#head {
-            padding: 20px 0 20px 10px;
-        }
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
-        #siteimg {
-            float: left;
-        }
+section.notice {
+    padding: 0;
+}
 
-        #explain {
-            float: left;
-            margin-left: 50px;
-
-        }
-
-        #register {
-            color: blue;
-            float: right;
-            padding-right: 20px;
-
-        }
-
-        #line1 {
-            margin-top: 40px;
-            width: 1950px;
-            background-color:#03D069;
-            height: 1px;
-        }
-
-        #search {
-            margin: 20px 20px;
-        }
-       
-        #search#cnt {
-            float: left;
-         
-           
-        }
-        #search#job {
-            float: left;
-        }
-
-        #search#career {
-            float: left;
-        }
-
-        .job-list {
-            width: 100%;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: white;
-
-        }
-
-        .job-item {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: white;
-        }
-        
-        a:visited {
-			color: black; text-decoration: none;
-		}
-		a:hover {
-			color: black; text-decoration: none; font-weight: bold;
-		}
-		a:link {
-			color: black; text-decoration: none;
-		}
-		table {
-			margin: 0 auto;
-		}
-
-        .banner {
-            padding-top: 10px;
-            padding-bottom: 30px;
-            background-color:#03D069;   
-        }
-        .content {
-            padding-top: 10px;
-            padding-bottom: 30px;   
-        }
+#head {
+    padding: 20px 10px;
     
-        #fix1 {
-            position: fixed;
-            height: 100%;
-            position: sticky;
-            top: 0;
-            left: 0;
-            
-        }
+    height: 100px;
+}
+#headcontain {
+    height: 60px;
+    
+}
+
+#siteimg {
+    float: left;
+    margin-left: 10px;
+}
+
+#explain {
+    float: left;
+    margin-left: 50px;
+    margin-top: 10px;
+
+}
+
+#register {
+    color: blue;
+    float: right;
+    padding-right: 20px;
+    padding-top: 10px;
+
+}
+
+#board-search .search-window {
+    padding: 15px;
+    background-color:#03D069;
+}
+
+#board-search .search-window .search-wrap {
+    position: relative;
+    /*   padding-right: 124px; */
+    margin: 0 auto;
+    width: 80%;
+    max-width: 564px;
+}
+
+#board-search .search-window .search-wrap input {
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    padding: 7px 14px;
+    border: 1px solid #ccc;
+}
+
+#board-search .search-window .search-wrap input:focus {
+    border-color: #333;
+    outline: 0;
+    border-width: 1px;
+}
+
+#board-search .search-window .search-wrap{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 108px;
+    padding: 0;
+    font-size: 16px;
+}
+
+.board-table {
+    font-size: 15px;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.board-table thead{
+    border-bottom: 1px solid gray;
+}
+
+.board-table tbody tr {
+    border-bottom: 1px solid gray;
+}
+
+.board-table th {
+    text-align: center;
+}
+
+.board-table .th-num {
+    width: 100px;
+    text-align: center;
+}
+.board-table .th-title {
+    width: 500px;
+    text-align: center;
+}
+.board-table .th-name {
+    width: 200px;
+    text-align: center;
+}
+.board-table .th-job {
+    width: 150px;
+    text-align: center;
+}
+.board-table .th-career {
+    width: 100px;
+    text-align: center;
+}
+.board-table .th-salary {
+    width: 100px;
+    text-align: center;
+}
+.board-table .th-need_amt {
+    width: 100px;
+    text-align: center;
+}
+
+
+.board-table th,
+.board-table td {
+    padding: 10px 0;
+}
+
+.board-table tbody td {
+    
+    text-align: center;
+}
+
+.board-table tbody th {
+    
+    
+    text-align: center;
+}
+
+.board-table tbody th p {
+    display: none;
+}
+#blank{
+	
+}
+
+.btn {
+    display: inline-block;
+    padding: 0 30px;
+    font-size: 15px;
+    font-weight: 400;
+    background: transparent;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-dark {
+    background: #555;
+    color: #fff;
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+    background: #373737;
+    border-color: #373737;
+    color: #fff;
+}
+
+.btn-dark {
+    background: #555;
+    color: #fff;
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+    background: #373737;
+    border-color: #373737;
+    color: #fff;
+}
+
+/* reset */
+
+* {
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+}
+
+.tableItem {
+	cursor: pointer;
+}
+
+.tableItem:hover {
+	background-color: #bbdefb;
+}

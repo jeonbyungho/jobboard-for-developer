@@ -11,94 +11,103 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/articlelist.css">
 </head>
 <body>
-    <form id="board" action="">
-    <c:set var="articleList" value="${requestScope.articleList }" />
-	<c:set var="totalCnt" value="${requestScope.totalCnt }" />
-        <div id="head">
+    <div id="head">
+        <div id="headcontain">
             <div id="siteimg">
-                <a href=""><img src="${pageContext.request.contextPath}/resource/img/teamlogo.jpg" alt=""></a>
+                <a href=""><img src="${pageContext.request.contextPath}/resource/img/teamlogo.jpg"></a>
             </div>
-            <div id="explain" style="padding-top:5px;">
+            <div id="explain">
                 채용공고
             </div>
             <div id="register">
                 <button>인제풀 등록하기</button>
             </div>
         </div>
+    </div>
 
-        <div id="line1">
-        </div>
-
-        <div id="search">
-            <select id="job" >
-                <option value="default" selected>직무</option>
-                <option value="backend">백엔드</option>
-                <option value="frontend">프론트엔드</option>
-                <option value="fullstack">풀스택</option>
-            </select>
-            <select id="career" >
-                <option value="default" selected>경력</option>
-                <option value="newbie">신입</option>
-                <option value="senior">경력</option>
-                <option value="intern">인턴</option>
-            </select>
-            <input type=button value="검색" onclick = "article_search();"/>
-            <span id="cnt">
-                &emsp; 글 개수 ${totalCnt } 개
-            </span>
-        </div>
-
-        
-
-        <div class="job-list">
-            
-            <div style="width:900px;">
-                <div class="banner" align="left">
-                    <div id="fix1" style="float:left; width:100px;" >번호</div>
-                    <div style="float:left; width:150px;" >기업이름</div>
-                    <div style="float:left; width:150px;" >제목</div>
-                    <div style="float:left; width:150px;" >직무</div>
-                    <div style="float:left; width:150px;" >경력</div>
-                    <div style="float:left; width:150px;" >연봉</div>
-                    <div style="float:left; width:150px;" >주소</div>
-                    <div style="float:left; width:200px;" >채용수</div>
-                </div>
-
-
-                <c:choose>
-                	<c:when test="${articleList != null and fn:length(articleList) > 0 }">
-                		<c:forEach var="article" items="${articleList }">
-                			<a href="${pageContext.request.contextPath}/article/${article.ID}">
-                				<div id="main" style="border-bottom:1px solid #CCD1D1; b-color:#03D069;" class="content" align="left"  
-								onmouseover="this.style.background='#bbdefb'" onmouseout="this.style.background=''" >
-									<div style="float: left; width: 100px; color:#03D069">${article.id }</div>
-									<div style="float: left; width: 150px;">${article.R }</div>
-									<div style="float: left; width: 150px;">${article.NAME }</div>
-									<div style="float: left; width: 150px;">${article.TITLE }</div>
-									<div style="float: left; width: 150px;">${article.CAREER }</div>
-									<div style="float: left; width: 150px;">${article.SALARY }</div>
-									<div style="float: left; width: 150px;">${article.ADREESS}</div>
-									<div style="float: left; width: 200spx;">${article.NEED_AMT }</div>
-								</div>
-                			</a>
-							
-						</c:forEach>
-                	</c:when>
-                	<c:otherwise>
-                		 <div style="height: 50px;">
-                    		<div style="text-align: center; width: 1950px;">등록된 구직글이 없습니다.</div>
-               			 </div>
-                	</c:otherwise>
-                </c:choose>
+    <section class="notice">
+        <div class="page-title">
+            <div class="container">
+             
             </div>
-            <br>
-            <div style="border: 0px; width: 100%;">
+        </div>
+
+        <!-- board seach area -->
+        <div id="board-search">
+            <div class="container">
+                <div class="search-window">
+                    <form action="">
+                        <div id="">
+                            <select id="job" >
+                                <option value="default" selected>직무</option>
+                                <option value="backend">백엔드</option>
+                                <option value="frontend">프론트엔드</option>
+                                <option value="fullstack">풀스택</option>
+                            </select>
+                            <select id="career" >
+                                <option value="default" selected>경력</option>
+                                <option value="newbie">신입</option>
+                                <option value="senior">경력</option>
+                                <option value="intern">인턴</option>
+                            </select>
+                            <input type=button value="검색" onclick = "article_search();"/>
+                            <span id="cnt">
+                                &emsp; 글 개수 ${totalCnt } 개
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- board list area -->
+        <div id="board-list">
+            <div class="container">
+                <table class="board-table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="th-num">번호</th>
+                            <th scope="col" class="th-name">기업이름</th>
+                            <th scope="col" class="th-title">제목</th>
+                            <th scope="col" class="th-career">경력</th>
+                            <th scope="col" class="th-salary">연봉</th>
+                            <th scope="col" class="th-address">주소</th>
+                            <th scope="col" class="th-need_amt">채용수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+ 						<c:choose>
+                			<c:when test="${articleList != null and fn:length(articleList) > 0 }">
+                				<c:forEach var="article" items="${articleList }">                
+			                        <tr class="tableItem" onclick="location.href='${pageContext.request.contextPath}/article/${article.ID}'">
+				                            <td>${article.R }</td>
+				                            <th>${article.NAME }</th>
+				                            <td>${article.TITLE }</td>
+				                            <td>${article.CAREER }</td>
+				                            <td>${article.SALARY }</td>
+				                            <td>${article.ADREESS}</td>
+				                            <td>${article.NEED_AMT }</td>
+			                        </tr>
+				                 </c:forEach>
+                			</c:when>
+                			<c:otherwise>
+                		 		<tr>
+                		 			<th id="blank">등록된 구직글이 없습니다.</th>
+                		 		</tr>
+                			</c:otherwise>
+                		</c:choose>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+		<div style="border: 0px; width: 100%;">
                 <div align="center">
                     <div>
                     	<c:if test="${nowPage > 1 }">
                         	<a 
                         		href="${pageContext.request.contextPath}/article/list?page=${nowPage -1}">
-								[&lt;] 
+								&lt;
                         	</a>
                         </c:if>
                         <c:forEach var="i" begin="${startPage }" end="${endPage }">
@@ -117,33 +126,12 @@
                         <c:if test="${nowPage < totalPage }">
 							<a
 								href="${pageContext.request.contextPath}/article/list?page=${nowPage +1}">
-								[&gt;] 
+								&gt; 
 							</a>
 						</c:if>
                     </div>
                 </div>
-            </div>          
-        </div>
-    </form>
-    
-    <script>
-    	function article_search(){
-    		let xhr = new XMLHttpRequest();
-    		
-    		let job = document.getElementById("job");
-    		let career = document.getElementById("career");
-    		
-    		xhr.open("post", "/article/list?job="+job.value+"&career="+career.value,false);
-    		xhr.send();
-    		xhr.onreadystatechange = function() {
-    			// 응답, 성공
-    			if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-    				document.getElementById("main").innerHTML = xhr.responseText; 				
-    			}
-    		}
-    		document.
-    	} 
-	</script>
-    
+            </div> 
+    </section>
 </body>
 </html>
