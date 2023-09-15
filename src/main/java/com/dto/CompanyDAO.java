@@ -36,7 +36,4 @@ public class CompanyDAO implements UserDAO<CompanyDTO>{
 		return sqlSession.selectOne("Company.byId", id);
 	}
 	
-	
-	
-	
 }
