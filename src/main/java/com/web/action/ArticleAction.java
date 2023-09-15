@@ -36,9 +36,7 @@ public class ArticleAction extends ExcuteAction{
 		List<String> adto3 = bdao.stack_select(no);
 		
 		Map<String, String> cmap = cdao.byId(adto1.getCompany_id());
-		for (String k : cmap.keySet()) {
-			System.out.println(k);
-		}
+		
 		System.out.println();
 		req.setAttribute("article", adto1);
 		req.setAttribute("job", adto2);
