@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="com.dto.ArticleDTO"%>
 <%@page import="java.util.List"%>
@@ -12,10 +13,12 @@
 </head>
 <body>
 <%
-	String job = request.getParameter("job");
+	int type = Integer.parseInt(request.getParameter("type"));
 	String career = request.getParameter("career");
+	System.out.println(type);
+	System.out.println(career);
 	ArticleDAO adao= new ArticleDAO();
-	List<ArticleDTO> articlelist = adao.article_search(job,career);
+	List<Map<String, Object>> articlelist = adao.article_search(career,type);
 	
 	/* for(int i=0; i<articlelist.size(); i++){
 		
@@ -30,14 +33,13 @@
 	obj.put("job_explain", value);
 	obj.put("qualify", value);
 	obj.put("tag_stack", value); */
-	if(articlelist.size()==0){
+	/* if(articlelist.size()==0){
 		out.print("게시글이 없습니다.");
 	}
 	else{
 		ArticleDTO dto1 = articlelist.get(0);
-		out.print(dto1.getJob());
-	}
-	
+		out.print(dto1.getJob());	
+	} */
 	
 
 %>

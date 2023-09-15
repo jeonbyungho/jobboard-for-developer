@@ -32,15 +32,20 @@ public class ArticleDAO {
 		return sqlSession.selectOne("Article.getArticleCnt");
 	}
 	
-	public int getSelectedCnt(String job_id, String career) {
-		return sqlSession.selectOne("Article.getSelectedCnt");
+	public int getSelectedCnt(String career, int type) {
+		HashMap<String, Object> datas = new HashMap<>();
+		datas.put("career", career);
+		datas.put("type", type);
+		return sqlSession.selectOne("Article.getSelectedCnt",datas);
 	}
 	
-	public List<ArticleDTO> article_search(String job_id, String career) {
-		HashMap<String, String> datas = new HashMap<>();
-		datas.put("job", job_id);
+	public List<Map<String, Object>> article_search(String career, int type) {
+		HashMap<String, Object> datas = new HashMap<>();
+//		datas.put("startRow", startRow);
+//		datas.put("endRow", endRow);
 		datas.put("career", career);
-		List<ArticleDTO> list = 
+		datas.put("type", type);
+		List<Map<String, Object>> list = 
 				sqlSession.selectList("Article.searchArticle",datas);
 		return list;
 	}
