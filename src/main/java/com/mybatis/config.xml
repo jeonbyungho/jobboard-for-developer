@@ -33,6 +33,7 @@
 	<mapper resource="com/mybatis/mapper/resume.xml"/>
 	<mapper resource="com/mybatis/mapper/article.xml"/>
 	<mapper resource="com/mybatis/mapper/branch.xml"/>
+	<mapper resource="com/mybatis/mapper/mypage.xml"/>
 </mappers>
 
 </configuration>
