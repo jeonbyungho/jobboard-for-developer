@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,33 +65,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>3</td>
-                            <th>이력서1</th>
-                            <th>2017.07.13</th>
-                            <th>SKT</th>
-                            <td>X</td>
-                            <td>X</td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <th>이력서2</th>
-                            <th>2017.06.15</th>
-                            <th>KT</th>
-                            <td>X</td>
-                            <td>X</td> 
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <th>이력서3</th>
-                            <th>2017.06.15</th>
-                            <th>LG</th>
-                            <td>X</td>
-                            <td>X</td>
-                        </tr>
-                    </tbody>
+                        <c:forEach var="resume" items="${receiveResumeList}">
+					    	<tr>
+	                            <td>${resume.TITLE }</td>
+	                            <td>${resume.MEMBER_NAME }</td>
+	                            <td>${resume.CONSENT }</td>
+					    	</tr>
+					    </c:forEach>
                 </table>
             </div>
         </div>

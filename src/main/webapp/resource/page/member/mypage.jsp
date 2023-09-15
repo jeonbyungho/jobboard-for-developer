@@ -56,55 +56,23 @@
                 <table class="board-table">
                     <thead>
                         <tr>
-                            <th scope="col" class="th-id">번호</th>
                             <th scope="col" class="th-name">이력서제목</th>
-                            <th scope="col" class="th-title">작성날짜</th>
                             <th scope="col" class="th-job">지원기업</th>
                             <th scope="col" class="th-career">수락여부</th>
-                            <th scope="col" class="th-address">열람여부</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>3</td>
-                            <th>이력서1</th>
-                            <th>2017.07.13</th>
-                            <th>SKT</th>
-                            <td>X</td>
-                            <td>X</td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <th>이력서2</th>
-                            <th>2017.06.15</th>
-                            <th>KT</th>
-                            <td>X</td>
-                            <td>X</td> 
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <th>이력서3</th>
-                            <th>2017.06.15</th>
-                            <th>LG</th>
-                            <td>X</td>
-                            <td>X</td>
-                        </tr>
+						<c:forEach var="resume" items="${submitResumeList}">
+					    	<tr>
+	                            <td>${resume.TITLE }</td>
+	                            <td>${resume.COMPANY_NAME }</td>
+	                            <td>${resume.CONSENT }</td>
+					    	</tr>
+					    </c:forEach>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
-    
-    <ul>
-	    <c:forEach var="resume" items="${submitResumeList}">
-	    	<li>
-	    	${resume.company_name }
-	    	${resume.TITLE }
-	    	${resume.CONSENT }
-	    	</li>
-	    </c:forEach>
-    </ul>
 </body>
 </html>

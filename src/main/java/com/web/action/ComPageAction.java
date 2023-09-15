@@ -20,25 +20,25 @@ public class ComPageAction extends ExcuteAction{
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		MypageDAO mydao = new MypageDAO();
 		
-	HttpSession session = req.getSession();
-	CompanyDTO company = (CompanyDTO)session.getAttribute("member");
+		HttpSession session = req.getSession();
+		CompanyDTO company = (CompanyDTO)session.getAttribute("member");
+		
+		if(company == null){
+			setRedirect(true);
+			setPath(req.getContextPath());
+			return super.excute(req, resp);
+		}
 	
-	if(company == null){
-		setRedirect(true);
-		setPath(req.getContextPath());
+		int id = company.getId();
+		
+		List<Map<String, String>> map = mydao.receiveResumeList(id);
+		System.out.println("나온 개수: "+map.size());
+		for (Map<String, String> m:map) {
+			System.out.println(m.toString());
+		}
+	
+		req.setAttribute("receiveResumeList",map);
+		setPath("../resource/page/member/compage.jsp");
 		return super.excute(req, resp);
-	}
-	
-	int id = company.getId();
-	
-	List<Map<String, String>> map = mydao.receiveResumeList(id);
-	System.out.println("나온 개수: "+map.size());
-	for (Map<String, String> m:map) {
-		System.out.println(m.toString());
-	}
-	
-	req.setAttribute("receiveResumeList",map);
-	setPath("../resource/page/member/compage.jsp");
-	return super.excute(req, resp);
 	}
 }
