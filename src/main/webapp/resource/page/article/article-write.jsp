@@ -47,7 +47,7 @@
                         기업명
                     </th>
                     <td id="name" name="name" align="left" colspan="8">
-                        &emsp;<span id="companyname" name="companyname">${company.name }</span>
+                        &emsp;${company.name }
                     </td>
                 </tr>
                 <!-- <tr>

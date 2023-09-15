@@ -2,7 +2,6 @@ console.log("👌article-write");
 document.myForm.onsubmit = async function article_wirte(e) {
 	e.preventDefault();
 	
-	// form 데이터 구성
 	const form = e.target;
 	
 	const address = form.address.value;
