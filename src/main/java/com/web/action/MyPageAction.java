@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dto.CompanyDTO;
 import com.dto.MemberDTO;
 import com.dto.MypageDAO;
 
@@ -35,8 +36,7 @@ public class MyPageAction extends ExcuteAction{
 			System.out.println(m.toString());
 		}
 		
-		req.setAttribute("submitResumeList", map);
-		
+		req.setAttribute("submitResumeList",map);
 		setPath("../resource/page/member/mypage.jsp");
 		return super.excute(req, resp);
 	}
