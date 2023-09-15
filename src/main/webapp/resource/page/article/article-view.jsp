@@ -87,7 +87,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="location" name="location">${addresss }</span>
+                    &emsp;<span id="location" name="location">${article.address 	 }</span>
                 </td>
             </tr>
             <tr>
@@ -168,7 +168,7 @@
             </div>
             <div id="boxbody" name="boxbody">
                 <div id="logininfoname" name="logininfoname">
-                    &emsp;<span id="name" name="name">${company.name }</span>
+                    &emsp;<span id="name" name="name">${company.NAME }</span>
                 </div>
                 <div id="logininfotext" name="logininfotext">
                     &emsp;&emsp;<span id="text" name="text"><!-- 기업 설명 테이블이 아직 없음 --></span>
@@ -181,7 +181,7 @@
                                 설립일
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
-                                <span id="birth">${company.esta }</span>
+                                <span id="birth">${company.ESTA }</span>
                             </td>
                         </tr>
                         <tr>
@@ -197,17 +197,17 @@
                                 사원 수
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody">
-                                <span id="employee_no" name="employee_no">${company.employee_no }</span>명
+                                <span id="employee_no" name="employee_no">${company.EMPLOYEE_NO }</span>명
                             </td>
                         </tr>
-                        <%-- <tr>
+                        <tr>
                             <th align="center" id="logininfohead" name="logininfohead">
                                 매출액
                             </th>
                             <td align="left" id="logininfobody" name="logininfobody"> 
-                                <span id="sale">${company.sale }</span>
+                                <span id="sale">${company.SCALE }</span>
                             </td>
-                        </tr> --%>
+                        </tr>
                         <tr>
                             <th align="center" id="logininfohead" name="logininfohead">
                                 <br>
