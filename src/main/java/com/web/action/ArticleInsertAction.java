@@ -44,15 +44,17 @@ public class ArticleInsertAction extends ExcuteAction{
 		article.setCareer(newcorrArr);
 		
 		// 직무
-		String[] job = req.getParameterValues("job");
-		article.setJob(job);
+		String job = req.getParameter("job");
+		String[] jobArr = job.split(",");
+		article.setJob(jobArr);
 		
 		// 기술 스택
-		String[] skill_stack = req.getParameterValues("stack");
-		article.setSkill_stack(skill_stack);
-		System.out.println(article.toString());
+		String skill_stack = req.getParameter("stack");
+		String[] skill_stackArr = skill_stack.split(",");
+		article.setSkill_stack(skill_stackArr);
 		
 		// 구인글 작성
+		System.out.println(article.toString());
 		boolean result1 = bdao.article_insert(article);
 		System.out.println("Insert 성공 여부 : " + result1);
 		
