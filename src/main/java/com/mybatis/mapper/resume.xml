@@ -57,4 +57,16 @@
 			,	#{resume_id}
 			,	null)
 	</insert>
+	
+	<!-- 이력서 목록 -->
+	<select id="list" parameterType="hashmap" resultType="hashmap">
+		SELECT 
+			rownum r, r.ID , r.CAREER 
+		FROM RESUME r
+		WHERE
+			r.MEMBER_ID = #{id}
+			AND
+			rownum BETWEEN #{startRow} AND #{endRow}
+		ORDER BY rownum DESC
+	</select>
 </mapper>

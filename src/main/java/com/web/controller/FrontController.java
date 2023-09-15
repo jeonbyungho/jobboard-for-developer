@@ -14,7 +14,8 @@ import com.web.action.*;
 
 @WebServlet(urlPatterns = {
 		"/",
-		"/article/*", "/article/list"})
+		"/article/*", "/article/list",
+		"/member/resume/*", "/member/resume/popup"})
 public class FrontController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
@@ -35,6 +36,7 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/signup", new ExcuteAction("./resource/page/login/signup2.jsp"));
 		
 		getActionMap.put("/member/resume", new ExcuteAction("../resource/page/member/resume.jsp"));
+		getActionMap.put("/member/resume/popup", new ResumePopupAction());
 		
 		getActionMap.put("/company/login", new ExcuteAction("../resource/page/login/login.jsp"));
 		getActionMap.put("/company/signup", new ExcuteAction("../resource/page/login/signup.jsp"));
@@ -45,7 +47,9 @@ public class FrontController extends HttpServlet{
 		// 요청 방식 POST
 		postActionMap.put("/member/login", new MemberLoginAction(true));
 		postActionMap.put("/member/signup", new MemberSingupAction(true));
+		
 		postActionMap.put("/member/resume", new ResumeWriteAction());
+		postActionMap.put("/member/resume/popup", new ResumeSendAction());
 		
 		postActionMap.put("/company/login", new MemberLoginAction(false));
 		postActionMap.put("/company/signup", new MemberSingupAction(false));

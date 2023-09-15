@@ -242,10 +242,9 @@
             </div>
         </div>
     </form> 
-    <form action="${pageContext.request.contextPath}/resume.jsp" id="joinbox" name="joinbox">
-            <div id="join" name="join">
-                <button id="buttonjoin" type="submit" name="buttonjoin">지원하기</button>
-            </div>
-    </form>
+    
+	<div id="join" name="join">
+		<button id="buttonjoin" type="submit" name="buttonjoin" onclick="window.open('${pageContext.request.contextPath}/member/resume/popup?articleId=${article.id}','지원서');">지원하기</button>
+	</div>
 </body>
 </html>

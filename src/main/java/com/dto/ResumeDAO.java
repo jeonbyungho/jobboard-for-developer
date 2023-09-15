@@ -1,5 +1,6 @@
 package com.dto;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -33,5 +34,9 @@ public class ResumeDAO {
 	
 	public boolean send(Map<String, Integer> map) {
 		return (sqlSession.insert("Resume.send", map) > 0);
+	}
+	
+	public List<Map<String, String>> list(Map<String, Integer> map){
+		return sqlSession.selectList("Resume.list", map);
 	}
 }
