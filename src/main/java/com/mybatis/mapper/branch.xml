@@ -86,7 +86,7 @@
 	</select>
 	
 	<!-- 가장 최신 글 조회 -->
-	<select id="article-idmax" resultType="int">
+	<select id="article-idmax" resultType="_int">
 		SELECT max(a.ID) FROM ARTICLE a
 	</select>
 </mapper>

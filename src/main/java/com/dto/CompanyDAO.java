@@ -35,4 +35,8 @@ public class CompanyDAO implements UserDAO<CompanyDTO>{
 	public Map<String, String> byId(int id){
 		return sqlSession.selectOne("Company.byId", id);
 	}
+	
+	
+	
+	
 }
