@@ -80,7 +80,7 @@ public class ResumeWriteAction extends ExcuteAction {
 		
 		// 파라미터 구성
 		resume.setMember_id(member.getId());
-		resume.setCareer(req.getParameter("career"));
+		resume.setCareer(req.getParameter("title"));
 		resume.setPortfolio(req.getParameter("portfolio"));
 		resume.setReg(regList);
 		resume.setSchool(schoolList);

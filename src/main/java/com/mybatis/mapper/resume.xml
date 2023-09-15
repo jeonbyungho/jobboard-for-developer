@@ -8,8 +8,7 @@
 		<selectKey resultType="int" keyProperty="id" order="BEFORE">
         	SELECT RESUME_SEQ.nextval FROM dual
     	</selectKey> 
-    	INSERT INTO RESUME r (
-			r.ID , r.MEMBER_ID , r.CAREER , r.PORTFOLIO )
+    	INSERT INTO RESUME r
 		VALUES (
 			#{id}
 			,	#{member_id}
@@ -61,7 +60,7 @@
 	<!-- 이력서 목록 -->
 	<select id="list" parameterType="hashmap" resultType="hashmap">
 		SELECT 
-			rownum r, r.ID , r.CAREER 
+			rownum r, r.ID , r.TITLE 
 		FROM RESUME r
 		WHERE
 			r.MEMBER_ID = #{id}

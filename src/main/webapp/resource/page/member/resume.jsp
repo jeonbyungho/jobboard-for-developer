@@ -14,9 +14,9 @@
 	<form action="${pageContext.request.contextPath}/member/resume"
 		method="post" name="resumeForm">
 
-		<fieldset id="careerField">
-			<legend>직무</legend>
-			<input type="text" name="career" value="직무" />
+		<fieldset id="titleField">
+			<legend>이력서 제목</legend>
+			<input type="text" name="title" value="제목" />
 		</fieldset>
 
 		<fieldset id="portfolioField">

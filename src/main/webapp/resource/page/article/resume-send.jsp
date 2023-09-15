@@ -16,7 +16,7 @@
 		<c:forEach items="${resumeList}" var="resume">
 			<li>
 				<a href="javascript:resumeSend('${pageContext.request.contextPath}/member/resume/popup', ${param.articleId}, ${resume.ID })">
-					${resume.CAREER }
+					${resume.TITLE }
 				</a>
 			</li>
 		</c:forEach>

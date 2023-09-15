@@ -67,7 +67,8 @@
                     <tbody>
                         <c:forEach var="resume" items="${receiveResumeList}">
 					    	<tr>
-	                            <td>${resume.TITLE }</td>
+	                            <td>${resume.ARTICLE_TITLE }</td>
+	                            <td>${resume.RESUME_TITLE }</td>
 	                            <td>${resume.MEMBER_NAME }</td>
 	                            <td>${resume.CONSENT }</td>
 					    	</tr>
