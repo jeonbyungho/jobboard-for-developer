@@ -56,7 +56,14 @@
 	</insert>
 	
 	<select id="article-select" parameterType="_int" resultType="articledto">
-		SELECT * FROM ARTICLE a WHERE a.ID = #{id}
+		SELECT 
+			a.ID , a.COMPANY_ID , a.TITLE , a.CAREER, 
+			a.SALARY , ad.DISTRICT AS ADDRESS , a.DETAIL_ADDR ,
+			a.NEED_AMT , a.JOB_EXPLAIN , a.DEADLINE , a.QUALIFY 
+		FROM ARTICLE a
+			LEFT OUTER JOIN ADDRESS ad
+			ON a.ADDRESS_ID = ad.ID
+		WHERE a.ID = #{id}
 	</select>
 	
 	<select id="job-select" parameterType="_int" resultType="string">

@@ -34,7 +34,6 @@ public class ArticleAction extends ExcuteAction{
 		ArticleDTO adto1 = (ArticleDTO) bdao.article_select(no);
 		List<String> adto2 = bdao.job_select(no);
 		List<String> adto3 = bdao.stack_select(no);
-		List<String> adto4 = bdao.address_select(no);
 		
 		Map<String, String> cmap = cdao.byId(adto1.getCompany_id());
 		for (String k : cmap.keySet()) {
@@ -45,7 +44,6 @@ public class ArticleAction extends ExcuteAction{
 		req.setAttribute("job", adto2);
 		req.setAttribute("stack", adto3);
 		req.setAttribute("company", cmap);
-		req.setAttribute("address", adto4);
 		
 		setPath("../resource/page/article/article-view.jsp");
 		

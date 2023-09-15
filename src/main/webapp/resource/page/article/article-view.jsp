@@ -87,7 +87,7 @@
                 </th>
                 <td align="left">
                     <br>
-                    &emsp;<span id="location" name="location">${article.address 	 }</span>
+                    &emsp;<span id="location" name="location">${article.address } ${article.detail_addr}</span>
                 </td>
             </tr>
             <tr>
