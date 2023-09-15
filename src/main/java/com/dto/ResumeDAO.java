@@ -1,5 +1,7 @@
 package com.dto;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -28,5 +30,8 @@ public class ResumeDAO {
 		}
 		return false;
 	}
-
+	
+	public boolean send(Map<String, Integer> map) {
+		return (sqlSession.insert("Resume.send", map) > 0);
+	}
 }

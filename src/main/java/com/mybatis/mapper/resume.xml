@@ -47,4 +47,14 @@
 		)C;
 		END;
 	</insert>
+	
+	<!-- 이력서 보내기 -->
+	<insert id="send" parameterType="hashmap">
+		INSERT INTO SEND s
+			(s.ID, s.ARTICLE_ID, s.RESUME_ID, s.CONSENT)
+		VALUES ( SEND_SEQ.nextval
+			,	#{article_id}
+			,	#{resume_id}
+			,	null)
+	</insert>
 </mapper>
