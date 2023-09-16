@@ -17,14 +17,17 @@ async function resumeConsent(path, sendId){
 		const mes = await response.text();
 		console.log("mes :", mes);
 		
+		// 실패 시..
 		if(mes != "success"){
-			alert('승락 실패..');
+			alert(mes);
 			return;
 		}
 		
+		// 성공 시..
 		alert('승락!');
 		return;
-		
+	
+	// 에러
 	} catch (error){
 		console.error("Error:", error);
 		alert('알 수 없는 이유로 이력서 승락 실패..');

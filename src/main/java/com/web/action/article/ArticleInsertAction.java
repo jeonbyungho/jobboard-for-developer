@@ -16,6 +16,7 @@ import com.web.action.ActionFront;
 import com.web.action.ExcuteAction;
 
 public class ArticleInsertAction extends ExcuteAction{
+	@SuppressWarnings("unchecked")
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		

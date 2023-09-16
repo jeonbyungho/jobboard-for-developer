@@ -21,6 +21,7 @@ public class MemberSingupAction extends ExcuteAction {
 	private boolean kind;
 	public MemberSingupAction(boolean kind) { this.kind = kind; }
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
