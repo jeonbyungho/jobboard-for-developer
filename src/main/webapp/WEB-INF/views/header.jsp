@@ -28,9 +28,9 @@
 		<c:choose>
 		<%-- false --%>
 			<c:when test="${empty sessionScope.member}">
-				<a href="${pageContext.request.contextPath}/member/login">로그인</a>
+				<a href="${pageContext.request.contextPath}/login">로그인</a>
 				<span>|</span>
-				<a href="${pageContext.request.contextPath}/member/signup">회원가입</a>
+				<a href="${pageContext.request.contextPath}/signup">회원가입</a>
 			</c:when>
 		<%-- true --%>
 			<c:otherwise>
@@ -48,7 +48,7 @@
 					</c:otherwise>
 				</c:choose>
 				<span>|</span>
-				<a id = "logout" href="${pageContext.request.contextPath}/member/logout">로그아웃</a>
+				<a id = "logout" href="${pageContext.request.contextPath}/logout">로그아웃</a>
 			</c:otherwise>
 		</c:choose>
 	</div>
