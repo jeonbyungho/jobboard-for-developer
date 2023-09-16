@@ -39,7 +39,7 @@
 					<%-- 구직자 --%>
 					<c:when test="${sessionScope.member.kind }">
 						<a href="${pageContext.request.contextPath}/member">${sessionScope.member.name}님 |</a>
-						<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
+						<a href="${pageContext.request.contextPath}/resume">이력서 등록</a>
 					</c:when>
 					<%-- 기업 --%>
 					<c:otherwise>

@@ -11,7 +11,7 @@
 	defer></script>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/member/resume"
+	<form action="${pageContext.request.contextPath}/resume"
 		method="post" name="resumeForm">
 
 		<fieldset id="titleField">

@@ -33,7 +33,7 @@ public class ResumePopupAction extends ExcuteAction{
 		List<Map<String, String>> resumeList = rdao.list(map);
 		req.setAttribute("resumeList", resumeList);
 		
-		setPath("../../resource/page/article/resume-send.jsp");
+		setPath("../resource/page/article/resume-send.jsp");
 		return super.excute(req, resp);
 	}
 }
