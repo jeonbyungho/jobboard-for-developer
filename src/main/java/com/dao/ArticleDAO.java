@@ -4,19 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-
-
-import com.mybatis.SqlMapConfig;
-
-public class ArticleDAO {
-	SqlSessionFactory factory = SqlMapConfig.getFactory();
-	SqlSession sqlSession;
-
-	public ArticleDAO() {
-		sqlSession = factory.openSession(true);
-	}
+public class ArticleDAO extends DAO{
 	
 	public List<Map<String, Object>> getArticleList(int startRow, int endRow) {
 		HashMap<String, Integer> datas = new HashMap<>();

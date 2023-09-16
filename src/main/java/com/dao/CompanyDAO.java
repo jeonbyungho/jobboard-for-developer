@@ -3,19 +3,9 @@ package com.dao;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-
 import com.dto.CompanyDTO;
-import com.mybatis.SqlMapConfig;
 
-public class CompanyDAO implements UserDAO<CompanyDTO>{
-	SqlSessionFactory factory = SqlMapConfig.getFactory();
-	SqlSession sqlSession = null;
-	
-	public CompanyDAO() {
-		sqlSession = factory.openSession(true);
-	}
+public class CompanyDAO extends DAO implements UserDAO<CompanyDTO>{
 	
 	@Override
 	public CompanyDTO login(String company_no, String password) {

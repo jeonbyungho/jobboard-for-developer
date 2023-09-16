@@ -2,19 +2,9 @@ package com.dao;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-
 import com.dto.ArticleDTO;
-import com.mybatis.SqlMapConfig;
 
-public class BranchDAO {
-	SqlSessionFactory factory = SqlMapConfig.getFactory();
-	SqlSession sqlSession;
-	
-	public BranchDAO() {
-		sqlSession = (factory).openSession(true);
-	}
+public class BranchDAO extends DAO{
 
 	public boolean article_insert(ArticleDTO adto) {
 		try {

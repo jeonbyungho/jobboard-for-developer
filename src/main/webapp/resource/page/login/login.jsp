@@ -35,7 +35,7 @@
 	      <input type="password" name="password" id="password" placeholder="비밀번호" required>
 	      <button type="submit">로그인</button>
 	    </form>
-	    <p>계정이 없으신가요? <a href="${pageContext.request.contextPath}/member/signup">회원가입</a></p>
+	    <p>계정이 없으신가요? <a href="${pageContext.request.contextPath}/signup">회원가입</a></p>
 	  </div>
 	</div>
 	
