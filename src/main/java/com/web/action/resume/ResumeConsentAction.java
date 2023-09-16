@@ -34,11 +34,11 @@ public class ResumeConsentAction extends ExcuteAction{
 		}
 		
 		// 파라미터 구성
-		int resumeId = Integer.parseInt( map.get("resumeId").toString() );
-		System.out.println("승락한 이력서의 ID : " + resumeId);
+		int sendId = Integer.parseInt( map.get("sendId").toString() );
+		System.out.println("승락한 이력서의 ID : " + sendId);
 		// 응답 메시지
 		MypageDAO mdao = new MypageDAO();
-		String result = mdao.consentResume(resumeId) ? "success" : "fail";
+		String result = mdao.consentResume(sendId) ? "success" : "fail";
 		PrintWriter out = resp.getWriter();
 		
 		out.print(result);
