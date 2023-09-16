@@ -40,7 +40,7 @@
  	
  	<select id="byId" parameterType="_int" resultType="hashmap">
  		SELECT 
-			c.COMPANY_NO , c.NAME , c.ESTA , cs.TITLE as scale , 
+			c.COMPANY_NO , c.NAME , c.ESTA , cs.KOR as scale , 
 			c.EMPLOYEE_NO , c.CEO , a.DISTRICT || ' ' || c.DETAIL_ADDR AS address, 
 			c.CONTENT , c.URL 
 		FROM COMPANY c

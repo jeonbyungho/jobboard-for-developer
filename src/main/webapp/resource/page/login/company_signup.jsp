@@ -10,7 +10,12 @@
             <input type="text" name="name" id="signupCompanyName" placeholder="기업명" required>
             <!-- 수정된 부분: type="date" -->
             <input type="date" name="esta" id="signupEstablishedDate" required>
-            <input type="text" name="scale" id="signupCompanyType" placeholder="기업형태" required>
+            <select name="scale" id="signupCompanyType">
+            	<option value="">--기업 형태--</option>
+            	<option value="large">대기업</option>
+            	<option value="midsize">중견기업</option>
+            	<option value="small">중소기업</option>
+            </select>
             <input type="number" name="employee_no" id="signupEmployeeCount" placeholder="직원 수" required>
             <input type="text" name="ceo" id="signupRepresentativeName" placeholder="대표이름" required>
             <input type="url" name="url" id="signupWebsite" placeholder="홈페이지" required>
