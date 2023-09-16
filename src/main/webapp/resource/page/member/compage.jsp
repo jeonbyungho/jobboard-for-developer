@@ -8,6 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="${pageContext.request.contextPath}/resource/js/resume_consent.js" defer></script>
     <title>Document</title>
     <link rel="stylesheet" href="tmp.css">
 </head>
@@ -71,7 +72,7 @@
 	                            <td>
 		                            <c:choose>
 		                            	<c:when test="${empty resume.CONSENT }">
-		                            		<button>수락</button>
+		                            		<button onclick="resumeConsent('${pageContext.request.contextPath}',${resume.ID})">수락</button>
 		                            	</c:when>
 		                            	<c:otherwise>
 		                            		${resume.CONSENT }

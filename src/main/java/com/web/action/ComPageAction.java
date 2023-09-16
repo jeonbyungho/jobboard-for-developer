@@ -14,8 +14,6 @@ import com.dto.CompanyDTO;
 
 public class ComPageAction extends ExcuteAction{
 	
-	public ComPageAction() {}
-	
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		MypageDAO mydao = new MypageDAO();

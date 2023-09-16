@@ -244,7 +244,7 @@
     </form> 
     
 	<div id="join" name="join">
-		<button id="buttonjoin" type="submit" name="buttonjoin" onclick="window.open('${pageContext.request.contextPath}/member/resume/popup?articleId=${article.id}','지원서');">지원하기</button>
+		<button id="buttonjoin" type="submit" name="buttonjoin" onclick="window.open('${pageContext.request.contextPath}/resume/popup?articleId=${article.id}','지원서');">지원하기</button>
 	</div>
 </body>
 </html>

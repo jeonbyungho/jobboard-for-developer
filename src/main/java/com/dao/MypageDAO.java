@@ -23,4 +23,8 @@ public class MypageDAO {
 	public List<Map<String, String>> receiveResumeList(int id) {
 		return sqlSession.selectList("Mypage.receive_resume_list", id);
 	}
+	
+	public boolean consentResume(int id) {
+		return sqlSession.update("Mypage.consent_resume", id) > 0;
+	}
 }

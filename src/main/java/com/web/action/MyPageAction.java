@@ -13,8 +13,6 @@ import com.dto.MemberDTO;
 
 public class MyPageAction extends ExcuteAction{
 	
-	public MyPageAction() {}
-	
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		MypageDAO mydao = new MypageDAO();

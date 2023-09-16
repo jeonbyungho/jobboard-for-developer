@@ -11,26 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.web.action.*;
-import com.web.action.article.ArticleAction;
-import com.web.action.article.ArticleInsertAction;
-import com.web.action.article.ArticleListAction;
-import com.web.action.resume.ResumePopupAction;
-import com.web.action.resume.ResumeSendAction;
-import com.web.action.resume.ResumeWriteAction;
-import com.web.action.user.MemberLoginAction;
-import com.web.action.user.MemberLogoutAction;
-import com.web.action.user.MemberSingupAction;
+import com.web.action.article.*;
+import com.web.action.resume.*;
+import com.web.action.user.*;
 
 @WebServlet(urlPatterns = {
 		"/",
-		"/article/*", "/article/list",
-		"/resume/*", "/member/popup"})
+		"/article/*", "/article/write", "/article/list",
+		"/resume/*", "/resume/write", "/resume/consent", "/resume/popup"})
 public class FrontController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	// String ServletPath, ActionFront
 	Map<String, Action> getActionMap = new HashMap<String, Action>();
 	Map<String, Action> postActionMap = new HashMap<String, Action>();
+	Map<String, Action> putActionMap = new HashMap<String, Action>();
 	
 	@Override
 	public void init() throws ServletException {
@@ -42,13 +37,14 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/member/signup", new ExcuteAction("../resource/page/login/signup.jsp"));
 		getActionMap.put("/member/logout", new MemberLogoutAction());
 		
-		getActionMap.put("/resume", new ExcuteAction("./resource/page/member/resume.jsp"));
+		getActionMap.put("/resume/write", new ExcuteAction("../resource/page/member/resume.jsp"));
 		getActionMap.put("/resume/popup", new ResumePopupAction());
 		
 		getActionMap.put("/company/login", new ExcuteAction("../resource/page/login/login.jsp"));
 		getActionMap.put("/company/signup", new ExcuteAction("../resource/page/login/signup.jsp"));
 		
 		getActionMap.put("/article", new ArticleAction());
+		getActionMap.put("/article/write", new ExcuteAction("../resource/page/article/article-write.jsp"));
 		getActionMap.put("/article/list", new ArticleListAction());
 		
 		getActionMap.put("/member", new MyPageAction());
@@ -66,6 +62,8 @@ public class FrontController extends HttpServlet{
 		
 		postActionMap.put("/article", new ArticleInsertAction());
 		
+		// 요청 방식 PUT
+		putActionMap.put("/resume/consent", new ResumeConsentAction());
 	}
 	
 	@Override
@@ -81,6 +79,7 @@ public class FrontController extends HttpServlet{
 		System.out.println("Info : " + pathInfo);
 		System.out.println("Query : " + query);
 		super.service(req, resp);
+		
 	}
 	
 	@Override
@@ -95,6 +94,12 @@ public class FrontController extends HttpServlet{
 			throws ServletException, IOException {
 		System.out.println("doPOST");
 		doProcess(req, resp, postActionMap);
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("doPUT");
+		doProcess(req, resp, putActionMap);
 	}
 	
 	private void doProcess(HttpServletRequest req, HttpServletResponse resp, Map<String, Action> actionMap)

@@ -24,13 +24,15 @@ public class ArticleAction extends ExcuteAction{
 		
 		int no = 0;
 		if(info == null) {
-			setPath("./resource/page/article/article-write.jsp");
+			setRedirect(true);
+			setPath(req.getContextPath() + "/article/list");
 			return super.excute(req, resp);
-		} else {
-			info = info.substring(1);
-			no = Integer.parseInt(info);
-			System.out.println(no);
-		}
+		} 
+		
+		info = info.substring(1);
+		no = Integer.parseInt(info);
+		System.out.println(no);
+		
 		BranchDAO bdao = new BranchDAO();
 		CompanyDAO cdao = new CompanyDAO();
 		ArticleDTO adto1 = (ArticleDTO) bdao.article_select(no);

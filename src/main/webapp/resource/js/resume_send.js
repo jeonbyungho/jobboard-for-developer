@@ -22,6 +22,7 @@ async function resumeSend(path, articleId, resumeId){
 		if(mes == "success"){
 			alert('이력서 제출');
 			window.close();
+			return;
 		}
 		
 	} catch (error) {

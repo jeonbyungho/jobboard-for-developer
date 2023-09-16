@@ -41,4 +41,10 @@
 		WHERE s.ARTICLE_ID  
 			IN (SELECT a2.ID FROM ARTICLE a2 WHERE a2.COMPANY_ID = #{id})
 	</select>
+	
+	<!-- 기업 : 이력서 승락 -->
+	<update id="consent_resume" parameterType="_int">
+		UPDATE SEND SET CONSENT = SYSDATE
+		WHERE id = #{id}
+	</update>
 </mapper>
