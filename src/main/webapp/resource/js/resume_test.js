@@ -47,5 +47,6 @@ document.getElementById("liecencePlus").onclick = (e) => {
 	list.appendChild(li);
 
 	li.innerHTML =
-		'<input type="text" name="lieTitle" placeholder="자격증 명칭"/>';
+		'<input type="text" name="lieTitle" placeholder="자격증 명칭"/>'
+		+ '<input type="date" name="lieAcquisition"/>'
 };

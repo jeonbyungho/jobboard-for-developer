@@ -4,6 +4,8 @@ public class LiecenceDTO {
 	private int id;
 	private String resume_id;
 	private String title;
+	private String acquisition;
+	
 	public int getId() {
 		return id;
 	}
@@ -22,8 +24,16 @@ public class LiecenceDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public String getAcquisition() {
+		return acquisition;
+	}
+	public void setAcquisition(String acquisition) {
+		this.acquisition = acquisition;
+	}
 	@Override
 	public String toString() {
-		return "LiecenceDTO [id=" + id + ", resume_id=" + resume_id + ", title=" + title + "]";
+		return "LiecenceDTO [id=" + id + ", resume_id=" + resume_id + ", title=" + title + ", acquisition="
+				+ acquisition + "]";
 	}
+	
 }

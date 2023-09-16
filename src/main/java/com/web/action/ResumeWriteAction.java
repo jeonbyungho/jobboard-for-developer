@@ -71,10 +71,12 @@ public class ResumeWriteAction extends ExcuteAction {
 		// 자격증
 		List<LiecenceDTO> liecenceList = new ArrayList<LiecenceDTO>();
 		String[] lieTitle = req.getParameterValues("lieTitle");
+		String[] lieAcquisition = req.getParameterValues("lieAcquisition");
 		
 		for(int i = 0; i < lieTitle.length; i++) {
 			LiecenceDTO liecence = new LiecenceDTO();
 			liecence.setTitle(lieTitle[i]);
+			liecence.setAcquisition(lieAcquisition[i]);
 			liecenceList.add(liecence);
 		}
 		
