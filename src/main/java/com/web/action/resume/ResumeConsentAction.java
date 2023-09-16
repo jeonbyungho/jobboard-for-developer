@@ -40,7 +40,7 @@ public class ResumeConsentAction extends ExcuteAction{
 		MypageDAO mdao = new MypageDAO();
 		String result = mdao.consentResume(resumeId) ? "success" : "fail";
 		PrintWriter out = resp.getWriter();
-
+		
 		out.print(result);
 		return super.excute(req, resp);
 	}

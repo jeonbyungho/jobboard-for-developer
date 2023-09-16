@@ -17,6 +17,7 @@ import com.web.action.user.*;
 
 @WebServlet(urlPatterns = {
 		"/",
+		"/member", "/company",
 		"/article/*", "/article/write", "/article/list",
 		"/resume/*", "/resume/write", "/resume/consent", "/resume/popup"})
 public class FrontController extends HttpServlet{
