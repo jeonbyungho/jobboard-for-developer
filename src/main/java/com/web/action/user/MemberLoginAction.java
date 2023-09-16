@@ -1,4 +1,4 @@
-package com.web.action;
+package com.web.action.user;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import com.dao.CompanyDAO;
 import com.dao.MemberDAO;
 import com.dao.UserDAO;
+import com.web.action.ActionFront;
+import com.web.action.ExcuteAction;
 
 public class MemberLoginAction extends ExcuteAction{
 	

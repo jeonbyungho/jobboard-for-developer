@@ -1,4 +1,4 @@
-package com.web.action;
+package com.web.action.resume;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.ResumeDAO;
+import com.web.action.ActionFront;
+import com.web.action.ExcuteAction;
 
 public class ResumeSendAction extends ExcuteAction{
 	@Override

@@ -1,4 +1,4 @@
-package com.web.action;
+package com.web.action.article;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.dao.BranchDAO;
 import com.dao.CompanyDAO;
 import com.dto.ArticleDTO;
+import com.web.action.ActionFront;
+import com.web.action.ExcuteAction;
 
 public class ArticleAction extends ExcuteAction{
 	

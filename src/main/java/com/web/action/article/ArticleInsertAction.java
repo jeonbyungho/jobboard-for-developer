@@ -1,4 +1,4 @@
-package com.web.action;
+package com.web.action.article;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +12,8 @@ import org.json.simple.JSONObject;
 import com.dao.BranchDAO;
 import com.dto.ArticleDTO;
 import com.dto.CompanyDTO;
+import com.web.action.ActionFront;
+import com.web.action.ExcuteAction;
 
 public class ArticleInsertAction extends ExcuteAction{
 	@Override

@@ -1,4 +1,4 @@
-package com.web.action;
+package com.web.action.resume;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import com.dao.ResumeDAO;
 import com.dto.MemberDTO;
+import com.web.action.ActionFront;
+import com.web.action.ExcuteAction;
 
 public class ResumePopupAction extends ExcuteAction{
 	@Override

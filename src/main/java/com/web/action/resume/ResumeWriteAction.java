@@ -1,4 +1,4 @@
-package com.web.action;
+package com.web.action.resume;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +14,8 @@ import com.dto.MemberDTO;
 import com.dto.RegDTO;
 import com.dto.ResumeDTO;
 import com.dto.SchoolDTO;
+import com.web.action.ActionFront;
+import com.web.action.ExcuteAction;
 
 
 public class ResumeWriteAction extends ExcuteAction {

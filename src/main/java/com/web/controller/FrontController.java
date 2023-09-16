@@ -11,6 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.web.action.*;
+import com.web.action.article.ArticleAction;
+import com.web.action.article.ArticleInsertAction;
+import com.web.action.article.ArticleListAction;
+import com.web.action.resume.ResumePopupAction;
+import com.web.action.resume.ResumeSendAction;
+import com.web.action.resume.ResumeWriteAction;
+import com.web.action.user.MemberLoginAction;
+import com.web.action.user.MemberLogoutAction;
+import com.web.action.user.MemberSingupAction;
 
 @WebServlet(urlPatterns = {
 		"/",
