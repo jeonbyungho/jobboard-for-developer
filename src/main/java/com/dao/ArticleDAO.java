@@ -1,4 +1,4 @@
-package com.dto;
+package com.dao;
 
 import java.util.HashMap;
 import java.util.List;

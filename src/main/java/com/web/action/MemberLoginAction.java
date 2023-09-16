@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dto.CompanyDAO;
-import com.dto.MemberDAO;
-import com.dto.UserDAO;
+import com.dao.CompanyDAO;
+import com.dao.MemberDAO;
+import com.dao.UserDAO;
 
 public class MemberLoginAction extends ExcuteAction{
 	

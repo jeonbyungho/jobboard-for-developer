@@ -1,6 +1,8 @@
-package com.dto;
+package com.dao;
 
 import java.util.Map;
+
+import com.dto.UserDTO;
 
 public interface UserDAO<T extends UserDTO>{
 	

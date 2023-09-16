@@ -1,4 +1,4 @@
-package com.dto;
+package com.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.dto.ResumeDTO;
 import com.mybatis.SqlMapConfig;
 
 public class ResumeDAO {

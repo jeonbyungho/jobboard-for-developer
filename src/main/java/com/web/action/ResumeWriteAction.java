@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.ResumeDAO;
 import com.dto.LiecenceDTO;
 import com.dto.MemberDTO;
 import com.dto.RegDTO;
-import com.dto.ResumeDAO;
 import com.dto.ResumeDTO;
 import com.dto.SchoolDTO;
 

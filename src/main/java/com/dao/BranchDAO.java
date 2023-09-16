@@ -1,10 +1,11 @@
-package com.dto;
+package com.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.dto.ArticleDTO;
 import com.mybatis.SqlMapConfig;
 
 public class BranchDAO {

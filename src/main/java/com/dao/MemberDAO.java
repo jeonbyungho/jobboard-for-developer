@@ -1,4 +1,4 @@
-package com.dto;
+package com.dao;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,34 +6,29 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.dto.MemberDTO;
 import com.mybatis.SqlMapConfig;
 
-public class CompanyDAO implements UserDAO<CompanyDTO>{
+public class MemberDAO implements UserDAO<MemberDTO>{
 	SqlSessionFactory factory = SqlMapConfig.getFactory();
 	SqlSession sqlSession = null;
 	
-	public CompanyDAO() {
+	public MemberDAO() {
 		sqlSession = factory.openSession(true);
 	}
 	
 	@Override
-	public CompanyDTO login(String company_no, String password) {
+	public MemberDTO login(String username, String password) {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("company_no", company_no);
+		map.put("userid", username);
 		map.put("password", password);
-		CompanyDTO company = sqlSession.selectOne("Company.login", map);
-		return company;
+		MemberDTO member = sqlSession.selectOne("Member.login", map);
+		return member;
 	}
 	
 	@Override
 	public boolean sigup(Map<String, String> map) {
-		int result = sqlSession.insert("Company.sigup", map);
+		int result = sqlSession.insert("Member.sigup", map);
 		return result > 0 ? true : false;
 	}
-	
-	
-	public Map<String, String> byId(int id){
-		return sqlSession.selectOne("Company.byId", id);
-	}
-	
 }

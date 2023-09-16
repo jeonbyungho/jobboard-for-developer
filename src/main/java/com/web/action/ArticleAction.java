@@ -7,9 +7,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.BranchDAO;
+import com.dao.CompanyDAO;
 import com.dto.ArticleDTO;
-import com.dto.BranchDAO;
-import com.dto.CompanyDAO;
 
 public class ArticleAction extends ExcuteAction{
 	

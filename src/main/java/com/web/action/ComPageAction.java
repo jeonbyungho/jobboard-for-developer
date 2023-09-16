@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.MypageDAO;
 import com.dto.CompanyDTO;
-import com.dto.MypageDAO;
 
 
 public class ComPageAction extends ExcuteAction{

@@ -9,8 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 
+import com.dao.BranchDAO;
 import com.dto.ArticleDTO;
-import com.dto.BranchDAO;
 import com.dto.CompanyDTO;
 
 public class ArticleInsertAction extends ExcuteAction{

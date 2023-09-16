@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dao.ResumeDAO;
 import com.dto.MemberDTO;
-import com.dto.ResumeDAO;
 
 public class ResumePopupAction extends ExcuteAction{
 	@Override

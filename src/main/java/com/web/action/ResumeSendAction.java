@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dto.ResumeDAO;
+import com.dao.ResumeDAO;
 
 public class ResumeSendAction extends ExcuteAction{
 	@Override

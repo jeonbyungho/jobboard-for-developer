@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import com.dto.CompanyDAO;
-import com.dto.MemberDAO;
-import com.dto.UserDAO;
+import com.dao.CompanyDAO;
+import com.dao.MemberDAO;
+import com.dao.UserDAO;
 
 public class MemberSingupAction extends ExcuteAction {
 	
