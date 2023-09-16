@@ -36,7 +36,7 @@ public class MyPageAction extends ExcuteAction{
 		}
 		
 		req.setAttribute("submitResumeList",map);
-		setPath("../resource/page/member/mypage.jsp");
+		setPath("./resource/page/member/mypage.jsp");
 		return super.excute(req, resp);
 	}
 }

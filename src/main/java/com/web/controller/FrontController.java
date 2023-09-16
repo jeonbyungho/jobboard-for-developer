@@ -44,8 +44,8 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/article", new ArticleAction());
 		getActionMap.put("/article/list", new ArticleListAction());
 		
-		getActionMap.put("/member/mypage", new MyPageAction());
-		getActionMap.put("/company/mypage", new ComPageAction());
+		getActionMap.put("/member", new MyPageAction());
+		getActionMap.put("/company", new ComPageAction());
 		
 		// 요청 방식 POST
 		postActionMap.put("/member/login", new MemberLoginAction(true));

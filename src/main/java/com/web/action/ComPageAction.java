@@ -38,7 +38,7 @@ public class ComPageAction extends ExcuteAction{
 		}
 	
 		req.setAttribute("receiveResumeList",map);
-		setPath("../resource/page/member/compage.jsp");
+		setPath("./resource/page/member/compage.jsp");
 		return super.excute(req, resp);
 	}
 }

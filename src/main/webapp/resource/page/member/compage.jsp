@@ -56,21 +56,28 @@
                 <table class="board-table">
                     <thead>
                         <tr>
-                            <th scope="col" class="th-id">번호</th>
-                            <th scope="col" class="th-name">이력서제목</th>
-                            <th scope="col" class="th-title">작성날짜</th>
-                            <th scope="col" class="th-job">지원기업</th>
-                            <th scope="col" class="th-career">수락여부</th>
-                            <th scope="col" class="th-address">열람여부</th>
+                            <th scope="col" class="th-name">구인글</th>
+                            <th scope="col" class="th-title">지원자</th>
+                            <th scope="col" class="th-job">이력서</th>
+                            <th scope="col" class="th-career">버튼</th>
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="resume" items="${receiveResumeList}">
 					    	<tr>
 	                            <td>${resume.ARTICLE_TITLE }</td>
-	                            <td>${resume.RESUME_TITLE }</td>
 	                            <td>${resume.MEMBER_NAME }</td>
-	                            <td>${resume.CONSENT }</td>
+	                            <td>${resume.RESUME_TITLE }</td>
+	                            <td>
+		                            <c:choose>
+		                            	<c:when test="${empty resume.CONSENT }">
+		                            		<button>수락</button>
+		                            	</c:when>
+		                            	<c:otherwise>
+		                            		${resume.CONSENT }
+		                            	</c:otherwise>
+		                            </c:choose>
+	                            </td>
 					    	</tr>
 					    </c:forEach>
                 </table>

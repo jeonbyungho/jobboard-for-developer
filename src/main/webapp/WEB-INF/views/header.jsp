@@ -38,12 +38,12 @@
 				<c:choose>
 					<%-- 구직자 --%>
 					<c:when test="${sessionScope.member.kind }">
-						<a href="${pageContext.request.contextPath}/member/mypage">${sessionScope.member.name}님 |</a>
+						<a href="${pageContext.request.contextPath}/member">${sessionScope.member.name}님 |</a>
 						<a href="${pageContext.request.contextPath}/member/resume">이력서 등록</a>
 					</c:when>
 					<%-- 기업 --%>
 					<c:otherwise>
-						<a href="${pageContext.request.contextPath}/company/mypage">${sessionScope.member.name} |</a>
+						<a href="${pageContext.request.contextPath}/company">${sessionScope.member.name} |</a>
 						<a href="${pageContext.request.contextPath}/article">구인글 등록</a>
 					</c:otherwise>
 				</c:choose>
