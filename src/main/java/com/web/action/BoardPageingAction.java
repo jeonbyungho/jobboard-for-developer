@@ -43,12 +43,20 @@ public abstract class BoardPageingAction extends ExcuteAction{
 		final int totalCount = bdao.totalCount(map);
 		
 		int startPage = (page - 1) / _pageSizeDo + 1;
-		int endPage = startPage + _pageSize + 1;
-		endPage = (totalCount < endPage) ? totalCount : endPage;
+		int endPage = startPage + _pageSize - 1;
+		int totalPage = (totalCount - 1) / _pageSize + 1;
+		endPage = (totalPage < endPage) ? totalPage : endPage;
 		
 		req.setAttribute("nowPage", page);
 		req.setAttribute("startPage", startPage);
 		req.setAttribute("endPage", endPage);
+		req.setAttribute("totalCount", totalCount);
+		
+		System.out.println("┌─ 게시판 현재 페이지 개수: " + _pageSize);
+		System.out.println("├─ 현재 페이지 : " + page);
+		System.out.println("├─ 시작 페이지 : " + startPage);
+		System.out.println("├─ 끝 페이지 : " + endPage);
+		System.out.println("└─ 게시판 총 개수 : " + totalCount);
 		
 		// 게시판 불러오기 (DB)
 		int endRow = page * _pageSize;

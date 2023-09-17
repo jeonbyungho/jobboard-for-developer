@@ -11,7 +11,7 @@
 <title>이력서 제출</title>
 </head>
 <body>
-	
+	<p>${totalCount}</p>
 	<ul>
 		<c:forEach items="${resumeList}" var="resume">
 			<li>
@@ -21,5 +21,12 @@
 			</li>
 		</c:forEach>
 	</ul>
+	
+	<div>
+		<c:forEach var="p" begin="${startPage}" end="${endPage}">
+			<span>${p }</span>
+		</c:forEach>
+	</div>
+	
 </body>
 </html>
