@@ -65,6 +65,9 @@ public abstract class BoardPageingAction extends ExcuteAction{
 		map.put("startRow", startRow);
 		map.put("endRow", endRow);
 		
+		System.out.println("┌─startRow : " + startRow);
+		System.out.println("└─endRow : " + endRow);
+		
 		return bdao.getList(map);
 	}
 }

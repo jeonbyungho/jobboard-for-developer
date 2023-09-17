@@ -24,7 +24,7 @@
 	
 	<div>
 		<c:forEach var="p" begin="${startPage}" end="${endPage}">
-			<span>${p }</span>
+			<a href="${pageContext.request.contextPath}/resume/popup?articleId=${article.id}&page=${p}">${p }</a>
 		</c:forEach>
 	</div>
 	

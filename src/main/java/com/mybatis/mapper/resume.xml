@@ -60,14 +60,15 @@
 	
 	<!-- 이력서 목록 -->
 	<select id="list" parameterType="hashmap" resultType="hashmap">
-		SELECT 
-			rownum r, r.ID , r.TITLE 
-		FROM RESUME r
-		WHERE
-			r.MEMBER_ID = #{id}
-			AND
-			rownum BETWEEN #{startRow} AND #{endRow}
-		ORDER BY rownum DESC
+		SELECT * FROM (
+			SELECT rownum r, re.*
+			FROM (
+			SELECT r.ID , r.TITLE 
+			FROM RESUME r 
+			WHERE r.MEMBER_ID = #{id}) re
+			)
+		WHERE r BETWEEN #{startRow} AND #{endRow}
+		ORDER BY r DESC
 	</select>
 	
 	<!-- 작성한 이력서 개수 -->
