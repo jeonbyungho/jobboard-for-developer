@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.web.action.*;
 import com.web.action.article.*;
-import com.web.action.mypage.CompanyMyPageAction;
-import com.web.action.mypage.MemberMyPageAction;
+import com.web.action.mypage.*;
 import com.web.action.resume.*;
 import com.web.action.user.*;
 
 @WebServlet(urlPatterns = {
 		"/",
-		"/member", "/company",
+		"/member", "/member/submit",
+		"/company",
 		"/article/*", "/article/write", "/article/list",
 		"/resume/*", "/resume/write", "/resume/consent", "/resume/popup"})
 public class FrontController extends HttpServlet{
@@ -41,7 +41,7 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/logout", new MemberLogoutAction());
 		
 		getActionMap.put("/resume", new ResumeViewAction());
-		getActionMap.put("/resume/write", new ExcuteAction("../resource/page/member/resume.jsp"));
+		getActionMap.put("/resume/write", new ExcuteAction("../resource/page/resume/write.jsp"));
 		getActionMap.put("/resume/popup", new ResumePopupAction());
 		
 		getActionMap.put("/company/login", new ExcuteAction("../resource/page/login/login.jsp"));
@@ -52,6 +52,8 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/article/list", new ArticleListAction());
 		
 		getActionMap.put("/member", new MemberMyPageAction());
+		getActionMap.put("/member/submit", new SubmitResumeListAction());
+		
 		getActionMap.put("/company", new CompanyMyPageAction());
 		
 		// 요청 방식 POST

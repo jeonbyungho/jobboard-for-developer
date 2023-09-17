@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dao.MemberMypageDAO;
+import com.dao.ResumeDAO;
 import com.dto.MemberDTO;
 import com.web.action.ActionFront;
 import com.web.action.BoardPageingAction;
@@ -18,7 +19,7 @@ public class MemberMyPageAction extends BoardPageingAction{
 	
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		MemberMypageDAO mydao = new MemberMypageDAO();
+		ResumeDAO rdao = new ResumeDAO();
 		HttpSession session = req.getSession();
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		
@@ -34,9 +35,9 @@ public class MemberMyPageAction extends BoardPageingAction{
 		
 		// DB 조회
 		int page = getPage(req);
-		List<?> list = getList(req, mydao, map, page);
+		List<?> list = getList(req, rdao, map, page);
 		
-		req.setAttribute("submitResumeList", list);
+		req.setAttribute("resumeList", list);
 		
 		setRedirect(false);
 		setPath("./resource/page/member/mypage.jsp");

@@ -66,15 +66,16 @@
 	
 	<!-- 이력서 목록 -->
 	<select id="list" parameterType="hashmap" resultType="hashmap">
-		SELECT * FROM (
-			SELECT rownum r, re.*
+		SELECT * 
+		FROM (
+			SELECT ROWNUM rn, r.*
 			FROM (
-			SELECT r.ID , r.TITLE 
-			FROM RESUME r 
-			WHERE r.MEMBER_ID = #{id}) re
-			)
-		WHERE r BETWEEN #{startRow} AND #{endRow}
-		ORDER BY r DESC
+				SELECT r.ID , r.TITLE 
+				FROM RESUME r 
+				WHERE r.MEMBER_ID = #{id}
+				ORDER BY r.ID DESC
+			) r)
+		WHERE rn BETWEEN #{startRow} AND #{endRow}
 	</select>
 	
 	<!-- 작성한 이력서 개수 -->

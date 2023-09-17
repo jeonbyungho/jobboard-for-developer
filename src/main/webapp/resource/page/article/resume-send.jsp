@@ -11,18 +11,35 @@
 <title>이력서 제출</title>
 </head>
 <body>
-	<ul>
-		<c:forEach items="${resumeList}" var="resume">
-			<li>
-				<a href="javascript:resumeSend('${pageContext.request.contextPath}/resume/popup', ${param.articleId}, ${resume.ID })">
+	
+	<h3>제출할 이력서를 선택</h3>
+	
+	<%-- 이력서 테이블 --%>
+	<table border="1">
+		<tr>
+			<th>번호</th>
+    		<th>이력서</th>
+    		<th>✉️</th>
+    	</tr>
+	<c:forEach items="${resumeList}" var="resume">
+		<tr>
+			<td>${resume.RN }</td>
+			<td>
+				<a href="${pageContext.request.contextPath}/resume/${resume.ID}">
 					${resume.TITLE }
 				</a>
-			</li>
-		</c:forEach>
-	</ul>
+			</td>
+			<td>
+				<a href="javascript:resumeSend('${pageContext.request.contextPath}/resume/popup', ${param.articleId}, ${resume.ID })">
+					제출
+				</a>
+			</td>
+		</tr>
+	</c:forEach>
+	</table>
 	
 	<%-- 페이징 --%>
-	<div>
+	<div align="center">
 		<c:set var="pagePath" value="resume/popup?articleId=${param.articleId}&page"/>
 		<%@ include file= "/WEB-INF/views/board/page_number.jsp" %>
 	</div>

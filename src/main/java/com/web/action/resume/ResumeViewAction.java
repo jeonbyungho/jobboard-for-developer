@@ -40,7 +40,7 @@ public class ResumeViewAction extends ExcuteAction{
 		req.setAttribute("reg", reg);
 		req.setAttribute("liecence", liecence);
 		
-		setPath("../resource/page/member/resume-view.jsp");
+		setPath("../resource/page/resume/view.jsp");
 		
 		return super.excute(req, resp);
 	}

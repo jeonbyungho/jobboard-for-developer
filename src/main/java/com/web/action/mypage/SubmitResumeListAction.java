@@ -9,22 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dao.CompanyMypageDAO;
-import com.dto.CompanyDTO;
+import com.dao.MemberMypageDAO;
+import com.dto.MemberDTO;
 import com.web.action.ActionFront;
 import com.web.action.BoardPageingAction;
 
-
-public class CompanyMyPageAction extends BoardPageingAction{
+public class SubmitResumeListAction extends BoardPageingAction{
 	
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		CompanyMypageDAO mydao = new CompanyMypageDAO();
-		
+		MemberMypageDAO mydao = new MemberMypageDAO();
 		HttpSession session = req.getSession();
-		CompanyDTO company = (CompanyDTO)session.getAttribute("member");
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		
-		if(company == null){
+		if(member == null) {
 			setRedirect(true);
 			setPath(req.getContextPath());
 			return super.excute(req, resp);
@@ -32,16 +30,17 @@ public class CompanyMyPageAction extends BoardPageingAction{
 		
 		// 파라미터 구성
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("id", company.getId());
+		map.put("id", member.getId());
 		
 		// DB 조회
 		int page = getPage(req);
 		List<?> list = getList(req, mydao, map, page);
 		
-		setRedirect(false);
-		req.setAttribute("receiveResumeList", list);
+		req.setAttribute("submitResumeList", list);
 		
-		setPath("./resource/page/company/mypage.jsp");
+		setRedirect(false);
+		setPath("../resource/page/member/submit.jsp");
 		return super.excute(req, resp);
 	}
 }
+		
