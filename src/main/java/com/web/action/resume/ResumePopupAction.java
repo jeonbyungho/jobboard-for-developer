@@ -18,7 +18,7 @@ import com.web.action.ExcuteAction;
 public class ResumePopupAction extends BoardPageingAction{
 	
 	public ResumePopupAction() {
-		super(2);
+		super(8);
 	}
 	
 	@Override
