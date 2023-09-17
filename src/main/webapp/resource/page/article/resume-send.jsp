@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,6 @@
 <title>이력서 제출</title>
 </head>
 <body>
-	<p>${totalCount}</p>
 	<ul>
 		<c:forEach items="${resumeList}" var="resume">
 			<li>
@@ -22,10 +21,10 @@
 		</c:forEach>
 	</ul>
 	
+	<%-- 페이징 --%>
 	<div>
-		<c:forEach var="p" begin="${startPage}" end="${endPage}">
-			<a href="${pageContext.request.contextPath}/resume/popup?articleId=${article.id}&page=${p}">${p }</a>
-		</c:forEach>
+		<c:set var="pagePath" value="resume/popup?articleId=${param.articleId}&page"/>
+		<%@ include file= "/WEB-INF/views/board/page_number.jsp" %>
 	</div>
 	
 </body>
