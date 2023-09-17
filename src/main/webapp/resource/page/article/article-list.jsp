@@ -11,20 +11,8 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/articlelist.css">
 </head>
 <body>
-    <div id="head">
-        <div id="headcontain">
-            <div id="siteimg">
-                <a href=""><img src="${pageContext.request.contextPath}/resource/img/teamlogo.jpg"></a>
-            </div>
-            <div id="explain">
-                채용공고
-            </div>
-            <div id="register">
-                <button>인제풀 등록하기</button>
-            </div>
-        </div>
-    </div>
-
+   	<header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
+   	
     <section class="notice">
         <div class="page-title">
             <div class="container">
@@ -100,38 +88,13 @@
                 </table>
             </div>
         </div>
-        <br>
-		<div style="border: 0px; width: 100%;">
-                <div align="center">
-                    <div>
-                    	<c:if test="${nowPage > 1 }">
-                        	<a 
-                        		href="${pageContext.request.contextPath}/article/list?page=${nowPage -1}">
-								&lt;
-                        	</a>
-                        </c:if>
-                        <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                        <c:choose>
-								<c:when test="${i == nowPage }">
-									[${i }]
-								</c:when>
-								<c:otherwise>
-									<a
-										href="${pageContext.request.contextPath}/article/list?page=${i}">
-										[${i }] 
-									</a>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach> 
-                        <c:if test="${nowPage < totalPage }">
-							<a
-								href="${pageContext.request.contextPath}/article/list?page=${nowPage +1}">
-								&gt; 
-							</a>
-						</c:if>
-                    </div>
-                </div>
-            </div> 
+	
+	<%-- 페이징 --%>
+	<div align="center">
+		<c:set var="pagePath" value="article/list?page"/>
+		<%@ include file= "/WEB-INF/views/board/page_number.jsp" %>
+	</div>
+	
     </section>
 </body>
 </html>

@@ -18,8 +18,7 @@
     <link href="${pageContext.request.contextPath}/resource/css/jobs.css" rel="stylesheet"  type="text/css"/>
     <link href="${pageContext.request.contextPath}/resource/css/jops_table.css" rel="stylesheet"  type="text/css"/>
     <link href="${pageContext.request.contextPath}/resource/css/nav.css" rel="stylesheet"  type="text/css"/>
-
-    <link href="https://fontawesome.com/icons/magnifying-glass?f=classic&s=solid"/>
+	
 </head>
 <body>
  
