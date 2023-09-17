@@ -40,10 +40,12 @@
 		<fieldset>
 			<legend>학교</legend>
 			<c:forEach var="i" items="${school}">
-				<p>${i.RATING }</p>
-				<p>${i.NAME }</p>
-				<p>${i.DEPARTMENT }</p>
-				<p>${i.STATUS }</p>
+				<div>
+				<span>${i.RATING }</span>
+				<span>${i.NAME }</span>
+				<span>${i.DEPARTMENT }</span>
+				<span>${i.STATUS }</span>
+				</div>
 			</c:forEach>
 		</fieldset>
 	</c:if>

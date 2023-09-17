@@ -7,7 +7,7 @@ public class SchoolDTO {
 	private String name;
 	private String department;
 	private String status;
-	private int grade;
+	private float grade;
 	public int getId() {
 		return id;
 	}
@@ -44,10 +44,10 @@ public class SchoolDTO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public int getGrade() {
+	public float getGrade() {
 		return grade;
 	}
-	public void setGrade(int grade) {
+	public void setGrade(float grade) {
 		this.grade = grade;
 	}
 	@Override

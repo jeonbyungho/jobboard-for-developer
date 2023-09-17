@@ -8,6 +8,7 @@ import com.dto.ResumeDTO;
 
 public class ResumeDAO extends DAO implements BoardDAO<HashMap<String, String>>{
 	
+	// 이력서 작성
 	public boolean save(ResumeDTO rdto) {
 		try {
 			sqlSession.insert("Resume.write", rdto);
@@ -18,6 +19,12 @@ public class ResumeDAO extends DAO implements BoardDAO<HashMap<String, String>>{
 		return false;
 	}
 	
+	// 가장 최근에 작성된 이력서의 id 값
+	public int currval() {
+		return sqlSession.selectOne("Resume.currval");
+	}
+	
+	// 이력서 제출
 	public boolean send(Map<String, Integer> map) {
 		return (sqlSession.insert("Resume.send", map) > 0);
 	}

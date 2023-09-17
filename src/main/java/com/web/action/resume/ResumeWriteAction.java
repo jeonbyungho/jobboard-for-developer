@@ -66,7 +66,10 @@ public class ResumeWriteAction extends ExcuteAction {
 			school.setName(schName[i]);
 			school.setDepartment(schDepartment[i]);
 			school.setStatus(schStatus[i]);
-			school.setGrade(Integer.parseInt(schGrade[i]));
+			
+			float grade = Float.parseFloat(schGrade[i]);
+			school.setGrade(grade);
+			
 			schoolList.add(school);
 		}
 		
@@ -98,13 +101,13 @@ public class ResumeWriteAction extends ExcuteAction {
 		if (result) {
 			// 저장 성공 시 넘어갈 경로 설정
 			setRedirect(true);
-			setPath(req.getContextPath() + "/");
+			setPath(req.getContextPath() + "/resume/" + rdao.currval());
 		} else {
 			// 저장 실패 시 넘어갈 경로 설정
 			setRedirect(true);
 			setPath("error.jsp");
 		}
-
+		
 		System.out.println("ResumeWriteAction");
 		return super.excute(req, resp);
 

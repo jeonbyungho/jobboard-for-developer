@@ -48,6 +48,11 @@
 		END;
 	</insert>
 	
+	<!-- 가장 최신 글 조회 -->
+	<select id="currval" resultType="_int">
+		SELECT RESUME_SEQ.currval FROM dual
+	</select>
+	
 	<!-- 이력서 보내기 -->
 	<insert id="send" parameterType="hashmap">
 		INSERT INTO SEND s
