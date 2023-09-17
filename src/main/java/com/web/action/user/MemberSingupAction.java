@@ -50,7 +50,7 @@ public class MemberSingupAction extends ExcuteAction {
 		// 회원가입 성공 시..
 		System.out.println("회원가입 성공");
 		result.put("result", "success");
-	    result.put("url", req.getContextPath()+"/member/login");
+	    result.put("url", req.getContextPath()+"/login");
 	    out.print(result.toJSONString());
 	    
 		return super.excute(req, resp);

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
 
-import com.dao.MypageDAO;
+import com.dao.CompanyMypageDAO;
 import com.web.action.ActionFront;
 import com.web.action.ExcuteAction;
 
@@ -40,7 +40,7 @@ public class ResumeConsentAction extends ExcuteAction{
 		System.out.println("승락한 이력서의 ID : " + sendId);
 		
 		// 응답 메시지
-		MypageDAO mdao = new MypageDAO();
+		CompanyMypageDAO mdao = new CompanyMypageDAO();
 		String result = mdao.consentResume(sendId) ? "success" : "fail";
 		
 		out.print(result);

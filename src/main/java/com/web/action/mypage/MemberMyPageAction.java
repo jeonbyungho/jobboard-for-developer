@@ -1,6 +1,7 @@
-package com.web.action;
+package com.web.action.mypage;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -8,15 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dao.MypageDAO;
+import com.dao.MemberMypageDAO;
 import com.dto.MemberDTO;
+import com.web.action.ActionFront;
+import com.web.action.BoardPageingAction;
 
-public class MyPageAction extends ExcuteAction{
+public class MemberMyPageAction extends BoardPageingAction{
 	
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		MypageDAO mydao = new MypageDAO();
-		
+		MemberMypageDAO mydao = new MemberMypageDAO();
 		HttpSession session = req.getSession();
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		
@@ -25,15 +27,18 @@ public class MyPageAction extends ExcuteAction{
 			setPath(req.getContextPath());
 			return super.excute(req, resp);
 		}
-		int id = member.getId();
 		
-		List<Map<String, String>> map = mydao.submitResumeList(id);
-		System.out.println("나온 개수: "+map.size());
-		for(Map<String, String> m : map) {
-			System.out.println(m.toString());
-		}
+		// 파라미터 구성
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", member.getId());
 		
-		req.setAttribute("submitResumeList",map);
+		// DB 조회
+		int page = getPage(req);
+		List<?> list = getList(req, mydao, map, page);
+		
+		req.setAttribute("submitResumeList", list);
+		
+		setRedirect(false);
 		setPath("./resource/page/member/mypage.jsp");
 		return super.excute(req, resp);
 	}

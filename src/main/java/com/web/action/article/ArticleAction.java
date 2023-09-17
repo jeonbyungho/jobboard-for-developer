@@ -35,16 +35,16 @@ public class ArticleAction extends ExcuteAction{
 		
 		BranchDAO bdao = new BranchDAO();
 		CompanyDAO cdao = new CompanyDAO();
-		ArticleDTO adto1 = (ArticleDTO) bdao.article_select(no);
-		List<String> adto2 = bdao.job_select(no);
-		List<String> adto3 = bdao.stack_select(no);
+		ArticleDTO article = (ArticleDTO) bdao.article_select(no);
+		List<String> jobs = bdao.job_select(no);
+		List<String> stacks = bdao.stack_select(no);
 		
-		Map<String, String> cmap = cdao.byId(adto1.getCompany_id());
+		Map<String, String> cmap = cdao.byId(article.getCompany_id());
 		
 		System.out.println();
-		req.setAttribute("article", adto1);
-		req.setAttribute("job", adto2);
-		req.setAttribute("stack", adto3);
+		req.setAttribute("article", article);
+		req.setAttribute("job", jobs);
+		req.setAttribute("stack", stacks);
 		req.setAttribute("company", cmap);
 		
 		setPath("../resource/page/article/article-view.jsp");

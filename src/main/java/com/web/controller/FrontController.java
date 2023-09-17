@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.web.action.*;
 import com.web.action.article.*;
+import com.web.action.mypage.CompanyMyPageAction;
+import com.web.action.mypage.MemberMyPageAction;
 import com.web.action.resume.*;
 import com.web.action.user.*;
 
@@ -49,8 +51,8 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/article/write", new ExcuteAction("../resource/page/article/article-write.jsp"));
 		getActionMap.put("/article/list", new ArticleListAction());
 		
-		getActionMap.put("/member", new MyPageAction());
-		getActionMap.put("/company", new ComPageAction());
+		getActionMap.put("/member", new MemberMyPageAction());
+		getActionMap.put("/company", new CompanyMyPageAction());
 		
 		// 요청 방식 POST
 		postActionMap.put("/member/login", new MemberLoginAction(true));

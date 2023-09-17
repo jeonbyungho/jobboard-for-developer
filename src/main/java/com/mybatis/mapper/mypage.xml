@@ -5,41 +5,63 @@
 
 <mapper namespace="Mypage">
 	<!-- 회원 : 제출한 이력서 목록 -->
-	<select id="submit_resume_list" parameterType="_int" resultType="hashmap">
-		SELECT
-				s.ID
-			,	s.ARTICLE_ID 
-			,	s.RESUME_ID 
-			,	(SELECT c.NAME FROM COMPANY c WHERE c.ID = a.COMPANY_ID) AS company_name
-			,	a.TITLE AS ARTICLE_TITLE
-			,	r.TITLE AS RESUME_TITLE
-			,	s.CONSENT
-		FROM SEND s 
-			LEFT OUTER JOIN ARTICLE a
-				ON s.ARTICLE_ID = a.ID 
-			LEFT OUTER JOIN RESUME r 
-				ON s.RESUME_ID = r.ID
-		WHERE s.RESUME_ID 
-			IN (SELECT r2.ID FROM RESUME r2 WHERE r2.MEMBER_ID = #{id})
+	<select id="submit_resumeList" parameterType="hashmap" resultType="hashmap">
+		SELECT * FROM ( 
+			SELECT rownum r
+				,	s.ID
+				,	s.ARTICLE_ID 
+				,	s.RESUME_ID 
+				,	(SELECT c.NAME FROM COMPANY c WHERE c.ID = a.COMPANY_ID) AS company_name
+				,	a.TITLE AS ARTICLE_TITLE
+				,	r.TITLE AS RESUME_TITLE
+				,	s.CONSENT
+			FROM SEND s 
+				LEFT OUTER JOIN ARTICLE a
+					ON s.ARTICLE_ID = a.ID 
+				LEFT OUTER JOIN RESUME r 
+					ON s.RESUME_ID = r.ID
+			WHERE
+				r.MEMBER_ID = #{id}
+			ORDER BY r DESC )
+		WHERE r BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<!-- 회원 : 제출한 이력서 총 개수 -->
+	<select id="submit_resumeCount" parameterType="hashmap" resultType="_int">
+		SELECT COUNT(*) FROM SEND s 
+			LEFT OUTER JOIN RESUME r ON s.RESUME_ID = r.ID  
+		WHERE
+			r.MEMBER_ID = #{id}
 	</select>
 	
 	<!-- 기업 : 받은 이력서 목록 -->
-	<select id="receive_resume_list" parameterType="_int" resultType="hashmap">
-		SELECT
-				s.ID
-			,	s.ARTICLE_ID 
-			,	s.RESUME_ID 
-			,	(SELECT m.NAME FROM "MEMBER" m WHERE m.ID = r.MEMBER_ID) AS member_name
-			,	a.TITLE AS ARTICLE_TITLE
-			,	r.TITLE AS RESUME_TITLE
-			,	s.CONSENT
-		FROM SEND s 
-			LEFT OUTER JOIN ARTICLE a
-				ON s.ARTICLE_ID = a.ID 
-			LEFT OUTER JOIN RESUME r 
-				ON s.RESUME_ID = r.ID
-		WHERE s.ARTICLE_ID  
-			IN (SELECT a2.ID FROM ARTICLE a2 WHERE a2.COMPANY_ID = #{id})
+	<select id="receive_resumeList" parameterType="_int" resultType="hashmap">		
+		SELECT * FROM ( 
+			SELECT rownum r
+				,	s.ID
+				,	s.ARTICLE_ID 
+				,	s.RESUME_ID 
+				,	(SELECT m.NAME FROM "MEMBER" m WHERE m.ID = r.MEMBER_ID) AS member_name
+				,	a.TITLE AS ARTICLE_TITLE
+				,	r.TITLE AS RESUME_TITLE
+				,	s.CONSENT
+			FROM SEND s 
+				LEFT OUTER JOIN ARTICLE a
+					ON s.ARTICLE_ID = a.ID 
+				LEFT OUTER JOIN RESUME r 
+					ON s.RESUME_ID = r.ID
+			WHERE
+				a.COMPANY_ID = #{id}
+			ORDER BY r DESC )
+		WHERE r BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<!-- 기업 : 제출한 이력서 총 개수 -->
+	<select id="receive_resumeCount" parameterType="hashmap" resultType="_int">
+		SELECT COUNT(*) FROM SEND s 
+			LEFT OUTER JOIN ARTICLE a ON s.ARTICLE_ID = a.ID 
+		WHERE
+			a.COMPANY_ID = #{id}
 	</select>
 	
 	<!-- 기업 : 이력서 승락 -->

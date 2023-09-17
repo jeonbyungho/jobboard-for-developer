@@ -13,13 +13,8 @@ import com.dao.ResumeDAO;
 import com.dto.MemberDTO;
 import com.web.action.ActionFront;
 import com.web.action.BoardPageingAction;
-import com.web.action.ExcuteAction;
 
 public class ResumePopupAction extends BoardPageingAction{
-	
-	public ResumePopupAction() {
-		super(2);
-	}
 	
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {

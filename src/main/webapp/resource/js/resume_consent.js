@@ -25,6 +25,7 @@ async function resumeConsent(path, sendId){
 		
 		// 성공 시..
 		alert('승락!');
+		location.reload();
 		return;
 	
 	// 에러

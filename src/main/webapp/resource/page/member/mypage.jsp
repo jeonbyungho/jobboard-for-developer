@@ -13,67 +13,30 @@
 </head>
 
 <body>
-    <div id="head">
-        <div id="headcontain">
-            <div id="siteimg">
-                <a href=""><img src="branch.jpg"></a>
-            </div>
-          
-            <div id="register">
-                <button></button>
-            </div>
-        </div>
-    </div>
-    <section class="notice">
-        <div class="page-title">
-            <div class="container">
-             
-            </div>
-        </div>
-        <!-- board seach area -->
-        <div id="board-search">
-            <div class="container">
-                <div class="search-window">
-                    <form action="">
-                        <div>
-                            <button type="button" onclick="article_search('resume')">이력서목록 검색</button>
-                        </div>
-        
-                        <div>
-                            <button type="button" onclick="article_search('company')">지원기업 검색</button>
-                        </div>
-        
-                        <div>
-                            <button type="button" onclick="article_search('offer')">입사제안 검색</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!-- board list area -->
-        <div id="board-list">
-            <div class="container">
-                <table class="board-table">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="th-name">이력서제목</th>
-                            <th scope="col" class="th-job">지원기업</th>
-                            <th scope="col" class="th-career">수락여부</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-						<c:forEach var="resume" items="${submitResumeList}">
-					    	<tr>
-	                            <td>${resume.ARTICLE_TITLE }</td>
-	                            <td>${resume.RESUME_TITLE }</td>
-	                            <td>${resume.COMPANY_NAME }</td>
-	                            <td>${resume.CONSENT }</td>
-					    	</tr>
-					    </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+    <header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
+    
+    <table border="1">
+    	<tr>
+    		<th>기업명</th>
+    		<th>구인글</th>
+    		<th>이력서</th>
+    		<th>수락 여부</th>
+    	</tr>
+    	
+		<c:forEach var="resume" items="${submitResumeList}">
+		<tr>
+			<th>${resume.COMPANY_NAME }</th>
+			<td>${resume.ARTICLE_TITLE }</td>
+			<td>${resume.RESUME_TITLE }</td>
+			<td>${resume.CONSENT }</td>
+		</tr>
+		</c:forEach>
+	</table>
+                
+	<%-- 페이징 --%>
+	<div align="center">
+		<c:set var="pagePath" value="/member?page"/>
+		<%@ include file= "/WEB-INF/views/board/page_number.jsp" %>
+	</div>
 </body>
 </html>

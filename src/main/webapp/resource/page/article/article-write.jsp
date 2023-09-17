@@ -20,20 +20,10 @@
 <body>
 	<c:set var="article" value="${requestScope.article }"></c:set>
 	<c:set var="company" value="${requestScope.company }"></c:set>
+	
+	<header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
+	
     <form action="${pageContext.request.contextPath}/article" id="form" name="myForm" method="post">
-        <div>
-            <br>
-            <div id="siteimg" name="siteimg">
-                <a href="/resuorce/index.jsp"><img src="${pageContext.request.contextPath}/resource/img/samplesitename.png"></a>
-            </div>
-            <div id="mypage" name="mypage">
-                 &emsp;&emsp;<a href="/branch/mypage.job">마이페이지</a>
-            </div>
-        </div>
-        <br>
-        <div id="headbox" name="headbox">
-            <!-- 빈 라인 -->
-        </div>
         <div id="logininfo" name="logininfo">
             <br>
             <h1>구직글 작성</h1>
