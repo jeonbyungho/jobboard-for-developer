@@ -76,4 +76,29 @@
 		SELECT COUNT(*) FROM RESUME r 
 		WHERE r.MEMBER_ID = #{id}
 	</select>
+	
+	<!-- 이력서 조회 -->
+	<select id="view" parameterType="_int" resultType="hashmap">
+		SELECT 
+			r.ID , r.MEMBER_ID
+		,	m.NAME , (SELECT g.TITLE FROM GENDER g WHERE g.ID = m.GENDER_ID) AS GENDER
+		,	m.BIRTHDAY , m.PHONE , m.EMAIL
+		,	(SELECT a.DISTRICT FROM ADDRESS a WHERE a.ID = m.ADDRESS_ID) || ' ' || m.DETAIL_ADDR AS ADDRESS
+		,	r.TITLE , r.PORTFOLIO 
+		FROM RESUME r
+			LEFT OUTER JOIN "MEMBER" m ON r.MEMBER_ID = m.ID 
+		WHERE r.id = #{id}
+	</select>
+	
+	<select id="view_school" parameterType="_int" resultType="hashmap">
+		SELECT * FROM SCHOOL s WHERE s.RESUME_ID = #{id}
+	</select>
+	
+	<select id="view_reg" parameterType="_int" resultType="hashmap">
+		SELECT * FROM REG r WHERE r.RESUME_ID = #{id}
+	</select>
+	
+	<select id="view_liecence" parameterType="_int" resultType="hashmap">
+		SELECT * FROM LIECENCE l WHERE l.RESUME_ID = #{id}
+	</select>
 </mapper>

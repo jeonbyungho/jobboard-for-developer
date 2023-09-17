@@ -29,8 +29,24 @@ public class ResumeDAO extends DAO implements BoardDAO<HashMap<String, String>>{
 
 	@Override
 	public int totalCount(Map<String, ?> parameter) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne("Resume.totalCount", parameter);
+	}
+	
+	// 이력서 조회
+	public Map<String, Object> view(int id){
+		return sqlSession.selectOne("Resume.view", id);
+	}
+	
+	public List<Map<String, Object>> view_school(int id){
+		return sqlSession.selectList("Resume.view_school", id);
+	}
+	
+	public List<Map<String, Object>> view_reg(int id){
+		return sqlSession.selectList("Resume.view_reg", id);
+	}
+	
+	public List<Map<String, Object>> view_liecence(int id){
+		return sqlSession.selectList("Resume.view_liecence", id);
 	}
 
 }
