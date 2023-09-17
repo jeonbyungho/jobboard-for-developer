@@ -89,6 +89,7 @@ public class ResumeWriteAction extends ExcuteAction {
 		resume.setMember_id(member.getId());
 		resume.setCareer(req.getParameter("title"));
 		resume.setPortfolio(req.getParameter("portfolio"));
+		resume.setSelfIntro(req.getParameter("self_intro"));
 		resume.setReg(regList);
 		resume.setSchool(schoolList);
 		resume.setLiecence(liecenceList);

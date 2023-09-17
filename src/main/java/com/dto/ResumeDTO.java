@@ -7,9 +7,11 @@ public class ResumeDTO {
 	private int member_id;
 	private String career;
 	private String portfolio;
+	private String selfIntro;
 	private List<RegDTO> reg;
 	private List<SchoolDTO> school;
 	private List<LiecenceDTO> liecence;
+	
 	public int getId() {
 		return id;
 	}
@@ -34,6 +36,12 @@ public class ResumeDTO {
 	public void setPortfolio(String portfolio) {
 		this.portfolio = portfolio;
 	}
+	public String getSelfIntro() {
+		return selfIntro;
+	}
+	public void setSelfIntro(String selfIntro) {
+		this.selfIntro = selfIntro;
+	}
 	public List<RegDTO> getReg() {
 		return reg;
 	}
@@ -55,7 +63,7 @@ public class ResumeDTO {
 	@Override
 	public String toString() {
 		return "ResumeDTO [id=" + id + ", member_id=" + member_id + ", career=" + career + ", portfolio=" + portfolio
-				+ ", reg=" + reg + ", school=" + school + ", liecence=" + liecence + "]";
+				+ ", selfIntro=" + selfIntro + ", reg=" + reg + ", school=" + school + ", liecence=" + liecence + "]";
 	}
-
+	
 }

@@ -10,6 +10,9 @@
 	src="${pageContext.request.contextPath}/resource/js/resume_write.js" defer></script>
 </head>
 <body>
+	
+	<header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
+	
 	<form action="${pageContext.request.contextPath}/resume"
 		method="post" name="resumeForm">
 
@@ -47,6 +50,11 @@
 					<!-- 기존의 자격증 정보는 여기에 있음 -->
 				</ul>
 			</div>
+		</fieldset>
+		
+		<fieldset id="selfField">
+			<legend>자기소개</legend>
+			<textarea name="self_intro" rows="4" cols="50"></textarea>
 		</fieldset>
 
 		<input type="submit" id="submit" />

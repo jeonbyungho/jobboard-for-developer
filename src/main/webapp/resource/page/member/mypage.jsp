@@ -15,6 +15,7 @@
 <body>
     <header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
     
+    <%-- 제출한 이력서 테이블 --%>
     <table border="1">
     	<tr>
     		<th>기업명</th>
@@ -23,14 +24,23 @@
     		<th>수락 여부</th>
     	</tr>
     	
-		<c:forEach var="resume" items="${submitResumeList}">
+   	<%-- 이력서 목록 --%>
+	<c:forEach var="resume" items="${submitResumeList}">
 		<tr>
 			<th>${resume.COMPANY_NAME }</th>
-			<td>${resume.ARTICLE_TITLE }</td>
-			<td>${resume.RESUME_TITLE }</td>
+			<td>
+				<a href="${pageContext.request.contextPath}/article/${resume.ARTICLE_ID}">
+					${resume.ARTICLE_TITLE }
+				</a>
+			</td>
+			<td>
+				<a href="${pageContext.request.contextPath}/resume/${resume.RESUME_ID}">
+					${resume.RESUME_TITLE }
+				</a>
+			</td>
 			<td>${resume.CONSENT }</td>
 		</tr>
-		</c:forEach>
+	</c:forEach>
 	</table>
                 
 	<%-- 페이징 --%>

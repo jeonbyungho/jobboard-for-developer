@@ -16,30 +16,40 @@
 <body>
 	<header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
 	
+	<%-- 제출한 이력서 테이블 --%>
 	<table border="1">
 		<tr>
-			<th>no</th>
 			<th>지원자</th>
 			<th>이력서</th>
 			<th>구인글</th>
 			<th>수락 여부</th>
 		</tr>	
 	
+	<%-- 이력서 목록 --%>
 	<c:forEach var="resume" items="${receiveResumeList}">
-	<tr>
-		<td>${resume.R }</td>
-		<td>${resume.MEMBER_NAME }</td>
-		<td>${resume.RESUME_TITLE }</td>
-		<td>${resume.ARTICLE_TITLE }</td>
-		<td>
-			<c:choose>
-				<c:when test="${empty resume.CONSENT }">
-					<button onclick="resumeConsent('${pageContext.request.contextPath}',${resume.ID})">수락</button>
-				</c:when>
-				<c:otherwise>${resume.CONSENT }</c:otherwise>
-		    </c:choose>
-		</td>
-	</tr>
+		<tr>
+			<th>${resume.MEMBER_NAME }</th>
+			<td>
+				<a href="${pageContext.request.contextPath}/resume/${resume.RESUME_ID}">
+					${resume.RESUME_TITLE }
+				</a>
+			</td>
+			<td>
+				<a href="${pageContext.request.contextPath}/article/${resume.ARTICLE_ID}">
+					${resume.ARTICLE_TITLE }
+				</a>
+			</td>
+			
+			<%-- 수락 버튼 --%>
+			<td>
+				<c:choose>
+					<c:when test="${empty resume.CONSENT }">
+						<button onclick="resumeConsent('${pageContext.request.contextPath}',${resume.ID})">수락</button>
+					</c:when>
+					<c:otherwise>${resume.CONSENT }</c:otherwise>
+			    </c:choose>
+			</td>
+		</tr>
 	</c:forEach>
 	</table>
 	

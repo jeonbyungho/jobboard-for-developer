@@ -15,6 +15,7 @@
 			,	#{member_id}
 			,	#{career}
 			,	#{portfolio}
+			,	#{selfIntro}
 			);
 		
 		INSERT INTO REG re (
@@ -89,7 +90,7 @@
 		,	m.NAME , (SELECT g.TITLE FROM GENDER g WHERE g.ID = m.GENDER_ID) AS GENDER
 		,	m.BIRTHDAY , m.PHONE , m.EMAIL
 		,	(SELECT a.DISTRICT FROM ADDRESS a WHERE a.ID = m.ADDRESS_ID) || ' ' || m.DETAIL_ADDR AS ADDRESS
-		,	r.TITLE , r.PORTFOLIO 
+		,	r.TITLE , r.PORTFOLIO , r.SELF_INTRO
 		FROM RESUME r
 			LEFT OUTER JOIN "MEMBER" m ON r.MEMBER_ID = m.ID 
 		WHERE r.id = #{id}

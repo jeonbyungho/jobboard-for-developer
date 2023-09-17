@@ -17,20 +17,24 @@
 	
 	<table border="1">
 		<tr>
-			<th>생일</th> <td>${resume.BIRTHDAY}</td>
+			<th>생일</th>
+			<td>${resume.BIRTHDAY}</td>
 		</tr>
 		<tr>
-			<th>전화번호</th> <td>${resume.PHONE}</td>
-		</tr>
-		
-		<tr>
-			<th>이메일</th> <td>${resume.EMAIL}</td>
+			<th>전화번호</th>
+			<td>${resume.PHONE}</td>
 		</tr>
 		<tr>
-			<th>주소</th> <td>${resume.ADDRESS}</td>
+			<th>이메일</th>
+			<td>${resume.EMAIL}</td>
 		</tr>
 		<tr>
-			<th>포트폴리오</th> <td>${resume.PORTFOLIO}</td>
+			<th>주소</th>
+			<td>${resume.ADDRESS}</td>
+		</tr>
+		<tr>
+			<th>포트폴리오</th>
+			<td>${resume.PORTFOLIO}</td>
 		</tr>
 	</table>
 	
@@ -68,6 +72,15 @@
 				<p>${i.TITLE }</p>
 				<p>${i.ACQUISITION }</p>
 			</c:forEach>
+		</fieldset>
+	</c:if>
+	
+	<c:if test="${not empty resume.SELF_INTRO}">
+		<fieldset>
+			<legend>자기소개</legend>
+			<div>
+				${resume.SELF_INTRO}
+			</div>
 		</fieldset>
 	</c:if>
 	
