@@ -13,24 +13,23 @@ CREATE TABLE gender (
 -- 회사 규모 테이블 생성
 CREATE TABLE c_scale (
     id NUMBER(6) PRIMARY KEY,
-    title VARCHAR2(20),
-    kor VARCHAR2(20)
+    title VARCHAR2(20)
 );
 
 -- 회사 테이블 생성
 CREATE TABLE COMPANY (
     id NUMBER(6),
-    company_no VARCHAR2(30),
-    password VARCHAR2(60),
-    name VARCHAR2(30),
+    company_no NUMBER(15),
+    password VARCHAR2(20),
+    name VARCHAR2(20),
     esta DATE,
     c_scale_id NUMBER(6), -- c_scale 테이블의 id에 대한 외래 키
     employee_no NUMBER(6),
-    ceo VARCHAR2(30),
-    url VARCHAR2(600),
+    ceo VARCHAR2(10),
+    url VARCHAR2(20),
     address_id NUMBER(6),
-    detail_addr VARCHAR2(150),
-    content VARCHAR2(600),
+    detail_addr VARCHAR2(60),
+    content VARCHAR2(200),
     PRIMARY KEY (id),
     FOREIGN KEY (address_id) REFERENCES address (id),
     FOREIGN KEY (c_scale_id) REFERENCES c_scale (id)
@@ -41,14 +40,14 @@ CREATE TABLE article (
     id NUMBER(6),
     company_id NUMBER(6),
     title VARCHAR2(20), -- 새로운 열: title
-    career VARCHAR2(36),
+    career VARCHAR2(5),
     salary NUMBER(10),
     address_id NUMBER(6),
-    detail_addr VARCHAR2(150),
+    detail_addr VARCHAR2(20),
     need_amt NUMBER(4),
-    job_explain VARCHAR2(600),
+    job_explain VARCHAR2(200),
     deadline DATE, -- 새로운 열: deadline
-    qualify	varchar2(600),
+    qualify	varchar2(60),
     PRIMARY KEY (id),
     FOREIGN KEY (address_id) REFERENCES address (id),
     FOREIGN KEY (company_id) REFERENCES COMPANY (id)
@@ -58,7 +57,7 @@ CREATE TABLE article (
 CREATE TABLE skill_stack (
     id NUMBER(6),
     article_id NUMBER(6),
-    name VARCHAR2(30),
+    name VARCHAR2(20),
     PRIMARY KEY (id),
     FOREIGN KEY (article_id) REFERENCES article (id)
 );
@@ -67,7 +66,7 @@ CREATE TABLE skill_stack (
 CREATE TABLE job (
     id NUMBER(6),
     article_id NUMBER(6),
-    name VARCHAR2(30),
+    name VARCHAR2(20),
     PRIMARY KEY (id),
     FOREIGN KEY (article_id) REFERENCES article (id)
 );
@@ -75,15 +74,15 @@ CREATE TABLE job (
 -- 회원 테이블 생성
 CREATE TABLE MEMBER (
     id NUMBER(6),
-    user_id VARCHAR2(30),
-    password VARCHAR2(60),
-    name VARCHAR2(30),
+    user_id VARCHAR2(20),
+    password VARCHAR2(20),
+    name VARCHAR2(20),
     gender_id NUMBER(6), -- gender 테이블의 id에 대한 외래 키
-    birthday DATE,
+    birthday VARCHAR2(30),
     phone VARCHAR2(20),
-    email VARCHAR2(80),
+    email VARCHAR2(30),
     address_id NUMBER(6),
-    detail_addr VARCHAR2(150),
+    detail_addr VARCHAR2(60),
     PRIMARY KEY (id),
     FOREIGN KEY (address_id) REFERENCES address(id),
     FOREIGN KEY (gender_id) REFERENCES gender(id)
@@ -93,9 +92,8 @@ CREATE TABLE MEMBER (
 CREATE TABLE resume (
     id NUMBER(6),
     member_id NUMBER(6),
-    title VARCHAR2(120),
-    portfolio VARCHAR2(200),
-    SELF_INTRO VARCHAR2(600),
+    career VARCHAR2(20),
+    portfolio VARCHAR2(50),
     PRIMARY KEY (id),
     FOREIGN KEY (member_id) REFERENCES MEMBER(id)
 );
@@ -104,8 +102,7 @@ CREATE TABLE resume (
 CREATE TABLE liecence (
     id NUMBER(6),
     resume_id NUMBER(6),
-    title VARCHAR2(60),
-    ACQUISITION DATE,
+    title VARCHAR2(30),
     PRIMARY KEY (id),
     FOREIGN KEY (resume_id) REFERENCES resume (id)
 );
@@ -113,23 +110,22 @@ CREATE TABLE liecence (
 -- 학교 테이블 생성
 CREATE TABLE school (
     id NUMBER(6),
-    resume_id NUMBER(6),
-    rating VARCHAR2(20),
+    member_id NUMBER(6),
+    Rating VARCHAR2(20),
     name VARCHAR2(30),
     department VARCHAR2(20),
     status VARCHAR2(20),
-    grade NUMBER(2,1),
+    grade NUMBER(4,2),
     PRIMARY KEY (id),
-    FOREIGN KEY (resume_id) REFERENCES resume (id)
+    FOREIGN KEY (member_id) REFERENCES MEMBER (id)
 );
 
 -- 보내기 테이블 생성
 CREATE TABLE send (
     id NUMBER(6) PRIMARY KEY,
-    article_id NUMBER(6), -- article 테이블의 id에 대한 외래 키
+    company_id NUMBER(6), -- company 테이블의 id에 대한 외래 키
     resume_id NUMBER(6), -- resume 테이블의 id에 대한 외래 키
-    consent DATE,   
-    FOREIGN KEY (article_id) REFERENCES  article (id),
+    FOREIGN KEY (company_id) REFERENCES COMPANY (id),
     FOREIGN KEY (resume_id) REFERENCES resume (id)
 );
 
@@ -137,8 +133,8 @@ CREATE TABLE send (
 CREATE TABLE reg (
     id NUMBER(6),
     resume_id NUMBER(6),
-    name VARCHAR2(80),
-    job VARCHAR2(80),
+    name VARCHAR2(20),
+    job VARCHAR2(20),
     swork_day DATE,
     ework_day DATE,
     PRIMARY KEY (id),
@@ -163,12 +159,6 @@ CREATE SEQUENCE company_seq
     INCREMENT BY 1
     NOCACHE;
 
--- article_seq 시퀀스 생성
-CREATE SEQUENCE resume_seq
-    START WITH 1
-    INCREMENT BY 1
-    NOCACHE;
-   
 -- school_seq 시퀀스 생성
 CREATE SEQUENCE school_seq
     START WITH 1
@@ -181,26 +171,14 @@ CREATE SEQUENCE reg_seq
     INCREMENT BY 1
     NOCACHE;
    
--- skill_stack_seq 시퀀스 생성
+-- reg_seq 시퀀스 생성
 CREATE SEQUENCE skill_stack_seq
     START WITH 1
     INCREMENT BY 1
     NOCACHE;
    
--- job_seq 시퀀스 생성
+-- reg_seq 시퀀스 생성
 CREATE SEQUENCE job_seq
-    START WITH 1
-    INCREMENT BY 1
-    NOCACHE;
-   
--- send_seq 시퀀스 생성
-CREATE SEQUENCE send_seq
-    START WITH 1
-    INCREMENT BY 1
-    NOCACHE;
-
--- liecenceseq 시퀀스 생성
-CREATE SEQUENCE liecence_seq
     START WITH 1
     INCREMENT BY 1
     NOCACHE;

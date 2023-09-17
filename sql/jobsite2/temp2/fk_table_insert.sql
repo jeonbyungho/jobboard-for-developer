@@ -18,9 +18,9 @@ INSERT INTO ADDRESS a  VALUES (address_seq.nextval, '전남');
 INSERT INTO ADDRESS a  VALUES (address_seq.nextval, '전북');
 INSERT INTO ADDRESS a  VALUES (address_seq.nextval, '제주');
 
-INSERT INTO C_SCALE cs VALUES (1, 'large', '대기업');
-INSERT INTO C_SCALE cs VALUES (2, 'midsize', '중견기업');
-INSERT INTO C_SCALE cs VALUES (3, 'small', '중소기업');
+INSERT INTO C_SCALE cs VALUES (1, '대기업');
+INSERT INTO C_SCALE cs VALUES (2, '중견기업');
+INSERT INTO C_SCALE cs VALUES (3, '중소기업');
 
 INSERT INTO GENDER g VALUES (1, 'male');
 INSERT INTO GENDER g VALUES (2, 'female');
