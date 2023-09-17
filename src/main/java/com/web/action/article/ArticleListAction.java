@@ -21,18 +21,11 @@ public class ArticleListAction extends ExcuteAction{
 		
 		// 현재 페이지 넘겨받기
 		String temp = req.getParameter("page");
-		int page = 0;
-		page = temp == null ? 1 : Integer.parseInt(temp);
-		
-//		if( temp == null ) {
-//			page = 1;
-//		} else {
-//			page = Integer.parseInt(temp);
-//		}
+		int page = (temp == null) ? 1 : Integer.parseInt(temp);
 		
 		int pageSize = 10;
-		int endRow = page * 10;		// 1페이지 : 10, 4페이지 : 40
-		int startRow = endRow - 9;	// 1페이지 : 1, 4페이지 : 31
+		int endRow = page * pageSize;	// 1페이지 : 10, 4페이지 : 40
+		int startRow = endRow - 9;		// 1페이지 : 1, 4페이지 : 31
 		
 		// [1][2]...[10] : [1], [11],[12], ...,[20]:[11]
 		int startPage = (page -1)/pageSize*pageSize+1;
@@ -41,11 +34,8 @@ public class ArticleListAction extends ExcuteAction{
 		int totalPage = (totalCnt -1)/pageSize + 1;
 				
 		endPage = endPage > totalPage ? totalPage : endPage;
-		
+	
 		List<Map<String, Object>> bo = adao.getArticleList(startRow, endRow);
-		for(Object ob : bo) {
-			System.out.println(ob.toString());
-		}
 		
 		req.setAttribute("totalPage", totalPage);
 		req.setAttribute("nowPage", page);

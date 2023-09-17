@@ -69,4 +69,10 @@
 			rownum BETWEEN #{startRow} AND #{endRow}
 		ORDER BY rownum DESC
 	</select>
+	
+	<!-- 작성한 이력서 개수 -->
+	<select id="totalCount" parameterType="hashmap" resultType="_int">
+		SELECT COUNT(*) FROM RESUME r 
+		WHERE r.MEMBER_ID = #{id}
+	</select>
 </mapper>

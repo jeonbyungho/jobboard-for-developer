@@ -12,28 +12,36 @@ import javax.servlet.http.HttpSession;
 import com.dao.ResumeDAO;
 import com.dto.MemberDTO;
 import com.web.action.ActionFront;
+import com.web.action.BoardPageingAction;
 import com.web.action.ExcuteAction;
 
-public class ResumePopupAction extends ExcuteAction{
+public class ResumePopupAction extends BoardPageingAction{
+	
+	public ResumePopupAction() {
+		super(2);
+	}
+	
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		ResumeDAO rdao = new ResumeDAO();
 		HttpSession session = req.getSession();
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
-		ResumeDAO rdao = new ResumeDAO();
 		
+		// 멤버 로그인 여부 검사
 		if(member == null) {
 			System.out.println("권한이 없습니다.");
 			return super.excute(req, resp);
 		}
 		
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		// 파라미터 구성
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", member.getId());
-		map.put("startRow", 1);
-		map.put("endRow", 5);
 		
-		// 이력서 목록
-		List<Map<String, String>> resumeList = rdao.list(map);
-		req.setAttribute("resumeList", resumeList);
+		// DB 조회
+		int page = getPage(req);
+		List<?> list = getList(req, rdao, map, page);
+		
+		req.setAttribute("resumeList", list);
 		
 		setPath("../resource/page/article/resume-send.jsp");
 		return super.excute(req, resp);
