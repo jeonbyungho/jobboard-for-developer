@@ -8,8 +8,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="tmp.css">
+    <title>제출한 이력서 목록</title>
+    
+    <link href="${pageContext.request.contextPath}/resource/css/body.css" rel="stylesheet"  type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resource/css/board.css" rel="stylesheet"  type="text/css"/>
 </head>
 
 <body>
@@ -17,7 +20,7 @@
     <nav><%@ include file= "/WEB-INF/views/mypage/menu.jsp" %></nav>
     
     <%-- 제출한 이력서 테이블 --%>
-    <table border="1">
+    <table id="board">
     	<tr>
     		<th>기업명</th>
     		<th>구인글</th>
@@ -27,7 +30,7 @@
     
    	<%-- 제출한 이력서 목록 --%>
 	<c:forEach var="resume" items="${submitResumeList}">
-		<tr>
+		<tr class="item">
 			<th>${resume.COMPANY_NAME }</th>
 			<td>
 				<a href="${pageContext.request.contextPath}/article/${resume.ARTICLE_ID}" target="_blank">

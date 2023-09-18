@@ -13,6 +13,7 @@
     
     <link href="${pageContext.request.contextPath}/resource/css/body.css" rel="stylesheet"  type="text/css"/>
     <link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resource/css/board.css" rel="stylesheet"  type="text/css"/>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
 	<nav><%@ include file= "/WEB-INF/views/mypage/menu.jsp" %></nav>
 	
 	<%-- 제출한 이력서 테이블 --%>
-	<table border="1">
+	<table id="border">
 		<tr>
 			<th>번호</th>
 			<th>기업이름</th>
@@ -33,7 +34,7 @@
 	
 	<%-- 이력서 목록 --%>
 	<c:forEach var="article" items="${articleList}">
-	<tr onclick="location.href='${pageContext.request.contextPath}/article/${article.ID}'">
+	<tr class="item" onclick="location.href='${pageContext.request.contextPath}/article/${article.ID}'">
 		<td>${article.R }</td>
 		<th>${article.NAME }</th>
 		<td>${article.TITLE }</td>
