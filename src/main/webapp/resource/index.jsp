@@ -21,9 +21,8 @@
 	
 </head>
 <body>
- 
+ 	
     <header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
-    <nav><%@ include file= "/WEB-INF/views/navigation.jsp" %></nav>
 
     <div class="jops_list_article"><%@ include file= "/WEB-INF/views/main/card_list.jsp" %></div>
 

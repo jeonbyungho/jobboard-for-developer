@@ -12,6 +12,8 @@
 	
 	<%-- 로그인 --%>
 	<div class="member">
+		<a href="${pageContext.request.contextPath}/article/list">구인글</a>
+		<span>|</span>
 		<c:choose>
 		<%-- false --%>
 			<c:when test="${empty sessionScope.member}">

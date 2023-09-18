@@ -21,10 +21,7 @@ public class MainAction extends BoardPageingAction{
 		System.out.println("메인 페이지 실행!");
 		ArticleDAO adao = new ArticleDAO();
 		
-		Map<String, Object> map = new HashMap<String, Object>();
-		
-		List<?> list = getList(req, adao, map, 1);
-		System.out.println(list.size());
+		List<Map<String, Object>> list = adao.getArticleList(1, 12);
 		
 		req.setAttribute("articleList", list);
 		return super.excute(req, resp);

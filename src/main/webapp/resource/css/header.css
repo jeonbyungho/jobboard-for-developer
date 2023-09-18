@@ -2,9 +2,11 @@
 
 header {
     margin: 0 auto;
-    padding-top: 2rem;
+    padding: 2rem 0;
     background-color: white;
     border-bottom: 1.5px solid #eff5ff;
+    
+   	box-shadow: 0 5px 5px -5px #333;
 }
 
 header .header{

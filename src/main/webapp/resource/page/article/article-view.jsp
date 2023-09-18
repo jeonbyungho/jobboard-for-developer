@@ -10,7 +10,8 @@
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/css/article-view.css"/>
-	<link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
+	<link href="${pageContext.request.contextPath}/resource/css/body.css" rel="stylesheet"  type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
 </head>
 <body>
 	<c:set var="article" value="${requestScope.article }"></c:set>
@@ -211,10 +212,14 @@
         <div id="bodybox">
             <!-- 빈 라인 -->
         </div>
-		<div id="join">
-			<button id="buttonjoin" type="submit" name="buttonjoin" onclick="window.open('${pageContext.request.contextPath}/resume/popup?articleId=${article.id}','지원서');">지원하기</button>
-			<div id="box"></div>
-		</div>
+        <c:if test="${not empty sessionScope.member}">
+        	<c:if test="${sessionScope.member.kind}">
+			<div id="join">
+				<button id="buttonjoin" type="submit" name="buttonjoin" onclick="window.open('${pageContext.request.contextPath}/resume/popup?articleId=${article.id}','지원서');">지원하기</button>
+				<div id="box"></div>
+			</div>
+			</c:if>
+		</c:if>
 		<div id="footbox"></div>
 	</form> 
 </body>
