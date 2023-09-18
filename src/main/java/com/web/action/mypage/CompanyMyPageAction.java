@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dao.ArticleDAO;
-import com.dao.CompanyMypageDAO;
 import com.dto.CompanyDTO;
 import com.web.action.ActionFront;
 import com.web.action.BoardPageingAction;
