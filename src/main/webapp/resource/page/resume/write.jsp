@@ -30,7 +30,7 @@
 
 
 	<form action="${pageContext.request.contextPath}/resume" method="post"
-		name="resumeForm">
+		name="resumeForm" class="container">
 
 		<fieldset id="titleField">
 			<legend>
@@ -57,8 +57,7 @@
 				<h3>
 					<li class="user_addr">${sessionScope.member.address}
 				</h3>
-				<h3>${sessionScope.member.detail_addr}</li>
-				</h3>
+				<h3>${sessionScope.member.detail_addr}</li></h3><br/><br/><br/>
 			</ul>
 
 
@@ -75,18 +74,21 @@
 						</p>
 						필요한 항목으로 이동
 						<ul class="item_list">
-							<li class="item essential"><a href="#schoolField"
-								class="BtnType con_link">경력</a></li>
-							<li class="item"><a href="#portfolioField"
+							<li class="item essential"><a href="#portfolioField"
 								class="BtnType con_link">포트폴리오</a></li>
-							<li class="item add"><a href="#regField"
+							<li class="item"><a href="#regField"
+								class="BtnType con_link">경력</a></li>
+							<li class="item add"><a href="#schoolField"
 								class="BtnType con_link">학교</a></li>
 							<li class="item add"><a href="#liecenceField"
 								class="BtnType con_link">자격증</a></li>
+							<li class="item add"><a href="#selfField"
+								class="BtnType con_link">자기소개</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
+
 
 
 			<fieldset id="portfolioField">
@@ -96,7 +98,7 @@
 				<input type="text" name="portfolio" value="url" />
 				<button id="portfolioPlus">추가</button>
 				<ul id="portfolioList">
-				
+
 				</ul>
 			</fieldset>
 

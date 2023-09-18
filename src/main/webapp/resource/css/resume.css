@@ -147,7 +147,7 @@ fieldset {
 /* 입력 필드 스타일링 */
 input[type="text"],
 input[type="date"] {
-    width: 100%;
+    width: 10%;
     padding: 5px;
     margin-bottom: 5px;
     border: 1px solid #000000;
@@ -167,14 +167,14 @@ button {
 }
 
 .resume_snb {
-    background-color: #B7F0B1;
-    border: 1px solid #007bff;
+    border: 1px solid #20C0B7;
+    border-radius: 1em;
     padding: 5px; /* 내부 여백을 크게 조정 */
     width: 200px; /* 원하는 너비로 조정 */
     height: 400px; /* 원하는 높이로 조정 */
     position: fixed;
     right: 20px;
-    top: 0;
+    top: 200px;
 }
 
 #submit {
