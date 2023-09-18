@@ -8,12 +8,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${resume.NAME} : ${resume.TITLE}</title>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resource/css/resumeview.css">
+<link href="${pageContext.request.contextPath}/resource/css/body.css"
+	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/resource/css/header.css"
+	rel="stylesheet" type="text/css" />
 </head>
 <body>
 	
 	<header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
 	
-	<h3>${resume.NAME}</h3>
+	<h3>${resume.NAME}님 작성하신 이력서 입니다</h3><br/>
 	
 	<table border="1">
 		<tr>
@@ -38,17 +44,17 @@
 		</tr>
 	</table>
 	
-	<h3>${resume.TITLE}</h3>
+	<h3>이력서 제목 : ${resume.TITLE}</h3>
 	
 	<c:if test="${not empty school}">
 		<fieldset>
 			<legend>학교</legend>
 			<c:forEach var="i" items="${school}">
 				<div>
-				<span>${i.RATING }</span>
-				<span>${i.NAME }</span>
-				<span>${i.DEPARTMENT }</span>
-				<span>${i.STATUS }</span>
+				학교등급 : <span>${i.RATING }</span><br/>
+				학교명 : <span>${i.NAME }</span><br/>
+				학과 : <span>${i.DEPARTMENT }</span><br/>
+				졸업여부 : <span>${i.STATUS }</span><br/>
 				</div>
 			</c:forEach>
 		</fieldset>
@@ -69,8 +75,8 @@
 		<fieldset>
 			<legend>자격증</legend>
 			<c:forEach var="i" items="${liecence}">
-				<p>${i.TITLE }</p>
-				<p>${i.ACQUISITION }</p>
+				자격증명 : <p>${i.TITLE }</p>
+				취득날짜 : <p>${i.ACQUISITION }</p>
 			</c:forEach>
 		</fieldset>
 	</c:if>
