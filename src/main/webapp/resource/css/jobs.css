@@ -14,8 +14,8 @@
    
    background-color: white;
 
-   border-top: 5px solid #7daaff;
-   outline: 1px solid #7daaff;
+   border-top: 5px solid rgb(53, 160, 154);
+   outline: 1px solid rgb(53, 160, 154);
    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
              0 2px 2px rgba(0,0,0,0.11), 
              0 4px 4px rgba(0,0,0,0.11), 
@@ -24,8 +24,8 @@
 }
 
 .jops_list .job_item:hover{
-   border-top: 5px solid #3157dd;
-   outline: 1px solid #3157dd;
+   border-top: 5px solid rgb(0, 128, 64);
+   outline: 1px solid rgb(53, 160, 154);
    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
              0 2px 2px rgba(0,0,0,0.11), 
              0 4px 4px rgba(0,0,0,0.11), 
