@@ -19,6 +19,8 @@
 <body>
 
 	<header><%@ include file="/WEB-INF/views/header.jsp"%></header>
+	
+	
 	<div class="resumeHeader">
 		<div class="container">
 			<a href="${pageContext.request.contextPath}" class="logo linkLogo">
@@ -27,8 +29,7 @@
 			</a>
 		</div>
 	</div>
-
-
+	
 	<form action="${pageContext.request.contextPath}/resume" method="post"
 		name="resumeForm">
 
@@ -60,34 +61,6 @@
 				<h3>${sessionScope.member.detail_addr}</li>
 				</h3>
 			</ul>
-
-
-
-			<!-- 우측박스 추가 -->
-			<div class="resume_snb">
-				<div class="snb_container">
-					<div class="snb_box">
-						<div class="snb_top">
-							<h3 class="tit">이력서 완성하기</h3>
-						</div>
-						<p class="txt">
-							<em>기본정보</em>만 입력하면<br>이력서가 완성돼요!
-						</p>
-						필요한 항목으로 이동
-						<ul class="item_list">
-							<li class="item essential"><a href="#schoolField"
-								class="BtnType con_link">경력</a></li>
-							<li class="item"><a href="#portfolioField"
-								class="BtnType con_link">포트폴리오</a></li>
-							<li class="item add"><a href="#regField"
-								class="BtnType con_link">학교</a></li>
-							<li class="item add"><a href="#liecenceField"
-								class="BtnType con_link">자격증</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
 
 			<fieldset id="portfolioField">
 				<legend>
@@ -142,5 +115,30 @@
 
 			<input type="submit" id="submit" />
 	</form>
+	
+	<!-- 우측박스 추가 -->
+	<div class="resume_snb">
+		<div class="snb_container">
+			<div class="snb_box">
+				<div class="snb_top">
+					<h3 class="tit">이력서 완성하기</h3>
+				</div>
+				<p class="txt">
+					<em>기본정보</em>만 입력하면<br>이력서가 완성돼요!
+				</p>
+				필요한 항목으로 이동
+				<ul class="item_list">
+					<li class="item essential"><a href="#schoolField"
+						class="BtnType con_link">경력</a></li>
+					<li class="item"><a href="#portfolioField"
+						class="BtnType con_link">포트폴리오</a></li>
+					<li class="item add"><a href="#regField"
+						class="BtnType con_link">학교</a></li>
+					<li class="item add"><a href="#liecenceField"
+						class="BtnType con_link">자격증</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

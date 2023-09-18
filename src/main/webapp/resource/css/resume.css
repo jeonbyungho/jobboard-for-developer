@@ -172,8 +172,8 @@ button {
     padding: 5px; /* 내부 여백을 크게 조정 */
     width: 200px; /* 원하는 너비로 조정 */
     height: 400px; /* 원하는 높이로 조정 */
-    position: fixed;
-    right: 20px;
+    position: static;
+    left: 800px;
     top: 0;
 }
 
@@ -193,4 +193,13 @@ button {
 }
 
 
+form {
+	width: 80%;
+}
 
+#main {
+	display: grid;
+	grid-template-columns: 1fr 0.3fr;
+	grid-gap: 1rem;
+   	padding: 0;
+}

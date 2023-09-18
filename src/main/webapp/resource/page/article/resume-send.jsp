@@ -3,11 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>  
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="${pageContext.request.contextPath}/resource/js/resume_send.js" defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="${pageContext.request.contextPath}/resource/js/resume_send.js" defer></script>
+	<link href="${pageContext.request.contextPath}/resource/css/board.css" rel="stylesheet" type="text/css"/>
 <title>이력서 제출</title>
 </head>
 <body>
@@ -15,14 +16,14 @@
 	<h3>제출할 이력서를 선택</h3>
 	
 	<%-- 이력서 테이블 --%>
-	<table border="1">
+	<table id="border">
 		<tr>
 			<th>번호</th>
     		<th>이력서</th>
     		<th>✉️</th>
     	</tr>
 	<c:forEach items="${resumeList}" var="resume">
-		<tr>
+		<tr class="item">
 			<td>${resume.RN }</td>
 			<td>
 				<a href="${pageContext.request.contextPath}/resume/${resume.ID}" target="_blank">

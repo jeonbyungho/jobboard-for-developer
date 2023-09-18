@@ -3,8 +3,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="mypage.css">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +19,7 @@
     <nav><%@ include file= "/WEB-INF/views/mypage/menu.jsp" %></nav>
     
     <%-- 제출한 이력서 테이블 --%>
-    <table id="board">
+    <table id="border">
     	<tr>
     		<th>기업명</th>
     		<th>구인글</th>
@@ -42,7 +41,12 @@
 					${resume.RESUME_TITLE }
 				</a>
 			</td>
-			<td>${resume.CONSENT }</td>
+			<td>
+				<c:choose>
+					<c:when test="${empty resume.CONSENT }"><span id="waiting">대기 중</span></c:when>
+					<c:otherwise><span id="consent">수락</span></c:otherwise>
+				</c:choose>
+			</td>
 		</tr>
 	</c:forEach>
 	</table>

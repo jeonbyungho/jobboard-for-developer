@@ -10,7 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="${pageContext.request.contextPath}/resource/js/resume_consent.js" defer></script>
     <title>Document</title>
-    <link rel="stylesheet" href="tmp.css">
+    <link href="${pageContext.request.contextPath}/resource/css/body.css" rel="stylesheet"  type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
+    <link href="${pageContext.request.contextPath}/resource/css/board.css" rel="stylesheet"  type="text/css"/>
 </head>
 
 <body>
@@ -18,7 +20,7 @@
 	<nav><%@ include file= "/WEB-INF/views/mypage/menu.jsp" %></nav>
 	
 	<%-- 제출한 이력서 테이블 --%>
-	<table border="1">
+	<table id="border">
 		<tr>
 			<th>지원자</th>
 			<th>이력서</th>
@@ -28,7 +30,7 @@
 	
 	<%-- 이력서 목록 --%>
 	<c:forEach var="resume" items="${receiveResumeList}">
-		<tr>
+		<tr class="item">
 			<th>${resume.MEMBER_NAME }</th>
 			<td>
 				<a href="${pageContext.request.contextPath}/resume/${resume.RESUME_ID}" target="_blank">
@@ -45,9 +47,9 @@
 			<td>
 				<c:choose>
 					<c:when test="${empty resume.CONSENT }">
-						<button onclick="resumeConsent('${pageContext.request.contextPath}',${resume.ID})">수락</button>
+						<span id="active" onclick="resumeConsent('${pageContext.request.contextPath}',${resume.ID})">수락 대기</span>
 					</c:when>
-					<c:otherwise>${resume.CONSENT }</c:otherwise>
+					<c:otherwise><span id="consent">수락</span></c:otherwise>
 			    </c:choose>
 			</td>
 		</tr>

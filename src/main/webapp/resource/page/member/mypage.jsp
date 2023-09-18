@@ -20,21 +20,17 @@
     <nav><%@ include file= "/WEB-INF/views/mypage/menu.jsp" %></nav>
     
     <%-- 이력서 테이블 --%>
-    <table id="board">
+    <table id="border">
     	<tr>
-    		<th>번호</th>
+    		<th width="20%">번호</th>
     		<th>이력서</th>
     	</tr>
     
    	<%-- 이력서 목록 --%>
 	<c:forEach var="resume" items="${resumeList}">
-		<tr class="item">
-			<th>${resume.RN }</th>
-			<td>
-				<a href="${pageContext.request.contextPath}/resume/${resume.ID}" target="_blank">
-					${resume.TITLE }
-				</a>
-			</td>
+		<tr class="item" onclick="window.open('${pageContext.request.contextPath}/resume/${resume.ID}', '_blank');">
+			<td>${resume.RN }</td>
+			<td>${resume.TITLE }</td>
 		</tr>
 	</c:forEach>
 	</table>

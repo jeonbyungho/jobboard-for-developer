@@ -1,13 +1,14 @@
 @charset "UTF-8";
 
 table#border {
+	margin-top: 0.5em;
     width: 100%;
     border-top: 1px solid #e5e7eb;
     border-collapse: collapse;
 }
 
 table#border th, td {
-    border-bottom: 1px solid #e5e7eb;
+    border: 1px solid #e5e7eb;
     padding: 10px;
     text-align: center;
 }
@@ -20,7 +21,64 @@ table#border th {
     background-color: rgb(252, 252, 252);
 }
 
+table#border td {
+    background-color: rgb(255, 255, 255);
+}
+
 table#border tr.item:hover {
     background-color: #e5e7eb;
-    cursor: pointer;
+}
+
+#consent {
+	padding: 0.4rem 0.8rem;
+	background-color: rgb(237, 251, 250);
+	border-radius: 1rem;
+	color:  rgb(53, 160, 154);
+}
+
+#consent {
+	padding: 0.4rem 0.8rem;
+	background-color: rgb(237, 251, 250);
+	border-radius: 1rem;
+	color:  rgb(53, 160, 154);
+}
+
+#waiting {
+	padding: 0.4rem 0.8rem;
+	background-color: rgb(245, 245, 245);
+	border-radius: 1rem;
+	color:  rgb(128, 128, 128);
+}
+
+#active {
+	padding: 0.4rem 0.8rem;
+	background-color: rgb(229, 244, 255);
+	border-radius: 1rem;
+	color:  rgb(0, 148, 255);
+}
+
+nav {
+	width: 100%;
+	top: 0;
+	
+	background-color: white;
+	border-bottom: 0.5px solid #eff5ff;
+	box-shadow: 0 5px 5px -5px #333;
+	padding-top: 1px;
+}
+
+nav ul li{
+	display: inline;
+	margin: 0 1rem;
+	align-items: center;
+}
+
+nav ul a{
+	color: rgb(128, 128, 128);
+	font-weight: bold;
+}
+
+nav ul a:hover {
+	color:  rgb(53, 160, 154);
+	font-weight: bold;
 }
