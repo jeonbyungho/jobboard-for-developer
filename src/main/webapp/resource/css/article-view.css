@@ -1,30 +1,24 @@
 /* 구직글 */      
 *{
     margin: 0;
-    padding: 0;
+    padding: 0; 
 }
 html,body {
     height: 100%;
+}
+table{
+	height: 40px;
+	padding: 10px;
+	border-collapse: collapse
+}
+#articlejobtable{
+	border: solid black;
 }
 #headbox{
     position: relative;
     bottom: 20px;
     background-color: rgb(206, 206, 206);
     height: 1px;
-}
-#siteimg{
-    position: relative;
-    left: 50px;
-}
-#login{
-    position: relative;
-    left: 1700px;         
-    bottom: 35px;
-}
-#mypage{
-    position: relative;
-    left: 1700px;         
-    bottom: 35px;
 }
 a{
     text-decoration-line: none;
@@ -33,6 +27,10 @@ a{
 #body{
     width: 800px;
     margin: auto;
+}
+.emsp{
+	position: relative;
+	left: 20px;
 }
 #jobname{
     font-size: 20px;
@@ -45,19 +43,46 @@ a{
     font-size: 40px;
     font-weight: bold;
 }
+#titlebox{
+	position: relative;
+	width: 100%;
+	background-color: rgb(206, 206, 206);
+    height: 1px;
+}
 #bodybox{
     position: relative;
+    width: 800px;
+    margin: auto;
     background-color: rgb(206, 206, 206);
     height: 1px;
+}
+#br{
+	height: 10px;
 }
 th{
     font-size: 25px;
     font-weight: bold;
     width: 250px;
+    background-color: rgb(206, 206, 206);
+}
+p{
+	font-size: 25px;
+    font-weight: bold;
+    width: 250px;
+}
+.articletable{
+	padding: 5px;
+	border-width: 1px;
+}
+.articletable:first-child, .articletable:last-child{
+	border: 1px solid rgb(192, 192, 192) ;
+	border-left: none;
+	border-right: none;
 }
 td{
     width: 550px;
     font-size: 20px;
+    border-width: 1px;
 }
 #stackhead{
     font-size: 20px;
@@ -84,27 +109,28 @@ td{
     margin: auto;
 }
 #logininfodiv{
-    height: 550px;
+	position: relative;
+    height: 300px;
 }
 #boxhead{
     font-size: 30px;
     font-weight: bold;
     width: 800px;
-    height: 100px;
+    height: 70px;
     /* border: 1px solid black; */
 }
 #boxbody{
-    width: 550px;
+    width: 450px;
     /* border: 1px solid blue; */
-    height: 280px;
+    height: 250px;
 }
 #boxside{
     position: relative;
-    left: 550px;
+    left: 450px;
     bottom: 282px;
     width: 250px;
     /* border: 1px solid red; */
-    height: 280px;
+    height: 250px;
 }
 #logininfoname{
     font-size: 25px;
@@ -112,9 +138,11 @@ td{
 }
 #logininfotext{
     font-size: 15px;
+    
 }
 #logininfohead{
     font-size: 20px;
+    background-color: white;
 }
 #logininfobody{
     font-size: 15px;
@@ -135,13 +163,9 @@ td{
     font-weight: bold;
 }
 #logininfourl{
+	position: relative;
+	bottom: 10px;
     font-size: 13px;
-}
-#footerbox{
-    position: relative;
-    background-color: rgb(206, 206, 206);
-    height: 1px;
-    bottom: 260px;
 }
 #joinbox{
     position: fixed;
@@ -152,12 +176,10 @@ td{
     height: 100px;
 }
 #join{
-    position: relative;
-    left: 1300px;
-    top: 25px;
-    background-color: aquamarine;
-    width: 200px;
-    height: 50px;
+    position: fixed;
+    left: 550px;
+    bottom: 0;
+    width: 100%;
     border-radius: 20px;
 }
 #buttonjoin{
@@ -166,13 +188,14 @@ td{
     height: 50px;
     border-radius: 20px;
     position: relative;
-    background-color: aquamarine;
+    left: 550px;
+    background-color:#20C0B7;
     cursor: pointer;
     border: 0;
 }
 #buttonjoin:hover{
     font-size: 30px;
-    color: aquamarine;
+    color:#20C0B7;
     background-color: orange;
 }
 a:hover{
@@ -180,4 +203,27 @@ a:hover{
 }
 #line{
     color: rgb(226, 226, 226);
+}
+#box{
+	position: relative;
+	height: 30px;
+}
+#stackhead{
+	background-color: white;
+}
+#footbox{
+	position: relative;
+	height: 70px;
+}
+#job_explain{
+	margin-left: 2em;
+	margin-top: 1em;
+   height: 100%;
+   font-size: 20px;
+}
+#qualify{
+	margin-left: 2em;
+	margin-top: 1em;
+   height: 100%;
+   font-size: 20px;
 }

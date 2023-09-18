@@ -21,6 +21,10 @@ document.myForm.onsubmit = async function article_wirte(e) {
 		if(e.checked) stack.push(e.value)
 	});
 	
+	if(!validateForm()) {
+		return false;
+	}
+	
 	const ArticleWriteData = {
 			title : form.title.value,
 			job : job,
