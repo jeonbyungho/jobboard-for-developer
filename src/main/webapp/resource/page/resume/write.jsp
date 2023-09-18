@@ -7,8 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>이력서 작성</title>
 <script
-	src="${pageContext.request.contextPath}/resource/js/resume_write.js"
-	defer></script>
+	src="${pageContext.request.contextPath}/resource/js/resume_write.js" defer></script>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resource/css/resume.css">
 <link href="${pageContext.request.contextPath}/resource/css/body.css"
@@ -19,8 +18,6 @@
 <body>
 
 	<header><%@ include file="/WEB-INF/views/header.jsp"%></header>
-	
-	
 	<div class="resumeHeader">
 		<div class="container">
 			<a href="${pageContext.request.contextPath}" class="logo linkLogo">
@@ -29,9 +26,10 @@
 			</a>
 		</div>
 	</div>
-	
+
+
 	<form action="${pageContext.request.contextPath}/resume" method="post"
-		name="resumeForm">
+		name="resumeForm" class="container">
 
 		<fieldset id="titleField">
 			<legend>
@@ -58,9 +56,39 @@
 				<h3>
 					<li class="user_addr">${sessionScope.member.address}
 				</h3>
-				<h3>${sessionScope.member.detail_addr}</li>
-				</h3>
+				<h3>${sessionScope.member.detail_addr}</li></h3><br/><br/><br/>
 			</ul>
+
+
+
+			<!-- 우측박스 추가 -->
+			<div class="resume_snb">
+				<div class="snb_container">
+					<div class="snb_box">
+						<div class="snb_top">
+							<h3 class="tit">이력서 완성하기</h3>
+						</div>
+						<p class="txt">
+							<em>기본정보</em>만 입력하면<br>이력서가 완성돼요!
+						</p>
+						필요한 항목으로 이동
+						<ul class="item_list">
+							<li class="item essential"><a href="#portfolioField"
+								class="BtnType con_link">포트폴리오</a></li>
+							<li class="item"><a href="#regField"
+								class="BtnType con_link">경력</a></li>
+							<li class="item add"><a href="#schoolField"
+								class="BtnType con_link">학교</a></li>
+							<li class="item add"><a href="#liecenceField"
+								class="BtnType con_link">자격증</a></li>
+							<li class="item add"><a href="#selfField"
+								class="BtnType con_link">자기소개</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+
 
 			<fieldset id="portfolioField">
 				<legend>
@@ -69,7 +97,7 @@
 				<input type="text" name="portfolio" value="url" />
 				<button id="portfolioPlus">추가</button>
 				<ul id="portfolioList">
-				
+
 				</ul>
 			</fieldset>
 
@@ -115,30 +143,5 @@
 
 			<input type="submit" id="submit" />
 	</form>
-	
-	<!-- 우측박스 추가 -->
-	<div class="resume_snb">
-		<div class="snb_container">
-			<div class="snb_box">
-				<div class="snb_top">
-					<h3 class="tit">이력서 완성하기</h3>
-				</div>
-				<p class="txt">
-					<em>기본정보</em>만 입력하면<br>이력서가 완성돼요!
-				</p>
-				필요한 항목으로 이동
-				<ul class="item_list">
-					<li class="item essential"><a href="#schoolField"
-						class="BtnType con_link">경력</a></li>
-					<li class="item"><a href="#portfolioField"
-						class="BtnType con_link">포트폴리오</a></li>
-					<li class="item add"><a href="#regField"
-						class="BtnType con_link">학교</a></li>
-					<li class="item add"><a href="#liecenceField"
-						class="BtnType con_link">자격증</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
 </body>
 </html>
