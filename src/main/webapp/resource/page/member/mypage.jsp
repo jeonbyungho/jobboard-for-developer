@@ -28,7 +28,7 @@
 		<tr>
 			<th>${resume.RN }</th>
 			<td>
-				<a href="${pageContext.request.contextPath}/resume/${resume.ID}">
+				<a href="${pageContext.request.contextPath}/resume/${resume.ID}" target="_blank">
 					${resume.TITLE }
 				</a>
 			</td>

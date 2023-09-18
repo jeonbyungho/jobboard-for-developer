@@ -30,12 +30,12 @@
 		<tr>
 			<th>${resume.COMPANY_NAME }</th>
 			<td>
-				<a href="${pageContext.request.contextPath}/article/${resume.ARTICLE_ID}">
+				<a href="${pageContext.request.contextPath}/article/${resume.ARTICLE_ID}" target="_blank">
 					${resume.ARTICLE_TITLE }
 				</a>
 			</td>
 			<td>
-				<a href="${pageContext.request.contextPath}/resume/${resume.RESUME_ID}">
+				<a href="${pageContext.request.contextPath}/resume/${resume.RESUME_ID}" target="_blank">
 					${resume.RESUME_TITLE }
 				</a>
 			</td>

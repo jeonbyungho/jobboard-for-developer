@@ -35,7 +35,7 @@
 	      <input type="password" name="password" id="password" placeholder="비밀번호" required>
 	      <button type="submit">로그인</button>
 	    </form>
-	    <p>계정이 없으신가요? <a href="${pageContext.request.contextPath}/signup">회원가입</a></p>
+	    <p>계정이 없으신가요? <a id="signupLink" href="${pageContext.request.contextPath}/signup">회원가입</a></p>
 	  </div>
 	</div>
 	
@@ -43,6 +43,7 @@
 		const memberEle = document.getElementById('memberSelect')
 		const companyEle = document.getElementById('companySelect')
 		const useridEle = document.getElementById('userid');
+		const signupLink = document.getElementById('signupLink');
 		
 		function memberFormChange(e){
 			const form = document.loginForn
@@ -54,6 +55,8 @@
 			
 			companyEle.classList.remove("login-On");
 			companyEle.classList.add("login-Off");
+			
+			signupLink.href = "${pageContext.request.contextPath}/signup?join=member";
 		}
 		
 		function companyFormChange(e){
@@ -66,6 +69,8 @@
 			
 			companyEle.classList.add("login-On");
 			companyEle.classList.remove("login-Off");
+			
+			signupLink.href = "${pageContext.request.contextPath}/signup?join=company";
 		}
 		
 		window.onpageshow = memberFormChange

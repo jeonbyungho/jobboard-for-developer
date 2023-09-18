@@ -80,13 +80,16 @@
         var modal = document.getElementById("myModal");
         var personalSignupBtn = document.getElementById("openPersonalSignupButton");
         var companySignupBtn = document.getElementById("openCompanySignupButton");
-
-        personalSignupBtn.onclick = function() {
+		
+        personalSignupBtn.onclick = personalModel;
+        function personalModel() {
+        	console.log('asd');
             loadModalContent("${pageContext.request.contextPath}/resource/page/login/member_signup.jsp", member_sigup); // 개인회원 가입 JSP 파일 경로
             modal.style.display = "block";
         }
 
-        companySignupBtn.onclick = function() {
+        companySignupBtn.onclick = companyModel;
+        function companyModel() {
             loadModalContent("${pageContext.request.contextPath}/resource/page/login/company_signup.jsp", company_sigup); // 기업회원 가입 JSP 파일 경로
             modal.style.display = "block";
         }
@@ -117,6 +120,16 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+        
+        // 쿼리 스트링에 따라 모달창 실행
+        window.onload = function(e) {
+        	const kind = new URL(location.href).searchParams.get('join');
+       	 	if(kind == 'member'){
+            	personalModel();
+        	} else if(kind == 'company'){
+        		companyModel(); 
+        	}
         }
     </script>
 </body>
