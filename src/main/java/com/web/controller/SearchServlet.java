@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dto.ArticleDAO;
+import com.dao.ArticleDAO;
 
 @WebServlet("/search")
 public class SearchServlet extends HttpServlet {
@@ -36,8 +36,9 @@ public class SearchServlet extends HttpServlet {
 //        htmlBuilder.append("<head><title>검색 결과</title></head>");
 //        htmlBuilder.append("<body>");
         for (Map<String, Object> list : articlelist) {
-        	htmlBuilder.append("<a href=\"${pageContext.request.contextPath}/article/${article.ID}\">");
-            htmlBuilder.append("<tr onmouseover=\"this.style.background='#20C0B7'\"");
+        	String link = request.getContextPath() + "/article/" + list.get("ID");
+        	htmlBuilder.append("<tr onclick =\"location.href='"+ link +"'\"");
+            htmlBuilder.append("onmouseover=\"this.style.background='#20C0B7'\"");
             htmlBuilder.append("onmouseout=\"this.style.background=''\">");
             htmlBuilder.append("<td>"+ list.get("R")+ "</td>");
             htmlBuilder.append("<th>"+ list.get("NAME")+ "</th>");
@@ -47,7 +48,6 @@ public class SearchServlet extends HttpServlet {
             htmlBuilder.append("<td>"+ list.get("ADREESS")+ "</td>");
             htmlBuilder.append("<td>"+ list.get("NEED_AMT")+ "</td>");
             htmlBuilder.append("</tr>");
-            htmlBuilder.append("</a>");
         }
 
         // HTML 응답 전송

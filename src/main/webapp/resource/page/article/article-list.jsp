@@ -73,8 +73,8 @@
 							<c:when
 								test="${articleList != null and fn:length(articleList) > 0 }">
 								<c:forEach var="article" items="${articleList }">
-									<a href="${pageContext.request.contextPath}/article/${article.ID}">
-										<tr onmouseover="this.style.background='#20C0B7'"
+										<tr onclick ="location.href='${pageContext.request.contextPath}/article/${article.ID}'"
+											onmouseover="this.style.background='#20C0B7'"
 											onmouseout="this.style.background=''">
 											<td>${article.R }</td>
 											<th>${article.NAME }</th>
@@ -84,7 +84,6 @@
 											<td>${article.ADREESS}</td>
 											<td>${article.NEED_AMT }</td>
 										</tr>
-									</a>
 								</c:forEach>
 							</c:when>
 							<c:otherwise>
