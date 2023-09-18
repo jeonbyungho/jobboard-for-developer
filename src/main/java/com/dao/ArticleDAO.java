@@ -19,6 +19,24 @@ public class ArticleDAO extends DAO implements BoardDAO<HashMap<String, String>>
 	public int getArticleCnt() {
 		return sqlSession.selectOne("Article.getArticleCnt");
 	}
+	
+	public int getSelectedCnt(String career, int type) {
+		HashMap<String, Object> datas = new HashMap<>();
+		datas.put("career", career);
+		datas.put("type", type);
+		return sqlSession.selectOne("Article.getSelectedCnt",datas);
+	}
+	
+	public List<Map<String, Object>> article_search(String career, int type) {
+		HashMap<String, Object> datas = new HashMap<>();
+//		datas.put("startRow", startRow);
+//		datas.put("endRow", endRow);
+		datas.put("career", career);
+		datas.put("type", type);
+		List<Map<String, Object>> list = 
+				sqlSession.selectList("Article.searchArticle",datas);
+		return list;
+	}
 
 	@Override
 	public List<HashMap<String, String>> getList(Map<String, ?> parameter) {

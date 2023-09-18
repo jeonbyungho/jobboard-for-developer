@@ -7,17 +7,15 @@
 
 	<select id="getArticleList" resultType="hashmap">
 		SELECT * FROM (
-			SELECT ROWNUM r, art.* FROM (
-				SELECT
-					a.ID, c.NAME , a.TITLE, a.CAREER , a.SALARY , 
-					(SELECT ad.DISTRICT FROM ADDRESS ad WHERE ad.ID = a.ADDRESS_ID) ||' ' ||a.DETAIL_ADDR adreess,
-					a.NEED_AMT
-				FROM ARTICLE a
-				LEFT OUTER JOIN COMPANY c
-					ON a.COMPANY_ID = c.ID 
-				LEFT OUTER JOIN ADDRESS a2 
-					ON a.ADDRESS_ID = a2.ID
-				ORDER BY a.ID DESC) art)
+			SELECT
+				rownum r, a.ID, c.NAME , a.TITLE, a.CAREER , a.SALARY , 
+				(SELECT ad.DISTRICT FROM ADDRESS ad WHERE ad.ID = a.ADDRESS_ID) ||' ' ||a.DETAIL_ADDR adreess,
+				a.NEED_AMT
+			FROM ARTICLE a
+			LEFT OUTER JOIN COMPANY c
+				ON a.COMPANY_ID = c.ID 
+			LEFT OUTER JOIN ADDRESS a2 
+				ON a.ADDRESS_ID = a2.ID )
 		WHERE r BETWEEN #{startRow} AND #{endRow}
 	</select>
 	
@@ -25,30 +23,20 @@
 		SELECT COUNT(*) FROM ARTICLE
 	</select>
 	
-	<select id="list" resultType="hashmap">
-		SELECT * FROM (
-			SELECT ROWNUM r, art.* FROM (
-				SELECT
-					a.ID, c.NAME , a.TITLE, a.CAREER , a.SALARY , 
-					(SELECT ad.DISTRICT FROM ADDRESS ad WHERE ad.ID = a.ADDRESS_ID) ||' ' ||a.DETAIL_ADDR adreess,
-					a.NEED_AMT
-				FROM ARTICLE a
-				LEFT OUTER JOIN COMPANY c
-					ON a.COMPANY_ID = c.ID 
-				LEFT OUTER JOIN ADDRESS a2 
-					ON a.ADDRESS_ID = a2.ID
-				<trim prefix="WHERE" prefixOverrides="AND |OR">
-					<if test="company_id != null">
-					c.ID = ${company_id}
-					</if>
-				</trim>
-				
-				ORDER BY a.ID DESC) art)
-		WHERE r BETWEEN #{startRow} AND #{endRow}
+	<select id="searchArticle" resultType="hashmap">
+		SELECT rownum r, a.ID, c.NAME , a.TITLE, a.CAREER , a.SALARY, a.COMPANY_ID, 
+		(SELECT ad.DISTRICT FROM ADDRESS ad WHERE ad.ID = a.ADDRESS_ID) ||' ' ||a.DETAIL_ADDR adreess,a.NEED_AMT
+		FROM ARTICLE a
+			LEFT OUTER JOIN COMPANY c
+				ON a.COMPANY_ID = c.ID 
+			LEFT OUTER JOIN ADDRESS a2 
+				ON a.ADDRESS_ID = a2.ID 
+			WHERE c.C_SCALE_ID = #{type} AND CAREER=#{career}
 	</select>
 	
-	<select id="totalCount" resultType="_int">
-		SELECT COUNT(*) FROM ARTICLE
+	<select id="getSelectedCnt" resultType="_int">
+		SELECT COUNT(*) FROM ARTICLE WHERE COMPANY_ID = #{type} AND CAREER= #{career}
 	</select>
+	
 	
 </mapper>
