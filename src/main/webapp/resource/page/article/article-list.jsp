@@ -16,12 +16,10 @@
 		<div id="headcontain">
 			<div id="siteimg">
 				<a href=""><img
-					src="${pageContext.request.contextPath}/resource/img/teamlogo.jpg"></a>
+					src="${pageContext.request.contextPath}/resource/img/samplesitename.png"></a>
 			</div>
 			<div id="explain">채용공고</div>
-			<div id="register">
-				<button>인제풀 등록하기</button>
-			</div>
+
 		</div>
 	</div>
 
@@ -30,7 +28,6 @@
 			<div class="container"></div>
 		</div>
 
-		<!-- board seach area -->
 		<div id="board-search">
 			<div class="container">
 				<div class="search-window">
@@ -41,13 +38,15 @@
 								<option value="1">대기업</option>
 								<option value="2">중견기업</option>
 								<option value="3">중소기업</option>
-							</select> <select id="career">
+							</select> 
+							<select id="career">
 								<option value="default" selected>경력</option>
 								<option value="신입">신입</option>
 								<option value="경력">경력</option>
 								<option value="인턴">인턴</option>
-							</select> <input type=button value="검색" onclick="searchArticles()"/> <span id="cnt"> &emsp; 글
-								개수 ${totalCnt } 개 </span>
+							</select> 
+							<input id="search-btn" type=button value="검색" onclick="searchArticles()"/> 
+							<span id="cnt"> &emsp; 글 개수 ${totalCnt } 개 </span>
 						</div>
 					</form>
 				</div>
@@ -74,9 +73,8 @@
 							<c:when
 								test="${articleList != null and fn:length(articleList) > 0 }">
 								<c:forEach var="article" items="${articleList }">
-									<a
-										href="${pageContext.request.contextPath}/article/${article.ID}">
-										<tr onmouseover="this.style.background='#bbdefb'"
+									<a href="${pageContext.request.contextPath}/article/${article.ID}">
+										<tr onmouseover="this.style.background='#20C0B7'"
 											onmouseout="this.style.background=''">
 											<td>${article.R }</td>
 											<th>${article.NAME }</th>
@@ -90,8 +88,8 @@
 								</c:forEach>
 							</c:when>
 							<c:otherwise>
-								<tr>
-									<th id="blank">등록된 구직글이 없습니다.</th>
+								<tr >
+									<th id="blank" >등록된 구직글이 없습니다.</th>
 								</tr>
 							</c:otherwise>
 						</c:choose>
@@ -100,7 +98,7 @@
 			</div>
 		</div>
 		<br>
-		<div style="border: 0px; width: 100%;">
+		<div id="paging" style="border: 0px; width: 100%;">
 			<div align="center">
 				<div>
 					<c:if test="${nowPage > 1 }">
@@ -134,10 +132,10 @@
 			// 선택한 직무와 경력 값을 가져옴
 			var s1 = document.getElementById("type")
 			var s2 = document.getElementById("career")
-			var page = document.getElementById("")
+			/* var page = document.getElementById("") */
 			var selectedType = s1.value;
 			var selectedCareer = s2.value;
-			var selectedPage = page.value;
+			/* var selectedPage = page.value; */
 
 			// Ajax를 사용하여 서버에 요청 보냄
 			$.ajax({
@@ -145,14 +143,15 @@
 				url : "${pageContext.request.contextPath}/search", // 검색을 처리하는 서버의 URL로 변경 필요
 				data : {
 					type : selectedType,
-					career : selectedCareer
-					page : 
+					career : selectedCareer 
 				},
 				success : function(response) {
 					// 서버로부터 받은 데이터로 테이블 목록 갱신
 					// response 변수에 서버로부터 받은 데이터가 들어있을 것입니다.
 					// 이 데이터를 사용하여 테이블을 다시 그리거나 업데이트할 수 있습니다.
 					$('#listContent').html(response);
+					$('#paging').html("");
+					$('#cnt').html("");
 				},
 				error : function(error) {
 					console.error("검색 실패:", error);

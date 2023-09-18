@@ -31,7 +31,7 @@
 				ON a.COMPANY_ID = c.ID 
 			LEFT OUTER JOIN ADDRESS a2 
 				ON a.ADDRESS_ID = a2.ID 
-			WHERE COMPANY_ID = #{type} AND CAREER=#{career}
+			WHERE c.C_SCALE_ID = #{type} AND CAREER=#{career}
 	</select>
 	
 	<select id="getSelectedCnt" resultType="_int">
