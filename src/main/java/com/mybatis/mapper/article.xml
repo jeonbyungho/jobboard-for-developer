@@ -25,4 +25,30 @@
 		SELECT COUNT(*) FROM ARTICLE
 	</select>
 	
+	<select id="list" resultType="hashmap">
+		SELECT * FROM (
+			SELECT ROWNUM r, art.* FROM (
+				SELECT
+					a.ID, c.NAME , a.TITLE, a.CAREER , a.SALARY , 
+					(SELECT ad.DISTRICT FROM ADDRESS ad WHERE ad.ID = a.ADDRESS_ID) ||' ' ||a.DETAIL_ADDR adreess,
+					a.NEED_AMT
+				FROM ARTICLE a
+				LEFT OUTER JOIN COMPANY c
+					ON a.COMPANY_ID = c.ID 
+				LEFT OUTER JOIN ADDRESS a2 
+					ON a.ADDRESS_ID = a2.ID
+				<trim prefix="WHERE" prefixOverrides="AND |OR">
+					<if test="company_id != null">
+					c.ID = ${company_id}
+					</if>
+				</trim>
+				
+				ORDER BY a.ID DESC) art)
+		WHERE r BETWEEN #{startRow} AND #{endRow}
+	</select>
+	
+	<select id="totalCount" resultType="_int">
+		SELECT COUNT(*) FROM ARTICLE
+	</select>
+	
 </mapper>

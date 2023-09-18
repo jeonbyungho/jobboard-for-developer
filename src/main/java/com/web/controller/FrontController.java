@@ -19,7 +19,7 @@ import com.web.action.user.*;
 @WebServlet(urlPatterns = {
 		"/",
 		"/member", "/member/submit",
-		"/company",
+		"/company", "/company/receive",
 		"/article/*", "/article/write", "/article/list",
 		"/resume/*", "/resume/write", "/resume/consent", "/resume/popup"})
 public class FrontController extends HttpServlet{
@@ -55,6 +55,7 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/member/submit", new SubmitResumeListAction());
 		
 		getActionMap.put("/company", new CompanyMyPageAction());
+		getActionMap.put("/company/receive", new ReceiveResumeListAction());
 		
 		// 요청 방식 POST
 		postActionMap.put("/member/login", new MemberLoginAction(true));

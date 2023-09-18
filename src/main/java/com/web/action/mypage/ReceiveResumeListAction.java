@@ -9,18 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dao.ArticleDAO;
 import com.dao.CompanyMypageDAO;
 import com.dto.CompanyDTO;
 import com.web.action.ActionFront;
 import com.web.action.BoardPageingAction;
 
 
-public class CompanyMyPageAction extends BoardPageingAction{
+public class ReceiveResumeListAction extends BoardPageingAction{
 	
 	@Override
 	public ActionFront excute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		ArticleDAO adao = new ArticleDAO();
+		CompanyMypageDAO mydao = new CompanyMypageDAO();
 		
 		HttpSession session = req.getSession();
 		CompanyDTO company = (CompanyDTO)session.getAttribute("member");
@@ -33,16 +32,16 @@ public class CompanyMyPageAction extends BoardPageingAction{
 		
 		// 파라미터 구성
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("company_id", company.getId());
+		map.put("id", company.getId());
 		
 		// DB 조회
 		int page = getPage(req);
-		List<?> list = getList(req, adao, map, page);
+		List<?> list = getList(req, mydao, map, page);
 		
 		setRedirect(false);
-		req.setAttribute("articleList", list);
+		req.setAttribute("receiveResumeList", list);
 		
-		setPath("./resource/page/company/mypage.jsp");
+		setPath("../resource/page/company/receive.jsp");
 		return super.excute(req, resp);
 	}
 }

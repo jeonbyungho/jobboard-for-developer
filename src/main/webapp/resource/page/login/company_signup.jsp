@@ -24,7 +24,8 @@
             <input type="text" name="address" id="sample6_address" placeholder="주소" required>
             <input type="text" name="detail_addr" id="sample6_detailAddress" placeholder="상세주소">
             <input type="text" name="addretc" id="sample6_extraAddress" placeholder="참고항목">
-            <textarea name="content" id="signupCompanyDescription" placeholder="기업소개" required></textarea>
+            <textarea name="content" id="signupCompanyDescription" placeholder="기업소개" required
+            cols="40" rows="8"></textarea>
             <button type="submit">가입</button>
         </form>
         <p>이미 계정이 있으신가요? <a href="${pageContext.request.contextPath}/member/login">로그인</a></p>

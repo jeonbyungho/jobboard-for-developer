@@ -10,9 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="${pageContext.request.contextPath}/resource/js/resume_consent.js" defer></script>
     <title>Document</title>
-    
-    <link href="${pageContext.request.contextPath}/resource/css/body.css" rel="stylesheet"  type="text/css"/>
-    <link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
+    <link rel="stylesheet" href="tmp.css">
 </head>
 
 <body>
@@ -22,26 +20,37 @@
 	<%-- 제출한 이력서 테이블 --%>
 	<table border="1">
 		<tr>
-			<th>번호</th>
-			<th>기업이름</th>
-			<th>제목</th>
-			<th>경력</th>
-			<th>연봉</th>
-			<th>주소</th>
-			<th>채용수</th>
+			<th>지원자</th>
+			<th>이력서</th>
+			<th>구인글</th>
+			<th>수락 여부</th>
 		</tr>	
 	
 	<%-- 이력서 목록 --%>
-	<c:forEach var="article" items="${articleList}">
-	<tr onclick="location.href='${pageContext.request.contextPath}/article/${article.ID}'">
-		<td>${article.R }</td>
-		<th>${article.NAME }</th>
-		<td>${article.TITLE }</td>
-		<td>${article.CAREER }</td>
-		<td>${article.SALARY }</td>
-		<td>${article.ADREESS}</td>
-		<td>${article.NEED_AMT }</td>
-	</tr>
+	<c:forEach var="resume" items="${receiveResumeList}">
+		<tr>
+			<th>${resume.MEMBER_NAME }</th>
+			<td>
+				<a href="${pageContext.request.contextPath}/resume/${resume.RESUME_ID}" target="_blank">
+					${resume.RESUME_TITLE }
+				</a>
+			</td>
+			<td>
+				<a href="${pageContext.request.contextPath}/article/${resume.ARTICLE_ID}" target="_blank">
+					${resume.ARTICLE_TITLE }
+				</a>
+			</td>
+			
+			<%-- 수락 버튼 --%>
+			<td>
+				<c:choose>
+					<c:when test="${empty resume.CONSENT }">
+						<button onclick="resumeConsent('${pageContext.request.contextPath}',${resume.ID})">수락</button>
+					</c:when>
+					<c:otherwise>${resume.CONSENT }</c:otherwise>
+			    </c:choose>
+			</td>
+		</tr>
 	</c:forEach>
 	</table>
 	

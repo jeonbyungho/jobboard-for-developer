@@ -25,7 +25,6 @@ document.loginForn.onsubmit = async (e) => {
 		
 		// 로그아웃 성공
 		if(mes == "success"){
-			alert('로그인 성공');
 			location.href = document.referrer;
 		// 실패
 		} else if(mes == "fail") alert('로그인 실패');
