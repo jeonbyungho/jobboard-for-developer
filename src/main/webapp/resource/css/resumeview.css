@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/* resume_view.jsp*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px; /* 예시로 최대 너비를 설정할 수 있습니다. */
+    margin: 0 auto; /* 테이블을 가운데 정렬합니다. */
+}
+
+table, th, td {
+    border: 1px solid #20C0B7; /* 테두리에 #20C0B7 색상을 적용합니다. */
+}
+
+th, td {
+    padding: 10px; /* 셀의 안쪽 여백을 설정합니다. */
+    text-align: left; /* 셀 내용을 왼쪽 정렬합니다. */
+}
+/* 이력서 제목 */
+h3 {
+    color: #000; /* 제목 색상을 #20C0B7로 설정 */
+    text-align: center; /* 텍스트를 가운데 정렬 */
+}
+
+/* 각 필드셋 */
+fieldset {
+    border: 2px solid #20C0B7; /* 테두리를 #20C0B7 색상으로 설정 */
+    padding: 10px; /* 안쪽 여백을 추가하여 적당한 크기 설정 */
+    margin: 20px auto; /* 가운데 정렬 */
+    max-width: 600px; /* 필드셋의 최대 너비를 설정 (적절한 크기로 조정) */
+}
+
+/* 각 데이터 항목 (학교, 경력, 자격증, 자기소개) */
+div, p {
+    color: #000; /* 텍스트 색상을 #20C0B7로 설정 */
+    text-align: center; /* 텍스트를 가운데 정렬 */
+}
+
+/* 테이블 스타일 (학교 정보 테이블) */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px; /* 예시로 최대 너비를 설정할 수 있습니다. */
+    margin: 0 auto; /* 테이블을 가운데 정렬 */
+}
+
+table, th, td {
+    border: 1px solid #20C0B7; /* 테두리에 #20C0B7 색상을 적용 */
+}
+
+th, td {
+    padding: 10px; /* 셀의 안쪽 여백을 설정 */
+    text-align: left; /* 셀 내용을 왼쪽 정렬 */
+}

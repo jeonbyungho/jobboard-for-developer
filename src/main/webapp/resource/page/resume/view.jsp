@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${resume.NAME} : ${resume.TITLE}</title>
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resource/css/resume.css">
+	href="${pageContext.request.contextPath}/resource/css/resumeview.css">
 <link href="${pageContext.request.contextPath}/resource/css/body.css"
 	rel="stylesheet" type="text/css" />
 <link href="${pageContext.request.contextPath}/resource/css/header.css"
@@ -19,7 +19,7 @@
 	
 	<header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
 	
-	<h3>${resume.NAME}님 작성하신 이력서</h3>
+	<h3>${resume.NAME}님 작성하신 이력서 입니다</h3><br/>
 	
 	<table border="1">
 		<tr>
