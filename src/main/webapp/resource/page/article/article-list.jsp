@@ -7,21 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판 목록</title>
-<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resource/css/articlelist.css">
+	<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<link href="${pageContext.request.contextPath}/resource/css/body.css" rel="stylesheet"  type="text/css"/>
+	<link href="${pageContext.request.contextPath}/resource/css/header.css" rel="stylesheet"  type="text/css"/>
+	<link rel="stylesheet"
+		href="${pageContext.request.contextPath}/resource/css/articlelist.css">
 </head>
 <body>
-	<div id="head">
-		<div id="headcontain">
-			<div id="siteimg">
-				<a href=""><img
-					src="${pageContext.request.contextPath}/resource/img/samplesitename.png"></a>
-			</div>
-			<div id="explain">채용공고</div>
-
-		</div>
-	</div>
+	<header><%@ include file= "/WEB-INF/views/header.jsp" %></header>
 
 	<section class="notice">
 		<div class="page-title">
