@@ -7,8 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>이력서 작성</title>
 <script
-	src="${pageContext.request.contextPath}/resource/js/resume_write.js"
-	defer></script>
+	src="${pageContext.request.contextPath}/resource/js/resume_write.js" defer></script>
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resource/css/resume.css">
 <link href="${pageContext.request.contextPath}/resource/css/body.css"
