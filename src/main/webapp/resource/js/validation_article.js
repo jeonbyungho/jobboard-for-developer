@@ -50,7 +50,7 @@ function validateForm() {
             if (salary.trim() === "" || isNaN(salary)) {
                 alert("급여를 입력해주세요");
                 return false;
-            } else if (postcode.trim() === "" || address.trim() === "" || detailAddr.trim() === "") {
+            } else if (address.trim() === "") {
                 alert("주소를 입력해주세요");
                 return false;
             } else if (needAmt.trim() === "" || isNaN(needAmt)) {
@@ -65,7 +65,8 @@ function validateForm() {
             } else if (qualify.trim() === "") {
                 alert("자격요건을 입력해주세요");
                 return false;
-            }  else if (!stackChecked) {
+            }
+            /*}  else if (!stackChecked) {
 					for (let i = 0; i < stack.length; i++) {
 			        if (stack[i].checked) {
 			            stackChecked = true;
@@ -75,7 +76,7 @@ function validateForm() {
 	                return false;
 			    }
                
-            }
+            }*/
 
             return true; // Form is valid
         }

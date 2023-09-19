@@ -17,7 +17,7 @@ import com.web.action.resume.*;
 import com.web.action.user.*;
 
 @WebServlet(urlPatterns = {
-		"/",
+		"/", "/member/idCheck", "/company/idCheck",
 		"/member", "/member/submit",
 		"/company", "/company/receive",
 		"/article/*", "/article/write", "/article/list",
@@ -39,6 +39,9 @@ public class FrontController extends HttpServlet{
 		getActionMap.put("/login", new ExcuteAction("./resource/page/login/login.jsp"));
 		getActionMap.put("/signup", new ExcuteAction("./resource/page/login/signup.jsp"));
 		getActionMap.put("/logout", new MemberLogoutAction());
+		
+		getActionMap.put("/member/idCheck", new MemberIdCheckAction(true));
+		getActionMap.put("/company/idCheck", new MemberIdCheckAction(false));
 		
 		getActionMap.put("/resume", new ResumeViewAction());
 		getActionMap.put("/resume/write", new ExcuteAction("../resource/page/resume/write.jsp"));

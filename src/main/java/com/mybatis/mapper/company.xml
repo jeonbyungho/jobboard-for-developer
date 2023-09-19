@@ -50,4 +50,8 @@
 			ON c.C_SCALE_ID = cs.ID 
 		WHERE c.ID = #{id}
  	</select>
+ 	
+ 	<select id="idCheck" parameterType="string" resultType="_int">
+ 		SELECT COUNT(*) FROM COMPANY c WHERE c.COMPANY_NO = #{user_id}
+ 	</select>
  </mapper>

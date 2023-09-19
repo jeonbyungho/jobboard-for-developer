@@ -8,5 +8,5 @@ public interface UserDAO<T extends UserDTO>{
 	
 	public T login(String name, String password);
 	public boolean sigup(Map<String, String> map);
-	
+	public boolean idCheck(String user_id);
 }

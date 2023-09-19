@@ -34,4 +34,8 @@
 		WHERE m.USER_ID = #{userid} AND m.PASSWORD = #{password}
  	</select>
  	
+ 	<select id="idCheck" parameterType="String" resultType="_int">
+ 		SELECT COUNT(*) FROM MEMBER m WHERE m.USER_ID = #{user_id}
+ 	</select>
+ 	
  </mapper>

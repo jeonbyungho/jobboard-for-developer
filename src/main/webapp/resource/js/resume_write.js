@@ -11,7 +11,7 @@ document.getElementById("schoolPlus").onclick = (e) => {
     // 학교 정보 입력 폼을 생성하여 <li>에 추가
     li.innerHTML =
         '<input type="text" name="schRating" placeholder="학교 등급"/>'
-        + '<input type="text" name="schName" placeholder="대학교 이름"/>'
+        + '<input type="text" name="schName" placeholder="학교명"/>'
         + '<input type="text" name="schDepartment" placeholder="학과"/>'
         + '<input type="text" name="schStatus" placeholder="졸업 여부"/>'
         + '<input type="number" name="schGrade" placeholder="학점"/>';

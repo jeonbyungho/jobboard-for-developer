@@ -21,4 +21,10 @@ public class MemberDAO extends DAO implements UserDAO<MemberDTO>{
 		int result = sqlSession.insert("Member.sigup", map);
 		return result > 0 ? true : false;
 	}
+	
+	@Override
+	public boolean idCheck(String user_id) {
+		int result = sqlSession.selectOne("Member.idCheck", user_id);
+		return result > 0;
+	}
 }

@@ -8,6 +8,7 @@
      <form action="${pageContext.request.contextPath}/member/signup" method="post" name="signupForm">
     	<%-- 아이디 비밀번호 입력란 --%>
       <input type="text" name="userid" id="signupUsername" placeholder="사용자 ID" required>
+      <%-- <button onclick="memberIdChecking('${pageContext.request.contextPath}')">ID 중복 확인</button> --%>
       <input type="password" name="password" id="signupPassword" placeholder="비밀번호" required>
       <input type="text" name="name" id="signupName" placeholder="이름" required>
       

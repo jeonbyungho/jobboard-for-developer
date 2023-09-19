@@ -1,4 +1,7 @@
 console.log("🖐️singup.js");
+
+//let memberIdCheck = false;
+
 async function member_sigup(e) {
 	e.preventDefault();
 	
@@ -60,6 +63,11 @@ function memberValidateForm(data) {
         alert('아이디를 입력해주세요.');
         return false;
     }
+    
+    /*if(!memberIdCheck){
+		alert('아이디 중복 확인해주세요.');
+		return false;
+	}*/
 
     if (!validatePassword(data.password)) {
         alert('비밀번호를 입력해주세요.');
@@ -117,3 +125,46 @@ function validateEmail(email) {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
 }
+
+
+/*async function memberIdChecking(path){
+	const userid = document.getElementById('signupUsername');
+	const url = location.origin + path + '/member/idCheck';
+	
+	const idData = {
+		userid : userid.value
+	};
+	
+	console.log(idData.userid, url);
+	
+	try {
+		response = await fetch(url, {
+			method : "GET",
+			headers : {
+				"Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+			},
+			body : new URLSearchParams(idData).toString(),
+		});
+		
+		// 응답 메시지
+		const mes = await response.text();
+		
+		// 회원 가입 성공
+		if(mes == "false"){
+			alert('사용 가능한 아이디입니다!');
+			memberIdCheck = true;
+			return false;
+		// 실패
+		} else if("true"){
+			alert('중복된 아이디입니다.');
+			
+		} else {
+			alert('오류 발생..');
+		}
+		memberIdCheck = false;
+	// 오류 발생
+	} catch (error) {
+		console.error("Error:", error);
+		alert('알 수 없는 이유 실패..');
+	}
+}*/

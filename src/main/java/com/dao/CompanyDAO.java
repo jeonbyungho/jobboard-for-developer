@@ -22,6 +22,12 @@ public class CompanyDAO extends DAO implements UserDAO<CompanyDTO>{
 		return result > 0 ? true : false;
 	}
 	
+	@Override
+	public boolean idCheck(String user_id) {
+		int result = sqlSession.selectOne("Company.idCheck", user_id);
+		return result > 0;
+	}
+	
 	
 	public Map<String, String> byId(int id){
 		return sqlSession.selectOne("Company.byId", id);

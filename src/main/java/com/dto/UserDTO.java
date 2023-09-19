@@ -6,5 +6,5 @@ public abstract class UserDTO {
 	public boolean getKind() {
 		return this.kind;
 	}
-	
+
 }
