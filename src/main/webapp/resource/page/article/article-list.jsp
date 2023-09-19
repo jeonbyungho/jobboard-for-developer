@@ -27,15 +27,15 @@
 					<form action="">
 						<div id="">
 							<select id="type">
-								<option value="default" selected>기업종류</option>
+								<option value="default" selected>--기업형태--</option>
 								<option value="1">대기업</option>
 								<option value="2">중견기업</option>
 								<option value="3">중소기업</option>
 							</select> 
 							<select id="career">
-								<option value="default" selected>경력</option>
+								<option value="default" selected>--경력--</option>
 								<option value="신입">신입</option>
-								<option value="경력">경력</option>
+								<option value="경력">경력직</option>
 								<option value="인턴">인턴</option>
 							</select> 
 							<input id="search-btn" type=button value="검색" onclick="searchArticles()"/> 

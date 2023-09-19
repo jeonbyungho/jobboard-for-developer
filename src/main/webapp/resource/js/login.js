@@ -25,7 +25,12 @@ document.loginForn.onsubmit = async (e) => {
 		
 		// 로그아웃 성공
 		if(mes == "success"){
-			location.href = document.referrer;
+			const l = document.referrer;
+			if(l.indexOf('signup') > -1){
+				location.href = document.location.origin+'/jspweb/';
+			} else {
+				location.href = document.referrer;
+			}
 		// 실패
 		} else if(mes == "fail") alert('로그인 실패');
 		

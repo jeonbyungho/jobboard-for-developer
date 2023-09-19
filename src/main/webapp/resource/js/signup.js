@@ -23,7 +23,7 @@ async function member_sigup(e) {
 	console.log(form.action);
 	console.table(loginData);
 	
-	if(!validateForm(loginData)){
+	if(!memberValidateForm(loginData)){
 		return false;
 	}
 	
@@ -55,7 +55,7 @@ async function member_sigup(e) {
 	}
 }
 
-function validateForm(data) {
+function memberValidateForm(data) {
     if (data.userid.trim() === '') {
         alert('아이디를 입력해주세요.');
         return false;

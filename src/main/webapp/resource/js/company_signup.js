@@ -25,7 +25,7 @@ async function company_sigup(e) {
 	console.log(form.action);
 	console.table(loginData);
 	
-	if(!validateForm(loginData)){
+	if(!conpanyValidateForm(loginData)){
 		return false;
 	}
 	
@@ -57,7 +57,7 @@ async function company_sigup(e) {
 	}
 }
 
-function validateForm(data) {
+function conpanyValidateForm(data) {
     if (!validateBusinessNumber(data.company_no)) {
         return false;
     }
