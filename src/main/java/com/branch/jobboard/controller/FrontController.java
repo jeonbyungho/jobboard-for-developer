@@ -33,6 +33,7 @@ public class FrontController extends HttpServlet{
         this.redirectUtil = new RedirectUtil(charset);
 
         this.handlers.put("/", new ControllerImpl("landing"));
+        this.handlers.put("/login", new ControllerImpl("login"));
         // TODO 컨트롤러 추가 해야됨.
         
         log.info("{} Servlet 초기화!\n\t└─ Handler Size:{}, charset:{}", 
