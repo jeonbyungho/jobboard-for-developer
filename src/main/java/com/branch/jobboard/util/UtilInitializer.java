@@ -15,7 +15,6 @@ public class UtilInitializer implements ServletContextListener{
 	public void contextInitialized(ServletContextEvent sce) {
 		ServletContext sc = sce.getServletContext();
 		sc.setAttribute("requestProcess", new RequestProcess());
-		sc.setAttribute("urlPatternUtil", new UrlPatternUtil());
 		log.info("Util Object Initialize");
 	}
 }
