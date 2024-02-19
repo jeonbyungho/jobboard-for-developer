@@ -1,4 +1,4 @@
-package com.branch.jobboard.controller;
+package com.branch.jobboard.util;
 
 import java.util.Map;
 import java.io.PrintWriter;
@@ -15,18 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class RequestProcess {
 
-	private static RequestProcess instance;
-	
     private final String VIEW_DIR = "/WEB-INF/view/";
     private final String VIEW_TYPE = ".jsp";
     
-    public static RequestProcess getInstance() {
-    	if(instance == null) {
-    		instance = new RequestProcess();
-    	}
-    	return instance;
-    }
-
     public void forward(HttpServletRequest req, HttpServletResponse resp, String view) throws ServletException, IOException {
     	String viewPath = this.VIEW_DIR + view + this.VIEW_TYPE;
     	req.getServletContext().getRequestDispatcher(viewPath).forward(req, resp);
@@ -36,9 +27,7 @@ public class RequestProcess {
     	resp.sendRedirect(path);
     }
     
-    public void bodyJson(HttpServletResponse resp, Map<String, Object> map, String charset){
-        resp.setCharacterEncoding(charset);
-        
+    public void bodyJson(HttpServletResponse resp, Map<String, Object> map){
         JSONObject json = new JSONObject(map);
         
         try (PrintWriter out = resp.getWriter()){

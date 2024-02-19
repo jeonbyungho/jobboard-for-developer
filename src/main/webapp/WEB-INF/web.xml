@@ -8,9 +8,55 @@
   
   <!-- Web Application Configuration -->
   <context-param>
-  	<param-name>charset</param-name>
-  	<param-value>UTF-8</param-value>
+  	<param-name>mybatis_config_file</param-name>
+  	<param-value>mybatis-config.xml</param-value>
   </context-param>
+  
+  <context-param>
+  	<param-name>landing</param-name>
+  	<param-value>/</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>member_login</param-name>
+  	<param-value>/login</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>jobpost_write</param-name>
+  	<param-value>/job/write</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>jobpost_list</param-name>
+  	<param-value>/job/list/{no}</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>jobpost_detail</param-name>
+  	<param-value>/job/detail/{no}</param-value>
+  </context-param>
+  
+  <!-- Filter -->
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<servlet-name>/*</servlet-name>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>urlPatternMatchFilter</filter-name>
+  	<servlet-name>frontController</servlet-name>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>authorizationFilter</filter-name>
+  	<servlet-name>frontController</servlet-name>
+  </filter-mapping>
+  
+  <filter-mapping>
+  	<filter-name>logFilter</filter-name>
+  	<servlet-name>frontController</servlet-name>
+  </filter-mapping>
   
   <!-- Servlet URL Mapping -->
   <servlet-mapping>

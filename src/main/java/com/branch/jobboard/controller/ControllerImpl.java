@@ -6,13 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.branch.jobboard.util.RequestProcess;
+
 public class ControllerImpl implements Controller{
     protected String viewName;
-    protected final RequestProcess requestProcess;
     
     public ControllerImpl(String viewName){
         this.viewName = viewName;
-        this.requestProcess = RequestProcess.getInstance();
     }
     
     public ControllerImpl(){
@@ -21,7 +21,8 @@ public class ControllerImpl implements Controller{
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	this.requestProcess.forward(req, resp, viewName);
+    	RequestProcess rp = (RequestProcess) req.getServletContext().getAttribute("requestProcess");
+    	rp.forward(req, resp, viewName);
     }
     
     @Override
