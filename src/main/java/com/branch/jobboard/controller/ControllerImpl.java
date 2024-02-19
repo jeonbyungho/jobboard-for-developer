@@ -14,7 +14,7 @@ public class ControllerImpl implements Controller{
     }
     
     public ControllerImpl(){
-    	this("");
+    	this(null);
     }
 
     @Override
@@ -24,6 +24,6 @@ public class ControllerImpl implements Controller{
     
     @Override
     public String doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	return this.viewName;
+    	return null;
     }
 }

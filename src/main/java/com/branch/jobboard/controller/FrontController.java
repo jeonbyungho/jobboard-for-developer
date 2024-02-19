@@ -48,10 +48,12 @@ public class FrontController extends HttpServlet{
     }
     
     private void doProcess(HttpServletRequest req, HttpServletResponse resp, String path) throws ServletException, IOException{
-    	if(path.length() <= 0) {
+    	if(path == null) {
     		resp.sendError(HttpServletResponse.SC_NOT_FOUND);
     		return;
     	}
+    	else if(path.length() <= 0) {	return; }
+    	
     	
     	if(path.startsWith(this.REDIRECT_PROFIX)) {
     		resp.sendRedirect(path);
