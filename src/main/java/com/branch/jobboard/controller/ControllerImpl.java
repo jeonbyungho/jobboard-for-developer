@@ -20,13 +20,12 @@ public class ControllerImpl implements Controller{
     }
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	RequestProcess rp = (RequestProcess) req.getServletContext().getAttribute("requestProcess");
-    	rp.forward(req, resp, viewName);
+    public String doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	return this.viewName;
     }
     
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+    public String doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	return this.viewName;
     }
 }

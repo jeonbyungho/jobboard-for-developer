@@ -7,6 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public interface Controller {
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+    public String doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
+    public String doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 }

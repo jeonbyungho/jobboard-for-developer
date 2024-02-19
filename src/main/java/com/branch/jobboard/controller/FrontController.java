@@ -18,6 +18,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @WebServlet(name = "frontController", urlPatterns = "/")
 public class FrontController extends HttpServlet{
+	
+	private final String VIEW_DIR = "/WEB-INF/view/";
+    private final String VIEW_TYPE = ".jsp";
+    private final String REDIRECT_PROFIX = "redirect:";
     
     private Map<String, Controller> handlers;
 
@@ -35,21 +39,39 @@ public class FrontController extends HttpServlet{
         
         log.info("{} Servlet 초기화!\n\t└─ Handler Size:{}, charset:{}", 
             this.getServletName(), this.handlers.size());
-    } 
+    }
     	
     private Controller controllerLookup(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
     	String url = (String) req.getAttribute("url");
     	Controller controller = handlers.get(url);
-    	return controller != null ? controller : new EmptyController();
+    	return controller != null ? controller : new ControllerImpl();
+    }
+    
+    private void doProcess(HttpServletRequest req, HttpServletResponse resp, String path) throws ServletException, IOException{
+    	if(path.length() <= 0) {
+    		resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+    		return;
+    	}
+    	
+    	if(path.startsWith(this.REDIRECT_PROFIX)) {
+    		resp.sendRedirect(path);
+    		return;
+    	}
+    	
+    	String viewPath = this.VIEW_DIR + path + this.VIEW_TYPE;
+    	req.getServletContext().getRequestDispatcher(viewPath).forward(req, resp);
     }
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	controllerLookup(req, resp).doGet(req, resp);
+    	String path = controllerLookup(req, resp).doGet(req, resp);
+    	doProcess(req, resp, path);
     }
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	controllerLookup(req, resp).doPost(req, resp);
+    	String path = controllerLookup(req, resp).doPost(req, resp);
+    	doProcess(req, resp, path);
     }
+    
 }
