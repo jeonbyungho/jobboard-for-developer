@@ -6,8 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.branch.jobboard.util.RequestProcess;
-
 public class ControllerImpl implements Controller{
     protected String viewName;
     
