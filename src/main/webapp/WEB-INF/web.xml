@@ -4,26 +4,15 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
   version="4.0">
-
-  <!--Front Controller Servlet-->
-  <servlet>
-    
-    <servlet-name>FrontController</servlet-name>
-    <servlet-class>com.branch.jobboard.controller.FrontController</servlet-class>
-    
-    <init-param>
-      <param-name>charset</param-name>
-      <param-value>UTF-8</param-value>
-    </init-param>
+  <display-name>Job Board for Developer</display-name>
   
-  </servlet>
-
-  <!--Servlet URL Mapping-->
-  <servlet-mapping>
-    <servlet-name>FrontController</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>
-
+  <!-- Web Application Configuration -->
+  <context-param>
+  	<param-name>charset</param-name>
+  	<param-value>UTF-8</param-value>
+  </context-param>
+  
+  <!-- Servlet URL Mapping -->
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>/resource/*</url-pattern>

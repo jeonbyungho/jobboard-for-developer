@@ -17,7 +17,7 @@
     <title>${title}</title>
 </head>
 <body>
-    <c:if test="${empty navbarRemove}" ><jsp:include page="/WEB-INF/include/navbar.jsp" flush="true"/></c:if>
+    <c:if test="${not navbarRemove}" ><jsp:include page="/WEB-INF/include/navbar.jsp" flush="true"/></c:if>
     <main class="container"><jsp:doBody></jsp:doBody></main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

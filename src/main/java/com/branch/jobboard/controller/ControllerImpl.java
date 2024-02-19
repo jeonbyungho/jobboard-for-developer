@@ -6,25 +6,26 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.branch.jobboard.controller.info.RedirectInfo;
-import com.branch.jobboard.controller.info.UriInfo;
-
 public class ControllerImpl implements Controller{
     protected String viewName;
+    protected final RequestProcess requestProcess;
     
-    public ControllerImpl(){}
-
     public ControllerImpl(String viewName){
         this.viewName = viewName;
+        this.requestProcess = RequestProcess.getInstance();
+    }
+    
+    public ControllerImpl(){
+    	this("");
     }
 
     @Override
-    public RedirectInfo doGet(HttpServletRequest req, HttpServletResponse resp, UriInfo uriInfo) throws ServletException, IOException {
-        return new RedirectInfo(viewName, RedirectInfo.FORWARD);
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	this.requestProcess.forward(req, resp, viewName);
     }
-
+    
     @Override
-    public RedirectInfo doPost(HttpServletRequest req, HttpServletResponse resp, UriInfo uriInfo) throws ServletException, IOException {
-        return new RedirectInfo(viewName, RedirectInfo.FORWARD);
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	resp.sendError(HttpServletResponse.SC_NOT_FOUND);
     }
 }
