@@ -38,8 +38,8 @@
 				<button class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside">직무</button>
 				<div class="dropdown-menu">
 					<c:forEach var="item" begin="1" end="16">
-						<input type="checkbox" name="jobTitle" class="btn-check" id="btn-check-outlined${item }">
-						<label class="btn btn-sm btn-outline-primary" for="btn-check-outlined${item }">Single toggle</label>
+						<input type="checkbox" name="jobTitle" class="btn-check" id="btn-check-jobtile${item }">
+						<label class="btn btn-sm btn-outline-primary" for="btn-check-jobtile${item }">Job Tile ${item }</label>
 					</c:forEach>
 				</div>
 			</div>
@@ -55,12 +55,12 @@
             		<%-- 주소 --%>
             		<div class="input-group mb-2">
             			<span class="input-group-text">근무지</span>
-            			<input type="text" id="input-address" class="form-control" readonly="readonly">
+            			<input type="text" name="address" id="input-address" class="form-control" readonly="readonly">
             		</div>
             		<%-- 상세 주소 --%>
             		<div class="input-group mb-2">
             			<span class="input-group-text">상세주소</span>
-            			<input type="text" class="form-control">
+            			<input type="text" name="addressDetail" id="input-address-detail" class="form-control">
             		</div>
             	</div>
 	            <%-- 급여 | 경력 --%>
@@ -68,26 +68,26 @@
 	            	<%-- 급여 --%>
 		            <div class="input-group mb-2">
 		            	<span class="input-group-text">급여</span>
-		            	<input type="number" id="input-min-salary" class="form-control" min="0" step="1">
+		            	<input type="number" name="minSalary" id="input-min-salary" class="form-control" min="0" step="1">
 		            	<span class="input-group-text">만원</span>
 		            	<span class="input-group-text">~</span>
-		            	<input type="number" id="input-min-salary" class="form-control" min="0" step="1">
+		            	<input type="number" name="maxSalary" id="input-max-salary" class="form-control" min="0" step="1">
 		            	<span class="input-group-text">만원</span>
 		            </div>
 					<%-- 경력 --%>
 		            <div class="input-group">
 		            	<span class="input-group-text">경력</span>
-		            	<input type="number" id="input-min-salary" class="form-control" min="0" max="11" step="1">
+		            	<input type="number" name="minCareer" id="input-min-career" class="form-control" min="0" max="11" step="1">
 		            	<span class="input-group-text">년</span>
 		            	<span class="input-group-text">~</span>
-		            	<input type="number" id="input-min-salary" class="form-control" min="0" max="11" step="1">
+		            	<input type="number" name="maxCareer" id="input-max-career" class="form-control" min="0" max="11" step="1">
 		            	<span class="input-group-text">년</span>
 		            </div>
 	            </div>
             </div>
             <%-- 기술 스택 --%>
             <div class="mb-2">
-                <input type="text" name="techskil" id="input-skill" class="form-control rounded-0" id="input-title" placeholder="기술스택">
+                <input type="text" name="techskil" id="input-techskil" class="form-control rounded-0" id="input-title" placeholder="기술스택">
             </div>
             
             <%-- 게시판 에디터 --%>
