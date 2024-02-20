@@ -42,6 +42,11 @@
   	<param-value>/job/detail/{no}</param-value>
   </context-param>
   
+  <context-param>
+  	<param-name>resume_write</param-name>
+  	<param-value>/resume/write</param-value>
+  </context-param>
+  
   <!-- Filter -->
   <filter-mapping>
   	<filter-name>encodingFilter</filter-name>
