@@ -1,4 +1,4 @@
-package com.branch.jobboard.util;
+package com.branch.jobboard.service;
 
 import java.util.Map;
 import java.io.PrintWriter;
@@ -11,9 +11,16 @@ import org.json.simple.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class RequestProcess {
-    
-    public void bodyJson(HttpServletResponse resp, Map<String, Object> map){
+public class JsonProcessService {
+	private static JsonProcessService instance;
+	private JsonProcessService() {};
+	
+	public static JsonProcessService getInstance() {
+		if(instance == null) instance = new JsonProcessService();
+		return instance;
+	}
+	
+    public void writeBodyJson(HttpServletResponse resp, Map<String, Object> map){
         JSONObject json = new JSONObject(map);
         
         try (PrintWriter out = resp.getWriter()){

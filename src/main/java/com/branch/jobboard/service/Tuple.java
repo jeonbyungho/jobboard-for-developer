@@ -1,4 +1,4 @@
-package com.branch.jobboard.util;
+package com.branch.jobboard.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

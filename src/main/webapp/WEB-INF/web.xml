@@ -13,6 +13,11 @@
   </context-param>
   
   <context-param>
+  	<param-name>jobpost_image_path</param-name>
+  	<param-value>/resource/jobpost/img</param-value>
+  </context-param>
+  
+  <context-param>
   	<param-name>landing</param-name>
   	<param-value>/</param-value>
   </context-param>
@@ -46,16 +51,19 @@
   <filter-mapping>
   	<filter-name>urlPatternMatchFilter</filter-name>
   	<servlet-name>frontController</servlet-name>
+  	<servlet-name>multipartFrontController</servlet-name>
   </filter-mapping>
   
   <filter-mapping>
   	<filter-name>authorizationFilter</filter-name>
   	<servlet-name>frontController</servlet-name>
+  	<servlet-name>multipartFrontController</servlet-name>
   </filter-mapping>
   
   <filter-mapping>
   	<filter-name>logFilter</filter-name>
   	<servlet-name>frontController</servlet-name>
+  	<servlet-name>multipartFrontController</servlet-name>
   </filter-mapping>
   
   <!-- Servlet URL Mapping -->
