@@ -21,12 +21,12 @@ public class MyBatisInitializer implements ServletContextListener{
 	public void contextInitialized(ServletContextEvent sce) {
 		ServletContext sc = sce.getServletContext();
 		
-		String confgFile = sc.getInitParameter("mybatis_config_file");
+		String configFile = sc.getInitParameter("mybatis_config_file");
 		
-		try (InputStream is = Resources.getResourceAsStream(confgFile)){
+		try (InputStream is = Resources.getResourceAsStream(configFile)){
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(is);
             sc.setAttribute("sqlSessionFactory", factory);
-            log.info("SqlSessionFactory 생성 성공 : {}", confgFile);
+            log.info("SqlSessionFactory 생성 성공 : {}", configFile);
         } catch (Exception e) {
             log.error("Mybatis SqlSessionFactory 초기화 실패!", e);
         }

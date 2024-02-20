@@ -14,8 +14,8 @@ public class FrontController extends AbstractFrontController{
 	
     @Override
     public void init() throws ServletException {
-    	super.init();
-    	ServletContext sc = this.getServletContext();
+        super.init();
+        ServletContext sc = this.getServletContext();
     	
         this.handlers.put(sc.getInitParameter("landing"), new ControllerImpl("landing"));
         this.handlers.put(sc.getInitParameter("member_login"), new ControllerImpl("login"));
