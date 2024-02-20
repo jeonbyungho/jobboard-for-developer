@@ -1,52 +1,52 @@
 console.log('editor');
 
+function fileOnchageEvent(editor, options){
+	return async function(event){
+		console.log('Event onchange');
+		const inputFile = event.target;
+		const file = inputFile.files[0];
+	    // 보낼 데이터 구성
+	    const formDate = new FormData();
+	    formDate.append('image', file);
+	    try{ 
+	        // 유효성 검사
+	        if(file.size > options.size){
+	            throw new Error('파일 크기가 너무 큽니다.');
+	        } else if(!options.accept.includes(file.type)){
+	            throw new Error('지원하지 않는 형식입니다.');
+	        }
+	        // 서버에 이미지 전송
+	        const resp = await fetch(inputFile.formAction,{
+	            method: 'POST',
+	            body: formDate
+	        });
+	        // 전송 시 에러
+	        if(!resp.ok) {
+	            throw new Error('응답 에러');
+	        }else if(!resp.redirected) {
+	            throw new Error('응답 에러');
+			}
+			// 이미지 태그 삽입
+	        editor.insertEmbed(editor.getSelection().index, 'image', resp.url);
+		} catch(error){
+			console.log(error);
+			alert(error.message);
+		}
+	}
+}
+
 function editorImageUpload(options){
     return function(){
         console.log('Event editorImageUpload');
         const editor = this.quill;
+        const inputFile = document.createElement('input');
         
-        const fileEl = document.createElement('input');
+        inputFile.type = 'file';
+        inputFile.accept = options.accept.join(",");
+        inputFile.formAction = inputFile.formAction + "/image";
+        inputFile.onchange = fileOnchageEvent(editor, options);
         
-        fileEl.type = 'file';
-        fileEl.accept = options.accept.join(",");
-        fileEl.onchange = async (event)=>{
-            console.log('Event onchange');
-            try{
-	            // 파일
-	            const file = event.target.files[0];
-	            
-	            // 유효성 검사
-	            if(file.size > options.size){
-	                throw new Error('파일 크기가 너무 큽니다.');
-	            } else if(!options.accept.includes(file.type)){
-	                throw new Error('지원하지 않는 형식입니다.');
-	            }
-	            
-	            // 보낼 데이터 구성
-	            const formDate = new FormData();
-	            formDate.append('image', file);
-	            
-	            // 서버에 이미지 전송
-	            const resp = await fetch(location.href + '/image',{
-	                method: 'POST',
-	                body: formDate
-	            });
-	            
-	            // 전송 시 에러
-	            if(!resp.ok) {
-	                throw new Error('응답 에러');
-	            }else if(!resp.redirected) {
-	                throw new Error('응답 에러');
-				}
-				
-				// 이미지 태그 삽입
-	            editor.insertEmbed(editor.getSelection().index, 'image', resp.url);
-	    	} catch(error){
-				console.log(error);
-				alert(error.message);
-			}
-		}
-		fileEl.click();
+		inputFile.click();
     }
 }
 
@@ -63,9 +63,8 @@ const editOption = {
             ],
             handlers:{
                 image: editorImageUpload({
-                        accept:['image/jpeg','image/png'],
-                        size: 2 * 1024 * 1024
-                    }),
+					accept:['image/jpeg','image/png'], size: 2 * 1024 * 1024
+				}),
             }
         }
     },
@@ -77,7 +76,7 @@ const quill = new Quill(editorContainerEl, editOption);
 
 const btnEditSubmit = document.getElementById('btn-edit-submit');
 
-btnEditSubmit.onclick = async (event)=>{
+btnEditSubmit.onclick = async function(){
     const formData = new FormData();
     formData.append("content", quill.getSemanticHTML());
     const bodyData = new URLSearchParams(formData);
